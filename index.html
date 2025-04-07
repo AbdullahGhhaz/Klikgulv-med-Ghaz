@@ -13,12 +13,18 @@
       color: #2c2c2c;
     }
     header {
-      background: #1a1a1a;
+      background: #2c2c2c;
       color: #fff;
       text-align: center;
     }
+    header img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+    }
     nav {
-      background: #333;
+      background: #444;
       color: #fff;
       padding: 10px;
       text-align: center;
@@ -28,6 +34,10 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f4c542;
     }
     section {
       padding: 60px 20px;
@@ -52,7 +62,7 @@
       line-height: 1.6;
     }
     footer {
-      background: #1a1a1a;
+      background: #2c2c2c;
       color: #fff;
       text-align: center;
       padding: 20px;
@@ -88,7 +98,7 @@
 </head>
 <body>
   <header>
-    <img src="Klikgulv og værktøj.png" alt="Klikgulv og værktøj" style="width: 100%; max-height: 300px; object-fit: cover;">
+    <img src="Klikgulv og værktøj.png" alt="Klikgulv og værktøj">
   </header>
 
   <nav>
@@ -106,6 +116,9 @@
 
   <section id="about">
     <img src="Forberedelse.jpg" alt="Klargøring af gulv" class="about-image">
+    <p style="margin-top: 20px; font-size: 1.1em; line-height: 1.6;">
+      Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme hos mig selv, venner, familie og bekendte. Jeg tilbyder nu min hjælp som weekendtjeneste – hvor du får flot håndværk, ærlig kommunikation og ingen overraskelser.
+    </p>
   </section>
 
   <section id="gallery">
@@ -160,8 +173,8 @@
         <div class="caption">Små detaljer og efterarbejde</div>
       </div>
       <div class="carousel-item">
-        <img src="Stue fliserlook.jpeg" alt="Stue ligner fliser">
-        <div class="caption" >Fliserlook</div>
+        <img src="Stue som fliser.jpeg" alt="Stue ligner fliser">
+        <div class="caption">Ligner lidt fliser</div>
       </div>
       <div class="carousel-item">
         <img src="Overgang mellem køkken og stue.jpeg" alt="Overgang stue og køkken">
