@@ -13,15 +13,11 @@
       color: #2c2c2c;
     }
     header {
-      background: #2c2c2c;
-      color: #fff;
-      text-align: center;
-    }
-    header img {
+      position: relative;
       width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
+      height: 400px;
+      background: url('Klikgulv og værktøj.png') no-repeat center center;
+      background-size: cover;
     }
     nav {
       background: #444;
@@ -95,6 +91,10 @@
       color: #555;
     }
     @media (max-width: 768px) {
+      header {
+        height: 250px;
+        background-position: center top;
+      }
       .carousel-item img,
       .carousel-item video,
       .about-image {
@@ -113,9 +113,7 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="Klikgulv og værktøj.png" alt="Klikgulv og værktøj">
-  </header>
+  <header></header>
 
   <nav>
     <a href="#services">Hvad jeg tilbyder</a>
