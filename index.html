@@ -8,15 +8,54 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
     header { background: #222; color: #fff; padding: 20px; text-align: center; }
+    header img { max-width: 100%; height: auto; display: block; margin: 0 auto 20px; border-radius: 8px; }
     nav { background: #444; color: #fff; padding: 10px; text-align: center; }
     nav a { color: #fff; margin: 0 15px; text-decoration: none; }
     section { padding: 40px 20px; max-width: 900px; margin: auto; }
     h1, h2 { color: #222; }
     footer { background: #222; color: #fff; text-align: center; padding: 20px; }
+
+    /* Slider styles */
+    .slider-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .slide img, .slide video {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+    .caption {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
   </style>
 </head>
 <body>
   <header>
+    <img src="WhatsApp Image 2025-04-07 at 11.54.29.jpeg" alt="Klikgulv intro billede">
     <h1>Klikgulv med Ghaz</h1>
     <p>Professionel lægning af klikgulv i weekenderne – af Abdullah Ghazal</p>
   </header>
@@ -41,30 +80,30 @@
 
   <section id="gallery">
     <h2>Galleri</h2>
-    <img src="WhatsApp Image 2025-04-07 at 11.54.29.jpeg" alt="Klikgulv billede" style="width:100%; max-width:600px; margin-bottom:20px;">
-<img src="WhatsApp Image 2025-04-07 at 11.54.40.jpeg" alt="Klikgulv billede" style="width:100%; max-width:600px; margin-bottom:20px;">
-<img src="WhatsApp Image 2025-04-07 at 11.54.41 (1).jpeg" alt="Klikgulv billede" style="width:100%; max-width:600px; margin-bottom:20px;">
-<img src="WhatsApp Image 2025-04-07 at 11.54.41 (2).jpeg" alt="Klikgulv billede" style="width:100%; max-width:600px; margin-bottom:20px;">
-<img src="WhatsApp Image 2025-04-07 at 11.54.41.jpeg" alt="Klikgulv billede" style="width:100%; max-width:600px; margin-bottom:20px;">
-    
-<video autoplay muted loop playsinline style="width:100%; max-width:600px; margin-bottom:20px;">
-  <source src="WhatsApp Video 2025-04-07 at 11.54.39.mp4" type="video/mp4">
-</video>
-
-<video autoplay muted loop playsinline style="width:100%; max-width:600px; margin-bottom:20px;">
-  <source src="WhatsApp Video 2025-04-07 at 11.54.41 (1).mp4" type="video/mp4">
-  
-</video>
-
-<video autoplay muted loop playsinline style="width:100%; max-width:600px; margin-bottom:20px;">
-  <source src="WhatsApp Video 2025-04-07 at 11.54.41 (2).mp4" type="video/mp4">
- 
-</video>
-
-<video autoplay muted loop playsinline style="width:100%; max-width:600px; margin-bottom:20px;">
-  <source src="WhatsApp Video 2025-04-07 at 11.54.41.mp4" type="video/mp4">
- 
-</video>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="WhatsApp Image 2025-04-07 at 11.54.29.jpeg" alt="Før installation">
+          <div class="caption">Før installation - stue</div>
+        </div>
+        <div class="slide">
+          <img src="WhatsApp Image 2025-04-07 at 11.54.40.jpeg" alt="Undervejs">
+          <div class="caption">Klikgulv undervejs</div>
+        </div>
+        <div class="slide">
+          <img src="WhatsApp Image 2025-04-07 at 11.54.41 (1).jpeg" alt="Færdigt gulv">
+          <div class="caption">Færdigt resultat - entré</div>
+        </div>
+        <div class="slide">
+          <video autoplay muted loop playsinline>
+            <source src="WhatsApp Video 2025-04-07 at 11.54.39.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Procesvideo - klargøring</div>
+        </div>
+      </div>
+      <div class="arrow left" onclick="moveSlide(-1)">&#10094;</div>
+      <div class="arrow right" onclick="moveSlide(1)">&#10095;</div>
+    </div>
   </section>
 
   <section id="prices">
@@ -82,5 +121,16 @@
   <footer>
     <p>&copy; 2025 Klikgulv med Ghaz</p>
   </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+
+    function moveSlide(step) {
+      currentSlide = (currentSlide + step + slides.length) % slides.length;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  </script>
 </body>
 </html>
