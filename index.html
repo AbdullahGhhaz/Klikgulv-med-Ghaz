@@ -35,6 +35,9 @@
       color: #fff;
       padding: 10px;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
       color: #fff;
@@ -147,6 +150,14 @@
       p {
         font-size: 1em;
       }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
@@ -187,6 +198,7 @@
         <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
         <div class="carousel-item"><video muted autoplay loop><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
         <div class="carousel-item"><video muted autoplay loop><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
+        <div class="carousel-item"><img src="Gulv/Køkken.jpg" alt="Køkken færdig"><div class="caption">Køkken færdig</div></div>
         <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
       </div>
       <div class="carousel-controls">
