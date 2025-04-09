@@ -70,16 +70,26 @@
       max-width: 900px;
       margin: auto;
       overflow: hidden;
-      scroll-behavior: smooth;
     }
     .carousel-inner {
       display: flex;
-      transition: transform 1.5s ease-in-out;
-      width: max-content;
+      width: 100%;
+      transition: opacity 1s ease-in-out;
+      position: relative;
     }
     .carousel-item {
       flex: 0 0 100%;
       text-align: center;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel-item.active {
+      opacity: 1;
+      position: relative;
     }
     .carousel-item img,
     .carousel-item video,
@@ -95,6 +105,27 @@
       margin-top: 10px;
       font-style: italic;
       color: #555;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+    .carousel-controls button:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
     footer {
       background: #1e1e1e;
@@ -146,17 +177,22 @@
 
   <section id="gallery">
     <h2>Galleri</h2>
-    <div class="carousel">
+    <div class="carousel" onmouseover="pauseCarousel()" onmouseout="startCarousel()">
       <div class="carousel-inner" id="carousel-inner">
-        <div class="carousel-item"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
+        <div class="carousel-item active"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
         <div class="carousel-item"><img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt"><div class="caption">To rækker lagt</div></div>
         <div class="carousel-item"><img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen"><div class="caption">Start i kælderen</div></div>
+        <div class="carousel-item"><video muted autoplay loop><source src="Gulv/Kælder.mp4" type="video/mp4"></video><div class="caption">Kælder færdig</div></div>
         <div class="carousel-item"><img src="Gulv/Kælder%20½.jpg" alt="Kælder halvvejs"><div class="caption">Halvvejs i kælderen</div></div>
         <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
+        <div class="carousel-item"><video muted autoplay loop><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
+        <div class="carousel-item"><video muted autoplay loop><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
         <div class="carousel-item"><img src="Gulv/Køkken.jpg" alt="Køkken færdig"><div class="caption">Køkken færdig</div></div>
         <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
-        <div class="carousel-item"><img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering"><div class="caption">Underlag og isolering</div></div>
-        <div class="carousel-item"><img src="Gulv/Stue.jpg" alt="Stuen færdig"><div class="caption">Stueprojekt færdig</div></div>
+      </div>
+      <div class="carousel-controls">
+        <button onclick="prevSlide()">&#10094;</button>
+        <button onclick="nextSlide()">&#10095;</button>
       </div>
     </div>
   </section>
@@ -179,13 +215,41 @@
 
   <script>
     let currentIndex = 0;
-    const carouselInner = document.getElementById("carousel-inner");
-    const totalItems = document.querySelectorAll(".carousel-item").length;
+    let intervalId;
+    const items = document.querySelectorAll('.carousel-item');
 
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalItems;
-      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }, 8000);
+    function showSlide(index) {
+      items.forEach((item, i) => {
+        item.classList.remove('active');
+        if (i === index) item.classList.add('active');
+      });
+    }
+
+    function startCarousel() {
+      intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
+      }, 8000);
+    }
+
+    function pauseCarousel() {
+      clearInterval(intervalId);
+    }
+
+    function prevSlide() {
+      pauseCarousel();
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      showSlide(currentIndex);
+    }
+
+    function nextSlide() {
+      pauseCarousel();
+      currentIndex = (currentIndex + 1) % items.length;
+      showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+    startCarousel();
   </script>
 </body>
 </html>
