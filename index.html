@@ -212,7 +212,31 @@
       <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
     </section>
 
-    <!-- Galleri og øvrige sektioner beholdes som før -->
+    <section id="gallery">
+      <h2>Galleri</h2>
+      <div class="carousel" onmouseover="pauseCarousel()" onmouseout="startCarousel()" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+        <div class="carousel-inner">
+          <div class="carousel-item active"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
+          <div class="carousel-item"><img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt"><div class="caption">To rækker lagt</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen"><div class="caption">Start i kælderen</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Kælder.mp4" type="video/mp4"></video><div class="caption">Kælder færdig</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20½.jpg" alt="Kælder halvvejs"><div class="caption">Halvvejs i kælderen</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
+          <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
+        </div>
+        <div class="carousel-controls">
+          <button onclick="prevSlide()">&#10094;</button>
+          <button onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <h2>Priser</h2>
+      <p style="font-weight: bold; color: #222;">Fra 200 kr/m² (afhængigt af rumtype og kliksystem). Fast pris gives efter en hurtig vurdering – send gerne billeder og m². Jeg lægger ikke materialer til, men kan rådgive dig i valg af gulv og underlag.</p>
+    </section>
 
     <section id="contact">
       <h2>Kontakt</h2>
@@ -231,27 +255,41 @@
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
     let xDown = null;
+    let intervalId;
 
     function showSlide(index) {
       items.forEach((item, i) => {
+        const video = item.querySelector('video');
+        if (video) video.pause();
+
         item.classList.remove('active');
-        if (i === index) item.classList.add('active');
+        if (i === index) {
+          item.classList.add('active');
+          const activeVideo = item.querySelector('video');
+          if (activeVideo) activeVideo.play();
+        }
       });
     }
 
     function startCarousel() {
-      setInterval(() => {
+      intervalId = setInterval(() => {
         currentIndex = (currentIndex + 1) % items.length;
         showSlide(currentIndex);
       }, 8000);
     }
 
+    function pauseCarousel() {
+      clearInterval(intervalId);
+    }
+
     function prevSlide() {
+      pauseCarousel();
       currentIndex = (currentIndex - 1 + items.length) % items.length;
       showSlide(currentIndex);
     }
 
     function nextSlide() {
+      pauseCarousel();
       currentIndex = (currentIndex + 1) % items.length;
       showSlide(currentIndex);
     }
