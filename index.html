@@ -75,24 +75,21 @@
     
     /* ---------- HERO/HEADER ---------- */
     header.hero {
-      width: 100%;
-      min-height: 60vh;
-      /* 1) FJERNET background-color: var(--color-primary); */
-      /* 2) INDSAT BAGGRUNDSBILLEDE I STEDET */
-      <img 
-        src="Gulv/værktøj.png" 
-        alt="Gulv og værktøj" 
-        style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;"
-      >
-      background: url("Gulv/værktøj.png") center center / cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      overflow: hidden;
-    }
+  width: 100%;
+  min-height: 60vh;
+  background-image: url('Gulv/værktøj.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
     .circle1,
     .circle2 {
       position: absolute;
