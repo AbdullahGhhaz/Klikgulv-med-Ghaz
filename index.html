@@ -12,10 +12,10 @@
   <style>
     /* ---------- VARIABLER & GENEREL STIL ---------- */
     :root {
-      --color-primary: #2c3e50;   /* Mørk blå – maskulint */
-      --color-secondary: #34495e; /* Lidt lysere blå/grå */
-      --color-accent: #ecf0f1;    /* Lys grå baggrund */
-      --color-dark: #2c3e50;
+      --color-primary: #ffccd5;   /* Pastel-lyserød */
+      --color-secondary: #ffe6a7; /* Pastel-gul */
+      --color-accent: #fbf7f7;    /* Lys baggrund */
+      --color-dark: #212121;
       --color-light: #ffffff;
       --font-main: 'Poppins', sans-serif;
     }
@@ -73,13 +73,21 @@
       cursor: pointer;
     }
     
+    /* ---------- TOP-BANNER ---------- */
+    .top-banner {
+      width: 100%;
+    }
+    .top-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
     /* ---------- HERO/HEADER ---------- */
     header.hero {
       width: 100%;
       min-height: 60vh;
-      /* Baggrundsbillede med håndværker & klikgulv – erstat stien med dit billede */
-      background: url('Gulv/værktøj.png') no-repeat center center;
-      background-size: cover;
+      background-color: var(--color-primary);
       position: relative;
       display: flex;
       align-items: center;
@@ -91,7 +99,8 @@
     .hero-content {
       max-width: 900px;
       z-index: 2;
-      background: rgba(255,255,255,0.85); /* let transparent baggrund for at sikre læsbarhed */
+      /* Denne baggrundsfarve kan ændres eller fjernes alt efter, om du vil have en let gennemsigtig boks bag teksten */
+      background: rgba(255, 255, 255, 0.85);
       padding: 20px;
       border-radius: 8px;
     }
@@ -117,7 +126,6 @@
     .btn:hover {
       background-color: #f5f5f5;
     }
-    /* Vi fjerner de dekorative cirkler fra den tidligere version, da de havde for "tøsefarver" */
     
     /* ---------- SEKTIONER ---------- */
     section {
@@ -305,6 +313,11 @@
     </div>
   </nav>
   
+  <!-- TOP-BANNER -->
+  <div class="top-banner">
+    <img src="Gulv/værktøj.png" alt="Værktøj" />
+  </div>
+  
   <!-- Hero Sektion -->
   <header class="hero">
     <div class="hero-content">
@@ -329,7 +342,8 @@
     <!-- Om mig -->
     <section id="about">
       <h2>Om mig</h2>
-      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" loading="lazy" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;">
+      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" loading="lazy"
+           style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;">
       <p style="margin-top: 20px;">
         Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre.
         Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.
