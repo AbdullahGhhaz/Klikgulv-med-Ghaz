@@ -12,10 +12,10 @@
   <style>
     /* ---------- VARIABLER & GENEREL STIL ---------- */
     :root {
-      --color-primary: #ffccd5;   /* Pastel-lyserød */
-      --color-secondary: #ffe6a7; /* Pastel-gul */
-      --color-accent: #fbf7f7;    /* Lys baggrund */
-      --color-dark: #212121;
+      --color-primary: #2c3e50;   /* Mørk blå – maskulint */
+      --color-secondary: #34495e; /* Lidt lysere blå/grå */
+      --color-accent: #ecf0f1;    /* Lys grå baggrund */
+      --color-dark: #2c3e50;
       --color-light: #ffffff;
       --font-main: 'Poppins', sans-serif;
     }
@@ -77,7 +77,9 @@
     header.hero {
       width: 100%;
       min-height: 60vh;
-      background-color: var(--color-primary);
+      /* Baggrundsbillede med håndværker & klikgulv – erstat stien med dit billede */
+      background: url('Gulv/haandvaerker_klikgulv.jpg') no-repeat center center;
+      background-size: cover;
       position: relative;
       display: flex;
       align-items: center;
@@ -89,6 +91,9 @@
     .hero-content {
       max-width: 900px;
       z-index: 2;
+      background: rgba(255,255,255,0.85); /* let transparent baggrund for at sikre læsbarhed */
+      padding: 20px;
+      border-radius: 8px;
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -112,29 +117,8 @@
     .btn:hover {
       background-color: #f5f5f5;
     }
-    /* Dekorative cirkler */
-    .circle1,
-    .circle2 {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.4;
-      z-index: 1;
-    }
-    .circle1 {
-      width: 200px;
-      height: 200px;
-      background-color: var(--color-secondary);
-      top: -50px;
-      left: -50px;
-    }
-    .circle2 {
-      width: 150px;
-      height: 150px;
-      background-color: var(--color-secondary);
-      bottom: -40px;
-      right: -40px;
-    }
-
+    /* Vi fjerner de dekorative cirkler fra den tidligere version, da de havde for "tøsefarver" */
+    
     /* ---------- SEKTIONER ---------- */
     section {
       width: 100%;
@@ -304,10 +288,6 @@
       .hero-content h1 {
         font-size: 2.2rem;
       }
-      .circle1,
-      .circle2 {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -327,9 +307,6 @@
   
   <!-- Hero Sektion -->
   <header class="hero">
-    <!-- Dekorative cirkler -->
-    <div class="circle1"></div>
-    <div class="circle2"></div>
     <div class="hero-content">
       <h1>Klikgulv med Ghaz</h1>
       <p class="subtitle">Se, hvad jeg kan gøre for dig</p>
