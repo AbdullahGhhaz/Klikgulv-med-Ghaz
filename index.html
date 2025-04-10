@@ -3,111 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klikgulv med Ghaz</title>
   <!-- Meta beskrivelse til SEO -->
   <meta name="description" content="Klikgulv med Ghaz tilbyder professionel klikgulvlægning med fokus på kvalitet og præcision. Få et flot gulv til dine rum.">
-  <title>Klikgulv med Ghaz</title>
+  <!-- Google Font - Poppins -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* ---------- VARIABLER & GENEREL STIL ---------- */
+    :root {
+      --color-primary: #ffccd5;   /* Pastel-lyserød */
+      --color-secondary: #ffe6a7; /* Pastel-gul */
+      --color-accent: #fbf7f7;    /* Lys baggrund */
+      --color-dark: #212121;
+      --color-light: #ffffff;
+      --font-main: 'Poppins', sans-serif;
     }
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
-      color: #2c2c2c;
     }
-    header {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      background: url('Gulv/værktøj%20på%20klikgulv.png') no-repeat center center;
-      background-size: cover;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-accent);
+      color: var(--color-dark);
+      line-height: 1.5;
     }
-    h1 {
-      font-size: 3em;
-      color: white;
-      margin: 0 0 30px;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 10px;
+    a {
+      text-decoration: none;
+      color: var(--color-dark);
+      transition: 0.3s;
     }
+    a:hover {
+      opacity: 0.8;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    
+    /* ---------- NAVIGATION ---------- */
     nav {
-      background: #1e1e1e;
-      color: #fff;
-      position: relative;
-    }
-    .nav-container {
+      width: 100%;
+      background-color: var(--color-light);
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
     }
     .menu-toggle {
-      display: none;
+      display: none; /* Vises kun på mobil */
       background: none;
       border: none;
-      color: #fff;
-      font-size: 1.5em;
+      font-size: 1.5rem;
       cursor: pointer;
-      padding: 10px;
     }
-    nav a {
-      color: #fff;
-      margin: 10px 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+    
+    /* ---------- HERO/HEADER ---------- */
+    header.hero {
+      width: 100%;
+      min-height: 60vh;
+      background-color: var(--color-primary);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
     }
-    nav a:hover {
-      color: #f4c542;
-    }
-    section {
-      padding: 60px 20px;
+    .hero-content {
       max-width: 900px;
-      margin: auto;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
-      border-radius: 8px;
+      z-index: 2;
     }
-    h2 {
-      color: #111;
-      font-size: 1.8em;
+    .hero-content h1 {
+      font-size: 3rem;
+      color: var(--color-dark);
+      margin-bottom: 20px;
+    }
+    .hero-content p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #444;
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--color-light);
+      color: var(--color-dark);
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #f5f5f5;
+    }
+    /* Dekorative cirkler */
+    .circle1,
+    .circle2 {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.4;
+      z-index: 1;
+    }
+    .circle1 {
+      width: 200px;
+      height: 200px;
+      background-color: var(--color-secondary);
+      top: -50px;
+      left: -50px;
+    }
+    .circle2 {
+      width: 150px;
+      height: 150px;
+      background-color: var(--color-secondary);
+      bottom: -40px;
+      right: -40px;
+    }
+
+    /* ---------- SEKTIONER ---------- */
+    section {
+      width: 100%;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: var(--color-light);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      font-size: 2rem;
       margin-bottom: 15px;
       text-align: center;
     }
-    p {
-      font-size: 1.2em;
-      line-height: 1.7;
+    section p {
+      font-size: 1.1rem;
       text-align: center;
-    }
-    .example-box {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
-    .example-box h3 {
-      margin-top: 0;
+      margin-bottom: 20px;
       color: #333;
     }
-    .example-box ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .example-box li {
-      text-align: left;
-    }
+    
+    /* ---------- GALLERI / CAROUSEL ---------- */
     .carousel {
       position: relative;
       width: 100%;
       max-width: 900px;
-      margin: auto;
+      margin: 20px auto 0 auto;
       overflow: hidden;
       touch-action: pan-y;
     }
@@ -117,16 +172,15 @@
     }
     .carousel-item {
       position: absolute;
+      width: 100%;
+      height: 100%;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
       transition: opacity 1s ease-in-out;
+      opacity: 0;
     }
     .carousel-item.active {
       opacity: 1;
-      position: absolute;
     }
     .carousel-item img,
     .carousel-item video {
@@ -139,10 +193,10 @@
       pointer-events: none;
     }
     .caption {
-      margin-top: 10px;
       text-align: center;
       font-style: italic;
       color: #555;
+      margin-top: 10px;
     }
     .carousel-controls {
       position: absolute;
@@ -163,70 +217,106 @@
       cursor: pointer;
       pointer-events: all;
     }
+    
+    /* ---------- EKSEMPEL-BOXS ---------- */
+    .example-box {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .example-box h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .example-box ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .example-box li {
+      margin: 5px 0;
+      color: #555;
+      text-align: left;
+    }
+    
+    /* ---------- KONTAKT ---------- */
+    #contact p {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    /* ---------- SCROLL TO TOP ---------- */
     .back-to-top {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #1e1e1e;
-      color: white;
+      background: #333;
+      color: #fff;
       border: none;
       border-radius: 50%;
       padding: 12px;
       font-size: 20px;
       cursor: pointer;
       z-index: 1000;
+      opacity: 0.7;
+      transition: opacity 0.3s;
     }
+    .back-to-top:hover {
+      opacity: 1;
+    }
+    
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #1e1e1e;
-      color: #fff;
+      background: var(--color-light);
+      color: #777;
       text-align: center;
       padding: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
     }
-    /* Responsivitet for tablet-størrelser */
+    
+    /* ---------- RESPONSIVT DESIGN ---------- */
     @media (max-width: 768px) {
-      header {
-        height: 300px;
+      nav {
+        padding: 10px 20px;
       }
-      h1 {
-        font-size: 2.5em;
-      }
-      body {
-        font-size: 16px;
-      }
-      .nav-container {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--color-light);
         flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
-    }
-    @media (max-width: 600px) {
+      .nav-links.nav-links--open {
+        display: flex;
+      }
       .menu-toggle {
         display: block;
       }
-      .nav-container {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .circle1,
+      .circle2 {
         display: none;
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-container.show {
-        display: flex;
-      }
-      section p {
-        font-size: 1em;
-      }
-      .about-image {
-        height: 250px !important;
-        object-fit: cover;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 id="top">Klikgulv med Ghaz</h1>
-  </header>
-
+  <!-- Navigation -->
   <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-    <div class="nav-container" id="navContainer">
+    <div class="logo">Klikgulv med Ghaz</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navContainer">
       <a href="#services">Hvad jeg tilbyder</a>
       <a href="#about">Om mig</a>
       <a href="#gallery">Galleri</a>
@@ -234,22 +324,49 @@
       <a href="#contact">Kontakt</a>
     </div>
   </nav>
-
+  
+  <!-- Hero Sektion -->
+  <header class="hero">
+    <!-- Dekorative cirkler -->
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="hero-content">
+      <h1>Klikgulv med Ghaz</h1>
+      <p class="subtitle">Se, hvad jeg kan gøre for dig</p>
+      <a href="#services" class="btn">Mine Tjenester</a>
+    </div>
+  </header>
+  
+  <!-- Indhold -->
   <main>
+    <!-- Services -->
     <section id="services">
       <h2>Hvad jeg tilbyder</h2>
-      <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+      <p>
+        Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum.
+        Jeg sørger for måling, underlag, præcis lægning og flot finish.
+        Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.
+      </p>
     </section>
-
+    
+    <!-- Om mig -->
     <section id="about">
       <h2>Om mig</h2>
-      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" loading="lazy" class="about-image" style="width: 100%; max-width: 800px; height: 350px; display: block; margin: auto; border-radius: 8px; object-fit: cover;">
-      <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
+      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" loading="lazy" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;">
+      <p style="margin-top: 20px;">
+        Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre.
+        Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.
+      </p>
     </section>
-
+    
+    <!-- Galleri -->
     <section id="gallery">
       <h2>Galleri</h2>
-      <div class="carousel" onmouseover="pauseCarousel()" onmouseout="startCarousel()" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+      <div class="carousel"
+           onmouseover="pauseCarousel()"
+           onmouseout="startCarousel()"
+           ontouchstart="handleTouchStart(event)"
+           ontouchend="handleTouchEnd(event)">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse" loading="lazy">
@@ -314,11 +431,15 @@
         </div>
       </div>
     </section>
-
+    
+    <!-- Priser -->
     <section id="prices">
       <h2>Priser</h2>
-      <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
-
+      <p>
+        Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem.
+        Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag.
+        Herunder er nogle eksempler:
+      </p>
       <div class="example-box">
         <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
         <ul>
@@ -327,7 +448,6 @@
           <li><strong>Pris: ca. 3.200 kr.</strong></li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
         <ul>
@@ -336,7 +456,6 @@
           <li><strong>Pris: ca. 4.200 kr.</strong> (inkl. transport og tid)</li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 3: Mindre entré 6 m² (kunde har materialer)</h3>
         <ul>
@@ -344,7 +463,6 @@
           <li><strong>Pris: ca. 1.500 kr.</strong></li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 4: Kælder 25 m² (jeg henter materialer)</h3>
         <ul>
@@ -354,31 +472,35 @@
         </ul>
       </div>
     </section>
-
+    
+    <!-- Kontakt -->
     <section id="contact">
       <h2>Kontakt</h2>
       <p>📧 klikgulv.med.ghaz@gmail.com</p>
       <p>📱 +45 28 52 28 92</p>
     </section>
   </main>
-
+  
+  <!-- Scroll to Top Knap -->
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
-
+  
+  <!-- Footer -->
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
   </footer>
-
+  
+  <!-- ---------- SCRIPTS (Carousel & Mobile Menu) ---------- -->
   <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
     let xDown = null;
     let intervalId;
-
+    
     function showSlide(index) {
       items.forEach((item, i) => {
         const video = item.querySelector('video');
         if (video) video.pause();
-
+    
         item.classList.remove('active');
         if (i === index) {
           item.classList.add('active');
@@ -387,34 +509,34 @@
         }
       });
     }
-
+    
     function startCarousel() {
       intervalId = setInterval(() => {
         currentIndex = (currentIndex + 1) % items.length;
         showSlide(currentIndex);
-      }, 8000);
+      }, 6000);
     }
-
+    
     function pauseCarousel() {
       clearInterval(intervalId);
     }
-
+    
     function prevSlide() {
       pauseCarousel();
       currentIndex = (currentIndex - 1 + items.length) % items.length;
       showSlide(currentIndex);
     }
-
+    
     function nextSlide() {
       pauseCarousel();
       currentIndex = (currentIndex + 1) % items.length;
       showSlide(currentIndex);
     }
-
+    
     function handleTouchStart(evt) {
       xDown = evt.touches[0].clientX;
     }
-
+    
     function handleTouchEnd(evt) {
       if (!xDown) return;
       let xUp = evt.changedTouches[0].clientX;
@@ -425,12 +547,14 @@
       }
       xDown = null;
     }
-
+    
+    // Funktion til burger-menu
     function toggleMenu() {
       const nav = document.getElementById('navContainer');
-      nav.classList.toggle('show');
+      nav.classList.toggle('nav-links--open');
     }
-
+    
+    // Initialisering af carousel
     showSlide(currentIndex);
     window.onload = startCarousel;
   </script>
