@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Klikgulv med Ghaz</title>
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -42,6 +44,15 @@
       flex-wrap: wrap;
       padding: 10px 0;
     }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 10px;
+    }
     nav a {
       color: #fff;
       margin: 10px 15px;
@@ -72,25 +83,78 @@
       line-height: 1.7;
       text-align: center;
     }
-    .price-example {
-      background: #fdfdfd;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      touch-action: pan-y;
     }
-    .price-example h3 {
-      margin-top: 0;
-      color: #333;
+    .carousel-inner {
+      position: relative;
+      height: 450px;
     }
-    .price-example ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
-    .price-example ul li {
-      text-align: left;
-      padding: 4px 0;
+    .carousel-item.active {
+      opacity: 1;
+      position: absolute;
+    }
+    .carousel-item img,
+    .carousel-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .carousel-item video {
+      pointer-events: none;
+    }
+    .caption {
+      margin-top: 10px;
+      text-align: center;
+      font-style: italic;
+      color: #555;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .carousel-controls button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: all;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e1e1e;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
     }
     footer {
       background: #1e1e1e;
@@ -99,23 +163,35 @@
       padding: 20px;
     }
     @media (max-width: 600px) {
+      .menu-toggle {
+        display: block;
+      }
       .nav-container {
+        display: none;
         flex-direction: column;
         align-items: center;
       }
+      .nav-container.show {
+        display: flex;
+      }
       section p {
         font-size: 1em;
+      }
+      .about-image {
+        height: 250px !important;
+        object-fit: cover;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Klikgulv med Ghaz</h1>
+    <h1 id="top">Klikgulv med Ghaz</h1>
   </header>
 
   <nav>
-    <div class="nav-container">
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+    <div class="nav-container" id="navContainer">
       <a href="#services">Hvad jeg tilbyder</a>
       <a href="#about">Om mig</a>
       <a href="#gallery">Galleri</a>
@@ -124,73 +200,125 @@
     </div>
   </nav>
 
-  <section id="services">
-    <h2>Hvad jeg tilbyder</h2>
-    <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
-  </section>
+  <main>
+    <section id="services">
+      <h2>Hvad jeg tilbyder</h2>
+      <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+    </section>
 
-  <section id="about">
-    <img src="Gulv/Forberedelse.jpg" alt="Klargøring af gulv" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; display: block; margin: 0 auto 20px;">
-    <p>Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme hos mig selv, venner, familie og bekendte. Jeg tilbyder nu min hjælp som håndværkertjeneste – hvor du får flot arbejde, ærlig kommunikation og ingen overraskelser.</p>
-  </section>
+    <section id="about">
+      <h2>Om mig</h2>
+      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" class="about-image" style="width: 100%; max-width: 800px; height: 350px; display: block; margin: auto; border-radius: 8px; object-fit: cover;">
+      <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
+    </section>
 
-  <section id="prices">
-    <h2>💸 Hvad koster det?</h2>
-    <p><strong>Fra 200 kr/m²</strong> – prisen afhænger af rummets type og hvilket klikgulv du vælger.</p>
-    <p>Du får altid en fast pris, når jeg har set billeder og info om rummet. Her er nogle eksempler:</p>
+    <section id="gallery">
+      <h2>Galleri</h2>
+      <div class="carousel" onmouseover="pauseCarousel()" onmouseout="startCarousel()" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+        <div class="carousel-inner">
+          <div class="carousel-item active"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
+          <div class="carousel-item"><img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt"><div class="caption">To rækker lagt</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen"><div class="caption">Start i kælderen</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Kælder.mp4" type="video/mp4"></video><div class="caption">Kælder færdig</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20½.jpg" alt="Kælder halvvejs"><div class="caption">Halvvejs i kælderen</div></div>
+          <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
+          <div class="carousel-item"><video muted playsinline><source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4"></video><div class="caption">Stue færdig, nu lille værelse</div></div>
+          <div class="carousel-item"><img src="Gulv/Stue.jpg" alt="Stue"><div class="caption">Stue</div></div>
+          <div class="carousel-item"><img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering"><div class="caption">Underlag og isolering</div></div>
+          <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
+        </div>
+        <div class="carousel-controls">
+          <button onclick="prevSlide()">&#10094;</button>
+          <button onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </section>
 
-    <div class="price-example">
-      <h3>🛏️ Eksempel 1 – Kunden har selv materialer</h3>
-      <ul>
-        <li><strong>Rum:</strong> Soveværelse, 16 m²</li>
-        <li><strong>Materialer:</strong> Klikgulv og underlag er klar</li>
-        <li><strong>Jeg står for:</strong> Klargøring og lægning</li>
-        <li><strong>Pris:</strong> <strong>3.200 kr.</strong> (200 kr × 16 m²)</li>
-      </ul>
-    </div>
+    <section id="prices">
+      <h2>Priser</h2>
+      <p style="font-weight: bold; color: #222;">Fra 200 kr/m² (afhængigt af rumtype og kliksystem). Fast pris gives efter en hurtig vurdering – send gerne billeder og m². Jeg lægger ikke materialer til, men kan rådgive dig i valg af gulv og underlag.</p>
+    </section>
 
-    <div class="price-example">
-      <h3>🚚 Eksempel 2 – Jeg henter materialerne</h3>
-      <ul>
-        <li><strong>Rum:</strong> Soveværelse, 16 m²</li>
-        <li><strong>Materialer:</strong> Jeg rådgiver og henter gulv og underlag</li>
-        <li><strong>Jeg står for:</strong> Rådgivning, transport, klargøring og lægning</li>
-        <li><strong>Pris:</strong> <strong>fra 4.200 kr.</strong> (3.200 kr. + 1.000 kr. for tid og transport)</li>
-      </ul>
-    </div>
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <p>📧 klikgulv.med.ghaz@gmail.com</p>
+      <p>📱 +45 28 52 28 92</p>
+    </section>
+  </main>
 
-    <div class="price-example">
-      <h3>🏡 Eksempel 3 – Stue, større område</h3>
-      <ul>
-        <li><strong>Rum:</strong> Stue, 24 m²</li>
-        <li><strong>Materialer:</strong> Kunden har gulv og underlag</li>
-        <li><strong>Jeg står for:</strong> Klargøring og lægning</li>
-        <li><strong>Pris:</strong> <strong>4.800 kr.</strong> (200 kr × 24 m²)</li>
-      </ul>
-    </div>
-
-    <div class="price-example">
-      <h3>🔨 Eksempel 4 – Stue inkl. transport og indkøb</h3>
-      <ul>
-        <li><strong>Rum:</strong> Stue, 24 m²</li>
-        <li><strong>Materialer:</strong> Jeg står for at hente og rådgive om gulv og underlag</li>
-        <li><strong>Jeg står for:</strong> Rådgivning, transport, klargøring og lægning</li>
-        <li><strong>Pris:</strong> <strong>fra 5.800 kr.</strong> (4.800 kr. + 1.000 kr. for tid og transport)</li>
-      </ul>
-    </div>
-
-    <p><strong>Har du billeder eller mål?</strong> Så sender jeg hurtigt et overslag ✔️</p>
-  </section>
-
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <p>📧 klikgulv.med.ghaz@gmail.com</p>
-    <p>📱 +45 28 52 28 92</p>
-    <p>📸 Instagram: @klikgulvmedghaz</p>
-  </section>
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
 
   <footer>
-    <p>&copy; 2025 Klikgulv med Ghaz</p>
+    &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
   </footer>
+
+  <script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    let xDown = null;
+    let intervalId;
+
+    function showSlide(index) {
+      items.forEach((item, i) => {
+        const video = item.querySelector('video');
+        if (video) video.pause();
+
+        item.classList.remove('active');
+        if (i === index) {
+          item.classList.add('active');
+          const activeVideo = item.querySelector('video');
+          if (activeVideo) activeVideo.play();
+        }
+      });
+    }
+
+    function startCarousel() {
+      intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
+      }, 8000);
+    }
+
+    function pauseCarousel() {
+      clearInterval(intervalId);
+    }
+
+    function prevSlide() {
+      pauseCarousel();
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      showSlide(currentIndex);
+    }
+
+    function nextSlide() {
+      pauseCarousel();
+      currentIndex = (currentIndex + 1) % items.length;
+      showSlide(currentIndex);
+    }
+
+    function handleTouchStart(evt) {
+      xDown = evt.touches[0].clientX;
+    }
+
+    function handleTouchEnd(evt) {
+      if (!xDown) return;
+      let xUp = evt.changedTouches[0].clientX;
+      if (xDown - xUp > 30) {
+        nextSlide();
+      } else if (xUp - xDown > 30) {
+        prevSlide();
+      }
+      xDown = null;
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById('navContainer');
+      nav.classList.toggle('show');
+    }
+
+    showSlide(currentIndex);
+    window.onload = startCarousel;
+  </script>
 </body>
 </html>
