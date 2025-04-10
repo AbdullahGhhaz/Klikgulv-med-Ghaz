@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klikgulv med Ghaz | Professionel gulvlægning</title>
+  <title>Klikgulv med Ghaz</title>
   <!-- Meta beskrivelse til SEO -->
-  <meta name="description" content="Få professionel klikgulvlægning af Abdullah Ghazal. Jeg lægger klikgulv i stue, værelse, entré og kælder med fokus på kvalitet og præcision. Kontakt mig for et flot og holdbart gulv.">
+  <meta name="description" content="Klikgulv med Ghaz tilbyder professionel klikgulvlægning med fokus på kvalitet og præcision. Få et flot gulv til dine rum.">
   <!-- Google Font - Poppins -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ---------- GENEREL STIL ---------- */
+    /* ---------- VARIABLER & GENEREL STIL ---------- */
     :root {
       --color-primary: #ffccd5;   /* Pastel-lyserød */
       --color-secondary: #ffe6a7; /* Pastel-gul */
@@ -19,20 +20,17 @@
       --color-light: #ffffff;
       --font-main: 'Poppins', sans-serif;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: var(--font-main);
       background-color: var(--color-accent);
       color: var(--color-dark);
       line-height: 1.5;
     }
-
     a {
       text-decoration: none;
       color: var(--color-dark);
@@ -41,11 +39,10 @@
     a:hover {
       opacity: 0.8;
     }
-
     h1, h2, h3 {
       font-weight: 700;
     }
-
+    
     /* ---------- NAVIGATION ---------- */
     nav {
       width: 100%;
@@ -59,55 +56,51 @@
       z-index: 999;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
-
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--color-dark);
     }
-
     .nav-links {
       display: flex;
       gap: 20px;
       font-weight: 600;
     }
-
     .menu-toggle {
-      display: none; /* Skjult – kan aktiveres via media queries, hvis du ønsker burger-menu */
+      display: none; /* Vises kun på mobil */
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
-
+    
     /* ---------- HERO/HEADER ---------- */
     header.hero {
       width: 100%;
       min-height: 60vh;
-      /* ÆNDRET: Nu bruger vi billedet som baggrund i stedet for baggrundsfarve */
-      background: url("vaerktoj_paa_klikgulv.png") center center / cover no-repeat;
+      background-color: var(--color-primary);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
+      overflow: hidden;
     }
-
     .hero-content {
       max-width: 900px;
+      z-index: 2;
     }
-
-    /* Vil du sikre, at teksten er læsbar oven på et mørkt/spraglet foto,
-       kan du evt. ændre farven her til hvid (#fff). Indtil videre beholder vi den mørke tekst: */
     .hero-content h1 {
       font-size: 3rem;
       color: var(--color-dark);
       margin-bottom: 20px;
     }
-
     .hero-content p.subtitle {
       font-size: 1.2rem;
       margin-bottom: 30px;
       color: #444;
     }
-
     .btn {
       display: inline-block;
       background-color: var(--color-light);
@@ -120,8 +113,7 @@
     .btn:hover {
       background-color: #f5f5f5;
     }
-
-    /* Dekorative cirkler for at give et “blødt” udseende */
+    /* Dekorative cirkler */
     .circle1,
     .circle2 {
       position: absolute;
@@ -144,7 +136,7 @@
       right: -40px;
     }
 
-    /* ---------- SEKTIONS-OPBYGNING ---------- */
+    /* ---------- SEKTIONER ---------- */
     section {
       width: 100%;
       max-width: 1100px;
@@ -153,8 +145,6 @@
       background-color: var(--color-light);
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: relative;
-      z-index: 2;
     }
     section h2 {
       font-size: 2rem;
@@ -167,7 +157,7 @@
       margin-bottom: 20px;
       color: #333;
     }
-
+    
     /* ---------- GALLERI / CAROUSEL ---------- */
     .carousel {
       position: relative;
@@ -228,8 +218,8 @@
       cursor: pointer;
       pointer-events: all;
     }
-
-    /* ---------- EKSEMPELBOX ---------- */
+    
+    /* ---------- EKSEMPEL-BOXS ---------- */
     .example-box {
       background: #f9f9f9;
       border: 1px solid #eee;
@@ -246,19 +236,19 @@
     .example-box ul {
       list-style-type: none;
       padding: 0;
-      margin-left: 0;
     }
     .example-box li {
       margin: 5px 0;
       color: #555;
+      text-align: left;
     }
-
+    
     /* ---------- KONTAKT ---------- */
     #contact p {
       font-weight: 500;
       font-size: 1.1rem;
     }
-
+    
     /* ---------- SCROLL TO TOP ---------- */
     .back-to-top {
       position: fixed;
@@ -278,7 +268,7 @@
     .back-to-top:hover {
       opacity: 1;
     }
-
+    
     /* ---------- FOOTER ---------- */
     footer {
       background: var(--color-light);
@@ -288,21 +278,29 @@
       font-size: 0.9rem;
       box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
     }
-
-    /* ---------- RESPONSIVE DESIGN ---------- */
+    
+    /* ---------- RESPONSIVT DESIGN ---------- */
     @media (max-width: 768px) {
       nav {
         padding: 10px 20px;
       }
       .nav-links {
-        display: none; /* Her kunne du aktivere en burger-menu i stedet */
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--color-light);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .nav-links.nav-links--open {
+        display: flex;
       }
       .menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
       }
       .hero-content h1 {
         font-size: 2.2rem;
@@ -327,20 +325,19 @@
       <a href="#contact">Kontakt</a>
     </div>
   </nav>
-
+  
   <!-- Hero Sektion -->
   <header class="hero">
     <!-- Dekorative cirkler -->
     <div class="circle1"></div>
     <div class="circle2"></div>
     <div class="hero-content">
-      <!-- Hvis du ønsker navnet 'Ghazal' her, ret navnet i h1 -->
-      <h1>Klikgulv med Ghazal</h1>
+      <h1>Klikgulv med Ghaz</h1>
       <p class="subtitle">Se, hvad jeg kan gøre for dig</p>
       <a href="#services" class="btn">Mine Tjenester</a>
     </div>
   </header>
-
+  
   <!-- Indhold -->
   <main>
     <!-- Services -->
@@ -349,37 +346,28 @@
       <p>
         Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum.
         Jeg sørger for måling, underlag, præcis lægning og flot finish.
-        Har du småting der skal fikses i forbindelse med gulvprojektet,
-        kigger vi på det sammen.
+        Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.
       </p>
     </section>
-
+    
     <!-- Om mig -->
     <section id="about">
       <h2>Om mig</h2>
-      <img 
-        src="Gulv/Forberedelse.jpg" 
-        alt="Klargøring af gulv"
-        loading="lazy"
-        style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;"
-      >
+      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" loading="lazy" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;">
       <p style="margin-top: 20px;">
-        Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange
-        klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt
-        arbejde, ærlig kommunikation og ingen overraskelser.
+        Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre.
+        Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.
       </p>
     </section>
-
+    
     <!-- Galleri -->
     <section id="gallery">
       <h2>Galleri</h2>
-      <div 
-        class="carousel"
-        onmouseover="pauseCarousel()"
-        onmouseout="startCarousel()"
-        ontouchstart="handleTouchStart(event)"
-        ontouchend="handleTouchEnd(event)"
-      >
+      <div class="carousel"
+           onmouseover="pauseCarousel()"
+           onmouseout="startCarousel()"
+           ontouchstart="handleTouchStart(event)"
+           ontouchend="handleTouchEnd(event)">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse" loading="lazy">
@@ -444,7 +432,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Priser -->
     <section id="prices">
       <h2>Priser</h2>
@@ -453,7 +441,6 @@
         Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag.
         Herunder er nogle eksempler:
       </p>
-
       <div class="example-box">
         <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
         <ul>
@@ -462,7 +449,6 @@
           <li><strong>Pris: ca. 3.200 kr.</strong></li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
         <ul>
@@ -471,7 +457,6 @@
           <li><strong>Pris: ca. 4.200 kr.</strong> (inkl. transport og tid)</li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 3: Mindre entré 6 m² (kunde har materialer)</h3>
         <ul>
@@ -479,7 +464,6 @@
           <li><strong>Pris: ca. 1.500 kr.</strong></li>
         </ul>
       </div>
-
       <div class="example-box">
         <h3>Eksempel 4: Kælder 25 m² (jeg henter materialer)</h3>
         <ul>
@@ -489,7 +473,7 @@
         </ul>
       </div>
     </section>
-
+    
     <!-- Kontakt -->
     <section id="contact">
       <h2>Kontakt</h2>
@@ -497,73 +481,63 @@
       <p>📱 +45 28 52 28 92</p>
     </section>
   </main>
-
-  <!-- Scroll to Top -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">
-    ⬆
-  </button>
-
+  
+  <!-- Scroll to Top Knap -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
+  
   <!-- Footer -->
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
   </footer>
-
-  <!-- ---------- SCRIPTS (Gallery Carousel osv.) ---------- -->
+  
+  <!-- ---------- SCRIPTS (Carousel & Mobile Menu) ---------- -->
   <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
     let xDown = null;
     let intervalId;
-
-    // Viser slide baseret på index og afspiller eventuelle videoer lydløst
+    
     function showSlide(index) {
       items.forEach((item, i) => {
         const video = item.querySelector('video');
-        if (video) video.pause(); // Pause video på hvert slide
+        if (video) video.pause();
+    
         item.classList.remove('active');
         if (i === index) {
           item.classList.add('active');
           const activeVideo = item.querySelector('video');
-          if (activeVideo) {
-            activeVideo.muted = true;  // Sikrer lydløs afspilning
-            activeVideo.play();
-          }
+          if (activeVideo) activeVideo.play();
         }
       });
     }
-
-    // Starter carousel med automatisk skift
+    
     function startCarousel() {
       intervalId = setInterval(() => {
         currentIndex = (currentIndex + 1) % items.length;
         showSlide(currentIndex);
-      }, 6000); // Skift hvert 6. sekund
+      }, 6000);
     }
-
-    // Stopper automatisk skift
+    
     function pauseCarousel() {
       clearInterval(intervalId);
     }
-
-    // Skifter til forrige slide
+    
     function prevSlide() {
       pauseCarousel();
       currentIndex = (currentIndex - 1 + items.length) % items.length;
       showSlide(currentIndex);
     }
-
-    // Skifter til næste slide
+    
     function nextSlide() {
       pauseCarousel();
       currentIndex = (currentIndex + 1) % items.length;
       showSlide(currentIndex);
     }
-
-    // Touch-håndtering til mobile/tablet
+    
     function handleTouchStart(evt) {
       xDown = evt.touches[0].clientX;
     }
-
+    
     function handleTouchEnd(evt) {
       if (!xDown) return;
       let xUp = evt.changedTouches[0].clientX;
@@ -574,23 +548,14 @@
       }
       xDown = null;
     }
-
-    // Lytter efter tastatur-navigering (venstre og højre piletaster)
-    document.addEventListener('keydown', (evt) => {
-      if (evt.key === "ArrowLeft") {
-        prevSlide();
-      } else if (evt.key === "ArrowRight") {
-        nextSlide();
-      }
-    });
-
-    // Simpel toggle-funktion til menuen (hvis nødvendig)
+    
+    // Funktion til burger-menu
     function toggleMenu() {
       const nav = document.getElementById('navContainer');
       nav.classList.toggle('nav-links--open');
     }
-
-    // Initialisering: vis første slide og start carousel
+    
+    // Initialisering af carousel
     showSlide(currentIndex);
     window.onload = startCarousel;
   </script>
