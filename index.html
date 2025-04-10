@@ -13,6 +13,9 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f4f4f4;
@@ -48,43 +51,28 @@
     nav a:hover {
       color: #ff6600;
     }
-    section.intro {
-      text-align: center;
+    section {
       padding: 60px 20px;
-    }
-    section.intro h2 {
-      font-size: 2.8em;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
-    }
-    section.intro p {
-      max-width: 600px;
+      max-width: 900px;
       margin: auto;
-      font-size: 1.2em;
+    }
+    h2 {
+      font-size: 2em;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1em;
       color: #444;
-    }
-    .search-box {
-      margin-top: 30px;
-    }
-    .search-box input, .search-box button {
-      padding: 10px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .search-box button {
-      background-color: #1e2a38;
-      color: white;
-      cursor: pointer;
     }
     .cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin-top: 40px;
     }
     .card {
       background: #fff;
@@ -94,15 +82,26 @@
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .card img {
+    .card img,
+    .card video {
       width: 100%;
       border-radius: 10px;
       object-fit: cover;
       height: 160px;
     }
+    .card video {
+      pointer-events: none;
+    }
     .card p {
       margin-top: 10px;
       font-weight: bold;
+    }
+    .example-box {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
     }
     footer {
       background: #1e2a38;
@@ -110,43 +109,130 @@
       text-align: center;
       padding: 20px;
     }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e2a38;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Gulvservice der holder</h1>
+    <h1>Klikgulv med Ghaz</h1>
   </header>
+
   <nav>
-    <a href="#services">Services</a>
+    <a href="#services">Hvad jeg tilbyder</a>
     <a href="#about">Om mig</a>
     <a href="#gallery">Galleri</a>
+    <a href="#prices">Priser</a>
     <a href="#contact">Kontakt</a>
   </nav>
 
-  <section class="intro">
-    <h2>Se hvad jeg kan gøre for dig</h2>
-    <p>Jeg lægger klikgulv i alle typer rum – med fokus på præcision, holdbarhed og pænt finish.</p>
-    <div class="search-box">
-      <input type="text" placeholder="Din by">
-      <input type="text" placeholder="Rumtype (fx stue)">
-      <button>Find løsning</button>
+  <section id="services">
+    <h2>Hvad jeg tilbyder</h2>
+    <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+  </section>
+
+  <section id="about">
+    <h2>Om mig</h2>
+    <img src="Gulv/Forberedelse.jpg" alt="Klargøring" style="width: 100%; max-width: 800px; height: 350px; display: block; margin: auto; border-radius: 8px; object-fit: cover;">
+    <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Galleri</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse">
+        <p>Underlag i soveværelse</p>
+      </div>
+      <div class="card">
+        <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt">
+        <p>To rækker lagt</p>
+      </div>
+      <div class="card">
+        <img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen">
+        <p>Start i kælderen</p>
+      </div>
+      <div class="card">
+        <video muted playsinline loop autoplay>
+          <source src="Gulv/Kælder.mp4" type="video/mp4">
+        </video>
+        <p>Kælder færdig</p>
+      </div>
+      <div class="card">
+        <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs i kælderen">
+        <p>Halvvejs i kælderen</p>
+      </div>
+      <div class="card">
+        <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælderen næsten færdig">
+        <p>Kælderen næsten færdig</p>
+      </div>
+      <div class="card">
+        <video muted playsinline loop autoplay>
+          <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
+        </video>
+        <p>Køkkenet færdigt</p>
+      </div>
     </div>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag">
-      <p>Underlag i soveværelse</p>
+  <section id="prices">
+    <h2>Priser</h2>
+    <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
+
+    <div class="example-box">
+      <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
+      <ul>
+        <li>✔ Klargøring og lægning af klikgulv</li>
+        <li>✔ Uden afhentning af materialer</li>
+        <li><strong>Pris: ca. 3.200 kr.</strong></li>
+      </ul>
     </div>
-    <div class="card">
-      <img src="Gulv/Kælder%20start.jpg" alt="Kælder start">
-      <p>Start i kælderen</p>
+
+    <div class="example-box">
+      <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
+      <ul>
+        <li>✔ Klargøring og lægning af klikgulv</li>
+        <li>✔ Afhentning af gulv og underlag</li>
+        <li><strong>Pris: ca. 4.200 kr.</strong> (inkl. transport og tid)</li>
+      </ul>
     </div>
-    <div class="card">
-      <img src="Gulv/Stue.jpg" alt="Stue">
-      <p>Stue</p>
+
+    <div class="example-box">
+      <h3>Eksempel 3: Mindre entré 6 m² (kunde har materialer)</h3>
+      <ul>
+        <li>✔ Klargøring og lægning</li>
+        <li><strong>Pris: ca. 1.500 kr.</strong></li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <h3>Eksempel 4: Kælder 25 m² (jeg henter materialer)</h3>
+      <ul>
+        <li>✔ Klargøring og lægning</li>
+        <li>✔ Afhentning af gulv og underlag</li>
+        <li><strong>Pris: ca. 6.000 kr.</strong></li>
+      </ul>
     </div>
   </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>📧 klikgulv.med.ghaz@gmail.com</p>
+    <p>📱 +45 28 52 28 92</p>
+  </section>
+
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
 
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
