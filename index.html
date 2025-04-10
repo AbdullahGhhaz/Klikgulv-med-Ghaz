@@ -79,8 +79,8 @@
     /* ---------- HERO/HEADER ---------- */
     header.hero {
       width: 100%;
-      /* Nu bruger vi billedet som baggrund */
-      min-height: 100vh; /* Fyld hele skærmhøjden fra menuen ned til næste sektion */
+      min-height: 60vh;
+      /* ÆNDRET: Nu bruger vi billedet som baggrund i stedet for baggrundsfarve */
       background: url("vaerktoj_paa_klikgulv.png") center center / cover no-repeat;
       position: relative;
       display: flex;
@@ -94,17 +94,18 @@
       max-width: 900px;
     }
 
-    /* Her er teksten gjort hvid, så den kan ses ovenpå baggrundsbilledet */
+    /* Vil du sikre, at teksten er læsbar oven på et mørkt/spraglet foto,
+       kan du evt. ændre farven her til hvid (#fff). Indtil videre beholder vi den mørke tekst: */
     .hero-content h1 {
       font-size: 3rem;
-      color: #ffffff; 
+      color: var(--color-dark);
       margin-bottom: 20px;
     }
 
     .hero-content p.subtitle {
       font-size: 1.2rem;
       margin-bottom: 30px;
-      color: #ffffff;
+      color: #444;
     }
 
     .btn {
@@ -333,7 +334,7 @@
     <div class="circle1"></div>
     <div class="circle2"></div>
     <div class="hero-content">
-      <!-- (Ændret tekst) -->
+      <!-- Hvis du ønsker navnet 'Ghazal' her, ret navnet i h1 -->
       <h1>Klikgulv med Ghazal</h1>
       <p class="subtitle">Se, hvad jeg kan gøre for dig</p>
       <a href="#services" class="btn">Mine Tjenester</a>
