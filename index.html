@@ -228,9 +228,33 @@
 
   <!-- GALLERY -->
   <section id="gallery">
-    <h2>Galleri</h2>
-    <p>Galleri med billeder og videoer kommer snart!</p>
-  </section>
+  <h2>Galleri</h2>
+  <div class="carousel"
+       onmouseover="pauseCarousel()"
+       onmouseout="startCarousel()"
+       ontouchstart="handleTouchStart(event)"
+       ontouchend="handleTouchEnd(event)">
+    <div class="carousel-inner">
+      <div class="carousel-item active"><img src="Gulv/Underlag lagt soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
+      <div class="carousel-item"><img src="Gulv/Soveværelse 2 rækker.jpeg" alt="To rækker lagt"><div class="caption">To rækker lagt</div></div>
+      <div class="carousel-item"><img src="Gulv/Kælder start.jpg" alt="Start i kælderen"><div class="caption">Start i kælderen</div></div>
+      <div class="carousel-item"><video muted playsinline><source src="Gulv/Kælder.mp4" type="video/mp4"></video><div class="caption">Kælder færdig</div></div>
+      <div class="carousel-item"><img src="Gulv/Kælder ½.jpg" alt="Kælder halvvejs"><div class="caption">Halvvejs i kælderen</div></div>
+      <div class="carousel-item"><img src="Gulv/Kælder mangler lister.jpg" alt="Kælderen næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
+      <div class="carousel-item"><video muted playsinline><source src="Gulv/Køkken rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
+      <div class="carousel-item"><video muted playsinline><source src="Gulv/Soveværelse ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
+      <div class="carousel-item"><video muted playsinline><source src="Gulv/Stue færdigt, nu lille værelse.mp4" type="video/mp4"></video><div class="caption">Stue færdig, nu lille værelse</div></div>
+      <div class="carousel-item"><img src="Gulv/Stue.jpg" alt="Stue"><div class="caption">Stue</div></div>
+      <div class="carousel-item"><img src="Gulv/Underlag og isolering.jpg" alt="Underlag og isolering"><div class="caption">Underlag og isolering</div></div>
+      <div class="carousel-item"><img src="Gulv/Snart mad pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">&#10094;</button>
+      <button onclick="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+</section>
+
 
   <!-- PRICES -->
   <section id="prices">
