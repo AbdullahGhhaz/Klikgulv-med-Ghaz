@@ -44,15 +44,6 @@
       flex-wrap: wrap;
       padding: 10px 0;
     }
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5em;
-      cursor: pointer;
-      padding: 10px;
-    }
     nav a {
       color: #fff;
       margin: 10px 15px;
@@ -83,65 +74,35 @@
       line-height: 1.7;
       text-align: center;
     }
-    .carousel {
-      position: relative;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img, .gallery video {
       width: 100%;
-      max-width: 900px;
-      margin: auto;
-      overflow: hidden;
-      touch-action: pan-y;
-    }
-    .carousel-inner {
-      position: relative;
-      height: 450px;
-    }
-    .carousel-item {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .carousel-item.active {
-      opacity: 1;
-      position: absolute;
-    }
-    .carousel-item img,
-    .carousel-item video {
-      width: 100%;
-      height: 100%;
+      height: 200px;
       object-fit: cover;
       border-radius: 8px;
     }
-    .carousel-item video {
-      pointer-events: none;
+    .example-box {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
     }
-    .caption {
-      margin-top: 10px;
-      text-align: center;
-      font-style: italic;
-      color: #555;
+    .example-box h3 {
+      margin-top: 0;
+      color: #333;
     }
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
+    .example-box ul {
+      list-style-type: none;
+      padding: 0;
     }
-    .carousel-controls button {
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      font-size: 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      pointer-events: all;
+    .example-box li {
+      text-align: left;
     }
     .back-to-top {
       position: fixed;
@@ -162,36 +123,14 @@
       text-align: center;
       padding: 20px;
     }
-    @media (max-width: 600px) {
-      .menu-toggle {
-        display: block;
-      }
-      .nav-container {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-container.show {
-        display: flex;
-      }
-      section p {
-        font-size: 1em;
-      }
-      .about-image {
-        height: 250px !important;
-        object-fit: cover;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
     <h1 id="top">Klikgulv med Ghaz</h1>
   </header>
-
   <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-    <div class="nav-container" id="navContainer">
+    <div class="nav-container">
       <a href="#services">Hvad jeg tilbyder</a>
       <a href="#about">Om mig</a>
       <a href="#gallery">Galleri</a>
@@ -200,125 +139,88 @@
     </div>
   </nav>
 
-  <main>
-    <section id="services">
-      <h2>Hvad jeg tilbyder</h2>
-      <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
-    </section>
+  <section id="services">
+    <h2>Hvad jeg tilbyder</h2>
+    <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+  </section>
 
-    <section id="about">
-      <h2>Om mig</h2>
-      <img src="Gulv/Forberedelse.jpg" alt="Klargøring" class="about-image" style="width: 100%; max-width: 800px; height: 350px; display: block; margin: auto; border-radius: 8px; object-fit: cover;">
-      <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
-    </section>
+  <section id="about">
+    <h2>Om mig</h2>
+    <p>Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
+  </section>
 
-    <section id="gallery">
-      <h2>Galleri</h2>
-      <div class="carousel" onmouseover="pauseCarousel()" onmouseout="startCarousel()" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
-        <div class="carousel-inner">
-          <div class="carousel-item active"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"><div class="caption">Underlag i soveværelse</div></div>
-          <div class="carousel-item"><img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt"><div class="caption">To rækker lagt</div></div>
-          <div class="carousel-item"><img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen"><div class="caption">Start i kælderen</div></div>
-          <div class="carousel-item"><video muted playsinline><source src="Gulv/Kælder.mp4" type="video/mp4"></video><div class="caption">Kælder færdig</div></div>
-          <div class="carousel-item"><img src="Gulv/Kælder%20½.jpg" alt="Kælder halvvejs"><div class="caption">Halvvejs i kælderen</div></div>
-          <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig"><div class="caption">Kælderen næsten færdig</div></div>
-          <div class="carousel-item"><video muted playsinline><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video><div class="caption">Køkkenet færdigt</div></div>
-          <div class="carousel-item"><video muted playsinline><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video><div class="caption">Soveværelse</div></div>
-          <div class="carousel-item"><video muted playsinline><source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4"></video><div class="caption">Stue færdig, nu lille værelse</div></div>
-          <div class="carousel-item"><img src="Gulv/Stue.jpg" alt="Stue"><div class="caption">Stue</div></div>
-          <div class="carousel-item"><img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering"><div class="caption">Underlag og isolering</div></div>
-          <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"><div class="caption">Pause med sushi</div></div>
-        </div>
-        <div class="carousel-controls">
-          <button onclick="prevSlide()">&#10094;</button>
-          <button onclick="nextSlide()">&#10095;</button>
-        </div>
-      </div>
-    </section>
+  <section id="gallery">
+    <h2>Galleri</h2>
+    <div class="gallery">
+      <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse">
+      <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt">
+      <img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen">
+      <video controls muted><source src="Gulv/Kælder.mp4" type="video/mp4"></video>
+      <img src="Gulv/Kælder%20½.jpg" alt="Kælder halvvejs">
+      <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælderen næsten færdig">
+      <video controls muted><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video>
+      <video controls muted><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video>
+      <video controls muted><source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4"></video>
+      <img src="Gulv/Stue.jpg" alt="Stue">
+      <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering">
+      <img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi">
+    </div>
+  </section>
 
-    <section id="prices">
-      <h2>Priser</h2>
-      <p style="font-weight: bold; color: #222;">Fra 200 kr/m² (afhængigt af rumtype og kliksystem). Fast pris gives efter en hurtig vurdering – send gerne billeder og m². Jeg lægger ikke materialer til, men kan rådgive dig i valg af gulv og underlag.</p>
-    </section>
+  <section id="prices">
+    <h2>Priser</h2>
+    <p style="font-weight: bold; color: #222;">Priserne starter fra 200 kr/m² og afhænger af rumtype, kliksystem og eventuelle ekstraopgaver. Jeg giver en fast pris efter en hurtig vurdering – send gerne billeder og antal m². Herunder er fire priseksempler, så du kan få et klart billede:</p>
 
-    <section id="contact">
-      <h2>Kontakt</h2>
-      <p>📧 klikgulv.med.ghaz@gmail.com</p>
-      <p>📱 +45 28 52 28 92</p>
-    </section>
-  </main>
+    <div class="example-box">
+      <h3>1. 16 m² værelse – du har selv hentet materialerne</h3>
+      <ul>
+        <li>✔ Klargøring og lægning af klikgulv</li>
+        <li>✔ Du har selv hentet gulv og underlag</li>
+        <li><strong>Pris:</strong> ca. 3.200 kr</li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <h3>2. 16 m² værelse – jeg henter materialerne for dig</h3>
+      <ul>
+        <li>✔ Klargøring og lægning af klikgulv</li>
+        <li>✔ Jeg afhenter gulv og underlag</li>
+        <li>✔ Inkl. tid og transport</li>
+        <li><strong>Pris:</strong> ca. 4.200 kr</li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <h3>3. Stue på 25 m² – uden afhentning</h3>
+      <ul>
+        <li>✔ Større areal med flere tilpasninger</li>
+        <li>✔ Du har selv hentet materialer</li>
+        <li><strong>Pris:</strong> ca. 5.500 kr</li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <h3>4. Kælder på 30 m² – jeg henter materialerne</h3>
+      <ul>
+        <li>✔ Klargøring, lægning og afhentning</li>
+        <li>✔ Kælderrum kan være lidt mere krævende</li>
+        <li><strong>Pris:</strong> ca. 6.500 kr</li>
+      </ul>
+    </div>
+
+    <p style="margin-top: 30px;">🔧 Alle priser er vejledende. Kontakt mig for en konkret vurdering.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>📧 klikgulv.med.ghaz@gmail.com</p>
+    <p>📱 +45 28 52 28 92</p>
+  </section>
 
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
 
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
   </footer>
-
-  <script>
-    let currentIndex = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    let xDown = null;
-    let intervalId;
-
-    function showSlide(index) {
-      items.forEach((item, i) => {
-        const video = item.querySelector('video');
-        if (video) video.pause();
-
-        item.classList.remove('active');
-        if (i === index) {
-          item.classList.add('active');
-          const activeVideo = item.querySelector('video');
-          if (activeVideo) activeVideo.play();
-        }
-      });
-    }
-
-    function startCarousel() {
-      intervalId = setInterval(() => {
-        currentIndex = (currentIndex + 1) % items.length;
-        showSlide(currentIndex);
-      }, 8000);
-    }
-
-    function pauseCarousel() {
-      clearInterval(intervalId);
-    }
-
-    function prevSlide() {
-      pauseCarousel();
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      showSlide(currentIndex);
-    }
-
-    function nextSlide() {
-      pauseCarousel();
-      currentIndex = (currentIndex + 1) % items.length;
-      showSlide(currentIndex);
-    }
-
-    function handleTouchStart(evt) {
-      xDown = evt.touches[0].clientX;
-    }
-
-    function handleTouchEnd(evt) {
-      if (!xDown) return;
-      let xUp = evt.changedTouches[0].clientX;
-      if (xDown - xUp > 30) {
-        nextSlide();
-      } else if (xUp - xDown > 30) {
-        prevSlide();
-      }
-      xDown = null;
-    }
-
-    function toggleMenu() {
-      const nav = document.getElementById('navContainer');
-      nav.classList.toggle('show');
-    }
-
-    showSlide(currentIndex);
-    window.onload = startCarousel;
-  </script>
 </body>
 </html>
