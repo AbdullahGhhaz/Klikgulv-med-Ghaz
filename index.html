@@ -230,6 +230,22 @@ footer {
     max-height: 500px;
     padding-bottom: 40px;
   }
+.read-more-btn {
+  background-color: #1e2a38;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+  background-color: #324c6d;
+}
+
 </style>
 </head>
 <body>
@@ -285,8 +301,8 @@ footer {
   <section id="prices">
     <h2>Priser</h2>
     <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
-    <div class="example-box">
-      <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
+    $1
+      <button class="read-more-btn">Læs mere</button>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Uden afhentning af materialer</li>
@@ -321,10 +337,13 @@ footer {
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
-  document.querySelectorAll('.example-box').forEach(box => {
-    box.addEventListener('click', () => {
-      box.classList.toggle('expanded');
-    });
+  document.querySelectorAll('.read-more-btn').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    const box = button.closest('.example-box');
+    box.classList.toggle('expanded');
+  });
+});
   });
 </script>
 </section>
