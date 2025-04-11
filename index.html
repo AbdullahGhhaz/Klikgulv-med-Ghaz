@@ -216,6 +216,9 @@ footer {
   </style>
 </head>
 <body>
+  <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1e2a38;display:flex;align-items:center;justify-content:center;z-index:2000;color:white;font-size:1.5em;font-family:sans-serif;">
+    Indlæser...
+  </div>
   <nav>
     <button class="burger" onclick="toggleMenu(this)"></button>
     <div class="nav-links" id="navLinks">
@@ -329,6 +332,20 @@ footer {
       nav.classList.remove('active');
       burger.classList.remove('open');
     }
+      // Preloader fade out
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.transition = 'opacity 0.5s ease';
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+    });
+
+    // Lazy load gallery media
+    document.querySelectorAll('#gallery img, #gallery video').forEach(media => {
+      media.setAttribute('loading', 'lazy');
+    });
   </script>
 </body>
 </html>
