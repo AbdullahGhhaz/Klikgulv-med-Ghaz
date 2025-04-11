@@ -317,6 +317,10 @@ footer {
       </ul>
     </div>
   <script>
+  // Scroll to top on page reload
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
   document.querySelectorAll('.example-box').forEach(box => {
     box.addEventListener('click', () => {
       box.classList.toggle('expanded');
@@ -334,7 +338,8 @@ footer {
 
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
-  </footer>
+  <footer>
+    <a href="#top" style="color:white; text-decoration:underline; display:inline-block; margin-top:10px;">Til toppen</a>
 
   <script>
     let currentIndex = 0;
