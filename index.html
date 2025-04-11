@@ -8,14 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f4f4f4;
@@ -24,11 +18,13 @@
     }
     header {
       height: 450px;
-      background: url('Gulv/værktøj.png') no-repeat center center/cover;
+      background: url('image.png') no-repeat center center/cover;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
+      text-align: center;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
@@ -37,6 +33,16 @@
       background: rgba(0,0,0,0.5);
       padding: 15px 30px;
       border-radius: 10px;
+    }
+    .cta-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #ff6600;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
     }
     nav {
       background-color: #1e2a38;
@@ -68,41 +74,57 @@
       font-size: 1.1em;
       color: #444;
     }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .card img,
-    .card video {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-      height: 160px;
-    }
-    .card video {
-      pointer-events: none;
-    }
-    .card p {
-      margin-top: 10px;
-      font-weight: bold;
-    }
     .example-box {
       background: #f9f9f9;
       border: 1px solid #ddd;
       padding: 20px;
       margin: 20px 0;
       border-radius: 8px;
+      transition: box-shadow 0.2s;
+    }
+    .example-box:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .carousel-container {
+      max-width: 900px;
+      margin: 40px auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .carousel-item img,
+    .carousel-item video {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .carousel-buttons {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
     }
     footer {
       background: #1e2a38;
@@ -128,6 +150,7 @@
 <body>
   <header>
     <h1>Klikgulv med Ghaz</h1>
+    <a href="#contact" class="cta-button">Kontakt mig</a>
   </header>
 
   <nav>
@@ -137,6 +160,7 @@
     <a href="#prices">Priser</a>
     <a href="#contact">Kontakt</a>
   </nav>
+
   <section id="services">
     <h2>Hvad jeg tilbyder</h2>
     <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
@@ -150,38 +174,24 @@
 
   <section id="gallery">
     <h2>Galleri</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse">
-        <p>Underlag i soveværelse</p>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item"><img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse"></div>
+        <div class="carousel-item"><img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt"></div>
+        <div class="carousel-item"><img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen"></div>
+        <div class="carousel-item"><video muted playsinline><source src="Gulv/Kælder.mp4" type="video/mp4"></video></div>
+        <div class="carousel-item"><img src="Gulv/Kælder%20½.jpg" alt="Halvvejs i kælderen"></div>
+        <div class="carousel-item"><img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælderen næsten færdig"></div>
+        <div class="carousel-item"><video muted playsinline><source src="Gulv/Køkken%20rettet.mp4" type="video/mp4"></video></div>
+        <div class="carousel-item"><video muted playsinline><source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4"></video></div>
+        <div class="carousel-item"><video muted playsinline><source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4"></video></div>
+        <div class="carousel-item"><img src="Gulv/Stue.jpg" alt="Stue"></div>
+        <div class="carousel-item"><img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering"></div>
+        <div class="carousel-item"><img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi"></div>
       </div>
-      <div class="card">
-        <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt">
-        <p>To rækker lagt</p>
-      </div>
-      <div class="card">
-        <img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen">
-        <p>Start i kælderen</p>
-      </div>
-      <div class="card">
-        <video muted playsinline loop autoplay>
-          <source src="Gulv/Kælder.mp4" type="video/mp4">
-        </video>
-        <p>Kælder færdig</p>
-      </div>
-      <div class="card">
-        <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs i kælderen">
-        <p>Halvvejs i kælderen</p>
-      </div>
-      <div class="card">
-        <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælderen næsten færdig">
-        <p>Kælderen næsten færdig</p>
-      </div>
-      <div class="card">
-        <video muted playsinline loop autoplay>
-          <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
-        </video>
-        <p>Køkkenet færdigt</p>
+      <div class="carousel-buttons">
+        <button onclick="moveSlide(-1)">&#10094;</button>
+        <button onclick="moveSlide(1)">&#10095;</button>
       </div>
     </div>
   </section>
@@ -237,5 +247,22 @@
   <footer>
     &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
   </footer>
+
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const items = track.children;
+    let index = 0;
+
+    function moveSlide(direction) {
+      index = (index + direction + items.length) % items.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      const currentVideo = items[index].querySelector('video');
+      if (currentVideo) currentVideo.play();
+      [...items].forEach((item, i) => {
+        const vid = item.querySelector('video');
+        if (vid && i !== index) vid.pause();
+      });
+    }
+  </script>
 </body>
 </html>
