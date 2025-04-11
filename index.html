@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -230,13 +231,7 @@ footer {
     max-height: 500px;
     padding-bottom: 40px;
   }
-
-
-
-
-
-
-
+</style>
 </head>
 <body>
   <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1e2a38;display:flex;align-items:center;justify-content:center;z-index:2000;color:white;font-size:1.5em;font-family:sans-serif;">
@@ -292,15 +287,15 @@ footer {
     <h2>Priser</h2>
     <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
     <div class="example-box">
-  <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
-  <ul>
-    <li>✔ Klargøring og lægning af klikgulv</li>
+      <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
+      <ul>
+        <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Uden afhentning af materialer</li>
         <li><strong>Pris: ca. 3.200 kr.</strong></li>
       </ul>
     </div>
     <div class="example-box">
-  <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
+      <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Afhentning af gulv og underlag</li>
@@ -328,11 +323,9 @@ footer {
     window.scrollTo(0, 0);
   };
   document.querySelectorAll('.example-box').forEach(box => {
-  box.addEventListener('click', () => {
-    box.classList.toggle('expanded');
-  });
-});
-    
+    box.addEventListener('click', () => {
+      box.classList.toggle('expanded');
+    });
   });
 </script>
 </section>
