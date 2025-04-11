@@ -246,7 +246,15 @@ footer {
   background-color: #324c6d;
 }
 
-</style>
+.indicator {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #666;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+
 </head>
 <body>
   <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1e2a38;display:flex;align-items:center;justify-content:center;z-index:2000;color:white;font-size:1.5em;font-family:sans-serif;">
@@ -302,7 +310,6 @@ footer {
     <h2>Priser</h2>
     <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
     $1
-      <button class="read-more-btn">Læs mere</button>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Uden afhentning af materialer</li>
@@ -310,7 +317,7 @@ footer {
       </ul>
     </div>
     <div class="example-box">
-      <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
+  <h3>$1 <span class="indicator">(klik for at læse mere)</span></h3>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Afhentning af gulv og underlag</li>
@@ -337,9 +344,11 @@ footer {
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
-  document.querySelectorAll('.read-more-btn').forEach(button => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
+  document.querySelectorAll('.example-box').forEach(box => {
+  box.addEventListener('click', () => {
+    box.classList.toggle('expanded');
+  });
+});
     const box = button.closest('.example-box');
     box.classList.toggle('expanded');
   });
