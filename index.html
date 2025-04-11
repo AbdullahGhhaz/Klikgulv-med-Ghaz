@@ -239,6 +239,14 @@ footer {
   .example-box.expanded .arrow {
     transform: rotate(90deg);
   }
+.arrow {
+  float: right;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+.arrow.rotated {
+  transform: rotate(90deg);
+}
 </style>
 </head>
 <body>
@@ -295,7 +303,7 @@ footer {
     <h2>Priser</h2>
     <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
     <div class="example-box">
-      <h3>$1 <span class="arrow">&#9654;</span></h3>
+      <h3>Eksempel 1: 16 m² værelse (kunde har materialer) <span class="arrow">&#9654;</span></h3>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Uden afhentning af materialer</li>
@@ -303,7 +311,7 @@ footer {
       </ul>
     </div>
     <div class="example-box">
-      <h3>Eksempel 2: 16 m² værelse (jeg henter materialer)</h3>
+      <h3>Eksempel 2: $1 <span class="arrow">&#9654;</span></h3>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Afhentning af gulv og underlag</li>
@@ -311,14 +319,14 @@ footer {
       </ul>
     </div>
     <div class="example-box">
-      <h3>Eksempel 3: Mindre entré 6 m² (kunde har materialer)</h3>
+      <h3>Eksempel 3: $1 <span class="arrow">&#9654;</span></h3>
       <ul>
         <li>✔ Klargøring og lægning</li>
         <li><strong>Pris: ca. 1.500 kr.</strong></li>
       </ul>
     </div>
     <div class="example-box">
-      <h3>Eksempel 4: Kælder 25 m² (jeg henter materialer)</h3>
+      <h3>Eksempel 4: $1 <span class="arrow">&#9654;</span></h3>
       <ul>
         <li>✔ Klargøring og lægning</li>
         <li>✔ Afhentning af gulv og underlag</li>
@@ -331,9 +339,12 @@ footer {
     window.scrollTo(0, 0);
   };
   document.querySelectorAll('.example-box').forEach(box => {
-    box.addEventListener('click', () => {
-      box.classList.toggle('expanded');
-    });
+  box.addEventListener('click', () => {
+    box.classList.toggle('expanded');
+    const arrow = box.querySelector('.arrow');
+    if (arrow) arrow.classList.toggle('rotated');
+  });
+});
   });
 </script>
 </section>
