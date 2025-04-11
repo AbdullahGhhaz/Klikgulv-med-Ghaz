@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -230,6 +231,14 @@ footer {
     max-height: 500px;
     padding-bottom: 40px;
   }
+  .arrow {
+    float: right;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+  }
+  .example-box.expanded .arrow {
+    transform: rotate(90deg);
+  }
 </style>
 </head>
 <body>
@@ -286,7 +295,7 @@ footer {
     <h2>Priser</h2>
     <p>Prisen starter ved 200 kr/m² afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til, men kan rådgive om gulv og underlag. Herunder er nogle eksempler:</p>
     <div class="example-box">
-      <h3>Eksempel 1: 16 m² værelse (kunde har materialer)</h3>
+      <h3>$1 <span class="arrow">&#9654;</span></h3>
       <ul>
         <li>✔ Klargøring og lægning af klikgulv</li>
         <li>✔ Uden afhentning af materialer</li>
