@@ -70,7 +70,7 @@
     }
     .about-image {
       width: 100%;
-      height: auto;
+      max-height: 450px;
       border-radius: 8px;
       margin-bottom: 1rem;
       object-fit: cover;
@@ -92,7 +92,7 @@
     .carousel-item img,
     .carousel-item video {
       width: 100%;
-      height: auto;
+      max-height: 500px;
       object-fit: cover;
       border-radius: 10px;
     }
@@ -184,12 +184,15 @@
       }
       .carousel-item img,
       .carousel-item video {
-        height: 60vw;
+        height: auto;
+        max-height: 60vw;
+      }
+      .carousel-track {
+        flex-direction: column;
       }
     }
   </style>
 </head>
-
 <body>
   <nav>
     <a href="#services">Hvad jeg tilbyder</a>
