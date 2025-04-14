@@ -77,13 +77,15 @@
     .burger {
       display: none;
       cursor: pointer;
-      background: none;
+      background: #1e2a38;
       border: none;
       color: white;
       font-size: 28px;
       position: absolute;
       right: 20px;
-      top: 15px;
+      top: 10px;
+      padding: 4px 10px;
+      border-radius: 6px;
     }
     .burger.open::before { content: "✖"; }
     .burger::before { content: "☰"; }
@@ -113,13 +115,17 @@
       margin-bottom: 20px;
       cursor: pointer;
       overflow: hidden;
+      max-height: 60px;
       transition: max-height 0.4s ease;
       position: relative;
+    }
+    .example-box.expanded {
+      max-height: 500px;
     }
     .example-box .arrow {
       position: absolute;
       right: 20px;
-      top: 20px;
+      top: 24px;
       font-size: 1.2em;
       transform: rotate(0deg);
       transition: transform 0.3s ease;
@@ -127,8 +133,15 @@
     .example-box.expanded .arrow {
       transform: rotate(90deg);
     }
-    .example-box.expanded {
-      max-height: 500px;
+    .carousel {
+      margin: 40px auto;
+      max-width: 900px;
+    }
+    .carousel img,
+    .carousel video {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
     footer {
       background-color: #1e2a38;
@@ -151,7 +164,7 @@
     }
     @media (max-width: 768px) {
       .burger { display: block; }
-      .nav-links { display: none; }
+      .nav-links { display: none; flex-direction: column; }
       .nav-links.active { display: flex; }
     }
   </style>
@@ -180,6 +193,23 @@
   <section id="services">
     <h2>Hvad jeg tilbyder</h2>
     <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Galleri</h2>
+    <div class="carousel">
+      <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag i soveværelse" loading="lazy">
+      <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="To rækker lagt" loading="lazy">
+      <img src="Gulv/Kælder%20start.jpg" alt="Start i kælderen" loading="lazy">
+      <video muted autoplay loop playsinline loading="lazy">
+        <source src="Gulv/Kælder.mp4" type="video/mp4">
+      </video>
+      <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs i kælderen" loading="lazy">
+      <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælderen næsten færdig" loading="lazy">
+      <video muted autoplay loop playsinline loading="lazy">
+        <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
+      </video>
+    </div>
   </section>
 
   <section id="prices">
@@ -246,10 +276,6 @@
         loader.style.opacity = '0';
         setTimeout(() => loader.style.display = 'none', 500);
       }
-
-      document.querySelectorAll('#gallery img, #gallery video').forEach(media => {
-        media.setAttribute('loading', 'lazy');
-      });
     });
   </script>
 </body>
