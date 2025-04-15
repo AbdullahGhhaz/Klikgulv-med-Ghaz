@@ -408,36 +408,36 @@ section + section {
   <p>📱 +45 28 52 28 92</p>
   <p style="text-align: center; margin: 20px 0;">Du kan også udfylde kontaktformularen herunder:</p>
 
-  <form id="contact-form" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
-    <input type="text" name="name" placeholder="Dit navn" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
-    <input type="email" name="email" placeholder="Din e-mail" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
-    <textarea name="message" placeholder="Din besked" required rows="5" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
-    <button type="submit" style="padding: 12px; background-color: #ff6600; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Send besked</button>
-    <p id="response-message" style="text-align: center; font-size: 0.9em;"></p>
-  </form>
+<form id="contact-form" style="max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:15px;">
+  <input type="text" name="name" placeholder="Dit navn" required>
+  <input type="email" name="email" placeholder="Din e-mail" required>
+  <textarea name="message" placeholder="Din besked" rows="5" required></textarea>
+  <button type="submit">Send besked</button>
+  <p id="response-message" style="text-align:center;"></p>
+</form>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const responseMessage = document.getElementById('response-message');
+<script>
+  const form = document.getElementById("contact-form");
+  const responseMessage = document.getElementById("response-message");
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch("https://script.google.com/macros/s/AKfycbwtrqTfWq7eMZhEvO73cUYre6FXVUBqaWrJOjyWBPRiP5LMumGW08LV_UlC1Gli2TJI/exec", {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(res => {
-        form.reset();
-        responseMessage.textContent = 'Tak for din besked – jeg vender tilbage hurtigst muligt.';
-        responseMessage.style.color = 'green';
-      })
-      .catch(() => {
-        responseMessage.textContent = 'Noget gik galt – prøv igen senere.';
-        responseMessage.style.color = 'red';
-      });
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    fetch("https://script.google.com/macros/s/AKfycbzU-2vm2sykjHs56b0HnO9HirDXm_z_LfjSbiEoM2F-WKVVP1xu-spbjiIIwJzHBHRA/exec", {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(res => {
+      form.reset();
+      responseMessage.textContent = "Tak for din besked – jeg vender tilbage hurtigst muligt.";
+      responseMessage.style.color = "green";
+    })
+    .catch(() => {
+      responseMessage.textContent = "Noget gik galt – prøv igen senere.";
+      responseMessage.style.color = "red";
     });
-  </script>
-</section>
+  });
+</script>
 
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
   <footer>
