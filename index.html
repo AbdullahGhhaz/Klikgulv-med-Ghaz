@@ -408,18 +408,57 @@ section + section {
   <p>📱 +45 28 52 28 92</p>
   <p style="text-align: center; margin: 20px 0;">Du kan også udfylde kontaktformularen herunder:</p>
 
-  <div style="display: flex; justify-content: center;">
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLSc87Y8chExJFToYY9zpQTQjMvxiHkry8YD3aKDLzCt7tQDUzg/viewform?usp=dialog"
-    width="100%" 
-    height="900" 
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0" 
-    style="max-width: 640px; width: 100%; border: none;">
-    Indlæser…
-  </iframe>
-</div>
+  <p>Du kan også udfylde kontaktformularen herunder:</p>
+
+<form id="contact-form" style="max-width:600px; margin: 0 auto; display:flex; flex-direction:column; gap:15px;">
+  <input type="text" name="name" placeholder="Dit navn" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+  <input type="email" name="email" placeholder="Din e-mail" required style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+  <textarea name="message" placeholder="Din besked" required rows="5" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+  <button type="submit" style="padding: 12px; background-color: #ff6600; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Send besked</button>
+  <p id="response-message" style="text-align:center; font-size: 0.9em; color: green;"></p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const responseMessage = document.getElementById('response-message');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID_HER/exec', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(res => {
+      form.reset();
+      responseMessage.textContent = 'Tak for din besked – jeg vender tilbage hurtigst muligt.';
+    })
+    .catch(() => {
+      responseMessage.textContent = 'Noget gik galt – prøv igen senere.';
+    });
+  });
+</script>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const responseMessage = document.getElementById('response-message');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID_HER/exec', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(res => {
+      form.reset();
+      responseMessage.textContent = 'Tak for din besked – jeg vender tilbage hurtigst muligt.';
+    })
+    .catch(() => {
+      responseMessage.textContent = 'Noget gik galt – prøv igen senere.';
+    });
+  });
+</script>
+
+
 </section>
 
 
