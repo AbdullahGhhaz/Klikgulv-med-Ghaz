@@ -427,13 +427,9 @@ section + section {
       method: "POST",
       body: new FormData(form)
     })
-   .then(() => {
-  const name = form.querySelector('[name="name"]').value;
-  form.reset();
-  responseMessage.textContent = `Tak for din besked, ${name} – jeg vender tilbage hurtigst muligt.`;
-  responseMessage.style.color = 'green';
+ .then(() => {
+  window.location.href = "tak.html";
 })
-
     .catch(() => {
       responseMessage.textContent = "Noget gik galt – prøv igen senere.";
       responseMessage.style.color = "red";
