@@ -159,20 +159,31 @@
       color: #444;
     }
     .example-box {
-      cursor: pointer;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      overflow: hidden;
-      max-height: 80px;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    .example-box.expanded {
-      max-height: 500px;
-      padding-bottom: 40px;
-    }
+  cursor: pointer;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 75px; /* Stram max-height */
+  transition: max-height 0.4s ease, padding-bottom 0.4s ease;
+}
+
+.example-box.expanded {
+  max-height: 500px;
+  padding-bottom: 40px;
+}
+    .example-box ul {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.example-box.expanded ul {
+  opacity: 1;
+}
+
     .arrow {
       float: right;
       font-size: 1.2em;
