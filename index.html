@@ -418,27 +418,26 @@ section + section {
     <p id="response-message" style="text-align: center; font-size: 0.9em; color: green;"></p>
   </form>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const responseMessage = document.getElementById('response-message');
+ <script>
+  const form = document.getElementById('contact-form');
+  const responseMessage = document.getElementById('response-message');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch("https://script.google.com/macros/s/AKfycbwtrqTfWq7eMZhEvO73cUYre6FXVUBqaWrJOjyWBPRiP5LMumGW08LV_UlC1Gli2TJI/exec", {
-  method: 'POST',
-  body: new FormData(form)
-})
-
-      })
-      .then(res => {
-        form.reset();
-        responseMessage.textContent = 'Tak for din besked – jeg vender tilbage hurtigst muligt.';
-      })
-      .catch(() => {
-        responseMessage.textContent = 'Noget gik galt – prøv igen senere.';
-      });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch("https://script.google.com/macros/s/AKfycbwtrqTfWq7eMZhEvO73cUYre6FXVUBqaWrJOjyWBPRiP5LMumGW08LV_UlC1Gli2TJI/exec", {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(res => {
+      form.reset();
+      responseMessage.textContent = 'Tak for din besked – jeg vender tilbage hurtigst muligt.';
+    })
+    .catch(() => {
+      responseMessage.textContent = 'Noget gik galt – prøv igen senere.';
     });
-  </script>
+  });
+</script>
+
 </section>
 
 
