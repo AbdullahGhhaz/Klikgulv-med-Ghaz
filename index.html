@@ -341,6 +341,29 @@ button[type="submit"]:hover {
   font-size: 0.9em;
   margin-top: 10px;
 }
+    #contact-form {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#response-message {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#response-message.show {
+  opacity: 1;
+}
+
 
   </style>
 </head>
