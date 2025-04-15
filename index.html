@@ -140,13 +140,19 @@
       height: 40px;
     }
     section {
-      background-color: #ffffffdd;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+  background-color: #ffffffdd;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 💡 Tilføj luft mellem sektionerne */
+section + section {
+  margin-top: 60px;
+}
+
     h2 {
       font-size: 2em;
       font-family: 'Playfair Display', serif;
