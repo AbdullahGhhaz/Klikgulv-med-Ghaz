@@ -384,10 +384,30 @@ button[type="submit"]:hover {
   background-color: #e65c00;
 }
 
-    <!-- Lightbox2 styles -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
     
+  .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+  
   </style>
 </head>
 <body>
@@ -421,101 +441,65 @@ button[type="submit"]:hover {
     <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
   </section>
 
- <section id="gallery">
+<section id="gallery">
   <h2>Galleri</h2>
+
+  <!-- Øverste karussel -->
   <div class="carousel-container">
     <div class="carousel-track" id="carouselTrack">
-
       <div class="carousel-item">
-        <a href="Gulv/Underlag%20lagt%20soveværelse.jpeg" data-lightbox="gallery" data-title="Klikgulv med underlag i soveværelse">
-          <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Klikgulv med underlag i soveværelse" loading="lazy">
-        </a>
+        <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Klikgulv med underlag i soveværelse" loading="lazy" class="glightbox-img" data-glightbox="title: Klikgulv med underlag i soveværelse; href: Gulv/Underlag%20lagt%20soveværelse.jpeg">
       </div>
       <div class="carousel-item">
-        <a href="Gulv/Soveværelse%202%20rækker.jpeg" data-lightbox="gallery" data-title="Klikgulv med to rækker i soveværelse">
-          <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="Klikgulv med to rækker i soveværelse" loading="lazy">
-        </a>
+        <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="Klikgulv med to rækker i soveværelse" loading="lazy" class="glightbox-img" data-glightbox="title: Klikgulv med to rækker i soveværelse; href: Gulv/Soveværelse%202%20rækker.jpeg">
       </div>
       <div class="carousel-item">
-        <a href="Gulv/Kælder%20start.jpg" data-lightbox="gallery" data-title="Start på klikgulv i kælder">
-          <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy">
-        </a>
+        <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy" class="glightbox-img" data-glightbox="title: Start på klikgulv i kælder; href: Gulv/Kælder%20start.jpg">
       </div>
-      <div class="carousel-item">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Kælder.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/Kælder%20½.jpg" data-lightbox="gallery" data-title="Halvvejs færdig klikgulv i kælder">
-          <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs færdig klikgulv i kælder" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/Kælder%20mangler%20lister.jpg" data-lightbox="gallery" data-title="Klikgulv i kælder næsten færdigt">
-          <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Klikgulv i kælder næsten færdigt" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/Stue.jpg" data-lightbox="gallery" data-title="Klikgulv i stue – flot finish">
-          <img src="Gulv/Stue.jpg" alt="Klikgulv i stue – flot finish" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/Underlag%20og%20isolering.jpg" data-lightbox="gallery" data-title="Underlag og isolering før klikgulv lægges">
-          <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering før klikgulv lægges" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/Snart%20mad%20pause.jpg" data-lightbox="gallery" data-title="Pause under klikgulvlægning – afslappet stemning">
-          <img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause under klikgulvlægning – afslappet stemning" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/gulv1%20(1).jpeg" data-lightbox="gallery" data-title="Eksempel på lagt klikgulv i bolig">
-          <img src="Gulv/gulv1%20(1).jpeg" alt="Eksempel på lagt klikgulv i bolig" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/gulv1%20(2).jpeg" data-lightbox="gallery" data-title="Detaljebillede af klikgulv lagt med præcision">
-          <img src="Gulv/gulv1%20(2).jpeg" alt="Detaljebillede af klikgulv lagt med præcision" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/gulv1%20(3).jpeg" data-lightbox="gallery" data-title="Færdiglagt klikgulv i rum med naturligt lys">
-          <img src="Gulv/gulv1%20(3).jpeg" alt="Færdiglagt klikgulv i rum med naturligt lys" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="Gulv/gulv1%20(4).jpeg" data-lightbox="gallery" data-title="Klikgulv i lyse omgivelser – pæn finish">
-          <img src="Gulv/gulv1%20(4).jpeg" alt="Klikgulv i lyse omgivelser – pæn finish" loading="lazy">
-        </a>
-      </div>
-
     </div>
     <div class="carousel-buttons">
       <button onclick="moveCarousel(-1)">&#10094;</button>
       <button onclick="moveCarousel(1)">&#10095;</button>
     </div>
   </div>
+
+  <!-- Grid-galleri under slideren -->
+  <div class="gallery-grid">
+    <a href="Gulv/Kælder.mp4" class="glightbox-video" data-glightbox="type: video; title: Kælder – klikgulv lægges">
+      <img src="Gulv/Kælder%20½.jpg" alt="Kælder video thumbnail" loading="lazy">
+    </a>
+    <a href="Gulv/Kælder%20mangler%20lister.jpg" class="glightbox-img" data-glightbox="title: Klikgulv i kælder næsten færdigt">
+      <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Klikgulv i kælder næsten færdigt" loading="lazy">
+    </a>
+    <a href="Gulv/Køkken%20rettet.mp4" class="glightbox-video" data-glightbox="type: video; title: Køkken – klikgulv lagt">
+      <img src="Gulv/Køkken%20rettet.jpg" alt="Køkken video thumbnail" loading="lazy">
+    </a>
+    <a href="Gulv/Soveværelse%20ny.mp4" class="glightbox-video" data-glightbox="type: video; title: Soveværelse – ny gulv">
+      <img src="Gulv/Soveværelse%20ny.jpg" alt="Soveværelse video thumbnail" loading="lazy">
+    </a>
+    <a href="Gulv/Stue.jpg" class="glightbox-img" data-glightbox="title: Klikgulv i stue – flot finish">
+      <img src="Gulv/Stue.jpg" alt="Klikgulv i stue – flot finish" loading="lazy">
+    </a>
+    <a href="Gulv/Underlag%20og%20isolering.jpg" class="glightbox-img" data-glightbox="title: Underlag og isolering">
+      <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering" loading="lazy">
+    </a>
+    <a href="Gulv/Snart%20mad%20pause.jpg" class="glightbox-img" data-glightbox="title: Pause med sushi under gulvlægning">
+      <img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause med sushi under gulvlægning" loading="lazy">
+    </a>
+    <a href="Gulv/gulv1%20(1).jpeg" class="glightbox-img" data-glightbox="title: Klikgulv eksempel 1">
+      <img src="Gulv/gulv1%20(1).jpeg" alt="Klikgulv eksempel 1" loading="lazy">
+    </a>
+    <a href="Gulv/gulv1%20(2).jpeg" class="glightbox-img" data-glightbox="title: Klikgulv eksempel 2">
+      <img src="Gulv/gulv1%20(2).jpeg" alt="Klikgulv eksempel 2" loading="lazy">
+    </a>
+    <a href="Gulv/gulv1%20(3).jpeg" class="glightbox-img" data-glightbox="title: Klikgulv eksempel 3">
+      <img src="Gulv/gulv1%20(3).jpeg" alt="Klikgulv eksempel 3" loading="lazy">
+    </a>
+    <a href="Gulv/gulv1%20(4).jpeg" class="glightbox-img" data-glightbox="title: Klikgulv eksempel 4">
+      <img src="Gulv/gulv1%20(4).jpeg" alt="Klikgulv eksempel 4" loading="lazy">
+    </a>
+  </div>
 </section>
-
-
 
   <section id="prices">
     <h2>Priser</h2>
@@ -642,8 +626,12 @@ button[type="submit"]:hover {
       });
     });
   </script>
-  <!-- Lightbox2 script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox-img, .glightbox-video'
+  });
+</script>
 
 </body>
 </html>
