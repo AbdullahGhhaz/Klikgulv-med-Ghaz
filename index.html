@@ -21,10 +21,12 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="Gulv/logo klikgulv.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Lightbox2 styles -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -385,8 +387,6 @@ button[type="submit"]:hover {
   background-color: #e65c00;
 }
 
-    <!-- Lightbox2 styles -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
   
   </style>
 <script type="application/ld+json">
@@ -426,15 +426,48 @@ button[type="submit"]:hover {
     </div>
   </nav>
 
-  <header>
-    <h1>Klikgulv med Ghaz</h1>
-    <a href="#contact" class="cta-button">Kontakt</a>
-  </header>
+ <header>
+  <img src="Gulv/logo klikgulv.png" alt="Klikgulv med Ghaz logo" />
+  <h1>Klikgulv med Ghaz</h1>
+  <a href="#contact" class="cta-button">Kontakt</a>
+</header>
 
-  <section id="services">
-    <h2>Hvad jeg tilbyder</h2>
-    <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
-  </section>
+<style>
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  header img {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+  }
+</style>
+
+<section id="services">
+  <h2>Hvad jeg tilbyder</h2>
+  <p>Jeg lægger klikgulv i stue, værelse, entré, kælder og andre rum. Jeg sørger for måling, underlag, præcis lægning og flot finish. Har du småting der skal fikses i forbindelse med gulvprojektet, kigger vi på det sammen.</p>
+</section>
 
   <section id="about">
     <h2>Om mig</h2>
