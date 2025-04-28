@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 
-  <link rel="icon" type="image/png" href="Gulv/logo klikgulv.png">
+  <link rel="icon" type="image/png" href="Gulv/logo-klikgulv.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -409,29 +409,6 @@ button[type="submit"]:hover {
   "priceRange": "$$"
 }
 </script>
-
-</head>
-<body>
-  <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1e2a38;display:flex;align-items:center;justify-content:center;z-index:2000;color:white;font-size:1.5em;font-family:sans-serif;">
-    Indlæser...
-  </div>
-  <nav>
-    <button class="burger" onclick="toggleMenu(this)"></button>
-    <div class="nav-links" id="navLinks">
-      <a href="#services" onclick="closeMenu()">Hvad jeg tilbyder</a>
-      <a href="#about" onclick="closeMenu()">Om mig</a>
-      <a href="#gallery" onclick="closeMenu()">Galleri</a>
-      <a href="#prices" onclick="closeMenu()">Priser</a>
-      <a href="#contact" onclick="closeMenu()">Kontakt</a>
-    </div>
-  </nav>
-
- <header>
-  <img src="Gulv/logo klikgulv.png" alt="Klikgulv med Ghaz logo" />
-  <h1>Klikgulv med Ghaz</h1>
-  <a href="#contact" class="cta-button">Kontakt</a>
-</header>
-
 <style>
   header {
     display: flex;
@@ -463,6 +440,28 @@ button[type="submit"]:hover {
     }
   }
 </style>
+</head>
+<body>
+  <div id="loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1e2a38;display:flex;align-items:center;justify-content:center;z-index:2000;color:white;font-size:1.5em;font-family:sans-serif;">
+    Indlæser...
+  </div>
+  <nav>
+    <button class="burger" onclick="toggleMenu(this)"></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#services" onclick="closeMenu()">Hvad jeg tilbyder</a>
+      <a href="#about" onclick="closeMenu()">Om mig</a>
+      <a href="#gallery" onclick="closeMenu()">Galleri</a>
+      <a href="#prices" onclick="closeMenu()">Priser</a>
+      <a href="#contact" onclick="closeMenu()">Kontakt</a>
+    </div>
+  </nav>
+
+ <header>
+  <img src="Gulv/logo-klikgulv.png" alt="Klikgulv med Ghaz logo" loading="lazy" />
+  <h1>Klikgulv med Ghaz</h1>
+  <a href="#contact" class="cta-button">Kontakt</a>
+</header>
+
 
 <section id="services">
   <h2>Hvad jeg tilbyder</h2>
@@ -642,61 +641,69 @@ button[type="submit"]:hover {
 </script>
 
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">⬆</button>
-  <footer>
-    &copy; 2025 Klikgulv med Ghaz. Alle rettigheder forbeholdes.
-  </footer>
+ <footer>
+  &copy; <span id="year"></span> Klikgulv med Ghaz. Alle rettigheder forbeholdes.
+</footer>
+
 
   <script>
-    // Scroll to top on page reload
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
+  // Scroll to top on page reload
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
 
-    document.querySelectorAll('.example-box').forEach(box => {
-      box.addEventListener('click', () => {
-        box.classList.toggle('expanded');
-        const arrow = box.querySelector('.arrow');
-        if (arrow) arrow.classList.toggle('rotated');
-      });
+  document.querySelectorAll('.example-box').forEach(box => {
+    box.addEventListener('click', () => {
+      box.classList.toggle('expanded');
+      const arrow = box.querySelector('.arrow');
+      if (arrow) arrow.classList.toggle('rotated');
     });
+  });
 
-    let currentIndex = 0;
-    function moveCarousel(direction) {
-      const track = document.getElementById('carouselTrack');
-      const items = track.children;
-      currentIndex = (currentIndex + direction + items.length) % items.length;
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  let currentIndex = 0;
+  function moveCarousel(direction) {
+    const track = document.getElementById('carouselTrack');
+    const items = track.children;
+    currentIndex = (currentIndex + direction + items.length) % items.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function toggleMenu(button) {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('active');
+    button.classList.toggle('open');
+  }
+
+  function closeMenu() {
+    const nav = document.getElementById('navLinks');
+    const burger = document.querySelector('.burger');
+    nav.classList.remove('active');
+    burger.classList.remove('open');
+  }
+
+  // Preloader fade out
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.transition = 'opacity 0.5s ease';
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 500);
     }
 
-    function toggleMenu(button) {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('active');
-      button.classList.toggle('open');
-    }
-
-    function closeMenu() {
-      const nav = document.getElementById('navLinks');
-      const burger = document.querySelector('.burger');
-      nav.classList.remove('active');
-      burger.classList.remove('open');
-    }
-
-    // Preloader fade out
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      if (loader) {
-        loader.style.transition = 'opacity 0.5s ease';
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
-      }
-
-      // Lazy load gallery media
-      document.querySelectorAll('#gallery img, #gallery video').forEach(media => {
-        media.setAttribute('loading', 'lazy');
-      });
+    // Lazy load gallery media
+    document.querySelectorAll('#gallery img, #gallery video').forEach(media => {
+      media.setAttribute('loading', 'lazy');
     });
-  </script>
-  <!-- Lightbox2 script -->
+  });
+</script>
+
+<!-- ✅ Tilføj dette LIGE efter -->
+<script>
+  // Sætter det rigtige årstal automatisk
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- Lightbox2 script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 </body>
