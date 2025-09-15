@@ -503,9 +503,10 @@ header h1 {
     <p style="margin-top: 20px;">Jeg hedder Abdullah Ghazal, og jeg er en gør-det-selv-mand med mange klikgulvprojekter bag mig – både hjemme og for andre. Jeg går op i godt arbejde, ærlig kommunikation og ingen overraskelser.</p>
   </section>
 
- <section id="gallery">
+<section id="gallery">
   <h2>Galleri</h2>
 
+  <!-- Filter knapper -->
   <div class="gallery-filters">
     <button onclick="filterGallery('all')" class="active">Alle</button>
     <button onclick="filterGallery('sovevaerelse')">Soveværelse</button>
@@ -516,6 +517,7 @@ header h1 {
     <button onclick="filterGallery('andre')">Andre</button>
   </div>
 
+  <!-- Carousel -->
   <div class="carousel-container" id="carouselContainer">
     <div class="carousel-track" id="carouselTrack"></div>
     <div class="thumbnail-track" id="thumbnailTrack"></div>
@@ -526,6 +528,7 @@ header h1 {
   </div>
 </section>
 
+<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <span class="lightbox-prev" onclick="changeLightbox(-1)">&#10094;</span>
@@ -569,7 +572,7 @@ let currentIndex = 0;
 let currentCategory = "all";
 let currentLightboxIndex = 0;
 
-// Lazy-loading observer
+// Lazy-loading
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -585,6 +588,7 @@ const observer = new IntersectionObserver(entries=>{
   });
 },{root:null,rootMargin:"50px",threshold:0.1});
 
+// Render gallery
 function renderGallery(){
   const track=document.getElementById("carouselTrack");
   const thumbs=document.getElementById("thumbnailTrack");
@@ -608,7 +612,7 @@ function renderGallery(){
   updateCarousel();
 }
 
-// Filtrering
+// Filter
 function filterGallery(cat){
   currentCategory=cat;
   document.querySelectorAll(".gallery-filters button").forEach(btn=>btn.classList.remove("active"));
@@ -616,7 +620,7 @@ function filterGallery(cat){
   renderGallery();
 }
 
-// Carousel navigation
+// Carousel nav
 function moveCarousel(dir){currentIndex+=dir;if(currentIndex<0)currentIndex=filteredItems.length-1;if(currentIndex>=filteredItems.length)currentIndex=0;updateCarousel();}
 function jumpTo(i){currentIndex=i;updateCarousel();}
 function updateCarousel(){
@@ -637,14 +641,13 @@ function showLightboxItem(){
   const item=filteredItems[currentLightboxIndex];
   const content=document.getElementById("lightboxContent");
   if(item.type==="img")content.innerHTML=`<img src="${item.src}" style="max-width:90%;max-height:90%">`;
-  else content.innerHTML=`<video controls autoplay style="max-width:90%;max-height:90%"><source src="${item.src}" type="video/mp4"></video>`;
+  else content.innerHTML=`<video controls autoplay loop style="max-width:90%;max-height:90%"><source src="${item.src}" type="video/mp4"></video>`;
 }
 
-// Touch swipe for mobil
+// Touch swipe
 let startX=0; let isDragging=false;
 const carousel=document.getElementById("carouselContainer");
 carousel.addEventListener("touchstart",e=>{startX=e.touches[0].clientX; isDragging=true;});
-carousel.addEventListener("touchmove",e=>{if(!isDragging)return; let dx=e.touches[0].clientX-startX;});
 carousel.addEventListener("touchend",e=>{if(!isDragging)return; let dx=e.changedTouches[0].clientX-startX; if(dx>50) moveCarousel(-1); if(dx<-50) moveCarousel(1); isDragging=false;});
 
 renderGallery();
@@ -674,6 +677,7 @@ renderGallery();
   .carousel-buttons button{padding:8px;font-size:28px;}
 }
 </style>
+
 
   <section id="prices">
     <h2>Priser</h2>
