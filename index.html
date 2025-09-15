@@ -518,123 +518,229 @@ header h1 {
   </div>
 
   <div class="carousel-container">
-    <div class="carousel-track" id="carouselTrack">
+    <!-- Store billeder -->
+    <div class="carousel-track" id="carouselTrack"></div>
 
-      <!-- Soveværelse -->
-      <div class="carousel-item sovevaerelse">
-        <a href="Gulv/Underlag%20lagt%20soveværelse.jpeg" data-lightbox="gallery" data-title="Underlag lagt i soveværelse">
-          <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag lagt i soveværelse" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item sovevaerelse">
-        <a href="Gulv/Soveværelse%202%20rækker.jpeg" data-lightbox="gallery" data-title="Klikgulv med to rækker i soveværelse">
-          <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="Klikgulv med to rækker i soveværelse" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item sovevaerelse">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4">
-        </video>
-      </div>
+    <!-- Thumbnails -->
+    <div class="thumbnail-track" id="thumbnailTrack"></div>
 
-      <!-- Køkken -->
-      <div class="carousel-item koekken">
-        <a href="Gulv/Køkken%20før.jpeg" data-lightbox="gallery" data-title="Køkken før klikgulv">
-          <img src="Gulv/Køkken%20før.jpeg" alt="Køkken før klikgulv" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item koekken">
-        <a href="Gulv/Køkken%20efter%201.jpeg" data-lightbox="gallery" data-title="Køkken efter klikgulv">
-          <img src="Gulv/Køkken%20efter%201.jpeg" alt="Køkken efter klikgulv" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item koekken">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <!-- Kælder -->
-      <div class="carousel-item kaelder">
-        <a href="Gulv/Kælder%20start.jpg" data-lightbox="gallery" data-title="Start på klikgulv i kælder">
-          <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item kaelder">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Kælder.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item kaelder">
-        <a href="Gulv/Kælder%20½.jpg" data-lightbox="gallery" data-title="Halvvejs færdig klikgulv i kælder">
-          <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs færdig klikgulv i kælder" loading="lazy">
-        </a>
-      </div>
-
-      <!-- Stue -->
-      <div class="carousel-item stue">
-        <a href="Gulv/Stue.jpg" data-lightbox="gallery" data-title="Klikgulv i stue – flot finish">
-          <img src="Gulv/Stue.jpg" alt="Klikgulv i stue – flot finish" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item stue">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="carousel-item stue">
-        <a href="Gulv/Stuen%20efter%201.jpeg" data-lightbox="gallery" data-title="Stuen efter klikgulv – billede 1">
-          <img src="Gulv/Stuen%20efter%201.jpeg" alt="Stuen efter klikgulv – billede 1" loading="lazy">
-        </a>
-      </div>
-
-      <!-- Gange -->
-      <div class="carousel-item gang">
-        <a href="Gulv/langegang%20træ.jpeg" data-lightbox="gallery" data-title="Klikgulv i lang gang">
-          <img src="Gulv/langegang%20træ.jpeg" alt="Klikgulv i lang gang" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item gang">
-        <a href="Gulv/lille%20gang%20træ.jpeg" data-lightbox="gallery" data-title="Klikgulv i lille gang">
-          <img src="Gulv/lille%20gang%20træ.jpeg" alt="Klikgulv i lille gang" loading="lazy">
-        </a>
-      </div>
-
-      <!-- Andre -->
-      <div class="carousel-item andre">
-        <a href="Gulv/Underlag%20og%20isolering.jpg" data-lightbox="gallery" data-title="Underlag og isolering før klikgulv">
-          <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering før klikgulv" loading="lazy">
-        </a>
-      </div>
-      <div class="carousel-item andre">
-        <a href="Gulv/Snart%20mad%20pause.jpg" data-lightbox="gallery" data-title="Pause under klikgulvlægning">
-          <img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause under klikgulvlægning" loading="lazy">
-        </a>
-      </div>
-
+    <!-- Carousel-knapper -->
+    <div class="carousel-buttons">
+      <button onclick="moveCarousel(-1)">&#10094;</button>
+      <button onclick="moveCarousel(1)">&#10095;</button>
     </div>
   </div>
 </section>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-prev" onclick="changeLightbox(-1)">&#10094;</span>
+  <span class="lightbox-next" onclick="changeLightbox(1)">&#10095;</span>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
 <script>
-function filterGallery(category) {
-  let items = document.querySelectorAll('.carousel-item');
-  let buttons = document.querySelectorAll('.gallery-filters button');
+const galleryItems = [
+  // 🔹 Soveværelse
+  {src:"Gulv/Underlag%20lagt%20soveværelse.jpeg", cat:"sovevaerelse", type:"img", title:"Underlag lagt i soveværelse"},
+  {src:"Gulv/Soveværelse%202%20rækker.jpeg", cat:"sovevaerelse", type:"img", title:"Klikgulv med to rækker i soveværelse"},
+  {src:"Gulv/Soveværelse%20ny.mp4", cat:"sovevaerelse", type:"video", title:"Video – Soveværelse gulvlægning"},
 
-  buttons.forEach(btn => btn.classList.remove('active'));
-  document.querySelector(`.gallery-filters button[onclick="filterGallery('${category}')"]`).classList.add('active');
+  // 🔹 Køkken
+  {src:"Gulv/Køkken%20før.jpeg", cat:"koekken", type:"img", title:"Køkken før klikgulv"},
+  {src:"Gulv/Køkken%20efter%201.jpeg", cat:"koekken", type:"img", title:"Køkken efter klikgulv"},
+  {src:"Gulv/Køkken%20rettet.mp4", cat:"koekken", type:"video", title:"Video – Køkken gulvlægning"},
+  {src:"Gulv/Køkken%20træ%20før.jpeg", cat:"koekken", type:"img", title:"Køkken med trægulv før"},
+  {src:"Gulv/Køkkentræ%20efter.jpeg", cat:"koekken", type:"img", title:"Køkken træ efter"},
+  {src:"Gulv/Køkkentræ%20før.jpeg", cat:"koekken", type:"img", title:"Køkken træ før"},
 
-  items.forEach(item => {
-    if (category === 'all' || item.classList.contains(category)) {
-      item.style.display = 'block';
+  // 🔹 Kælder
+  {src:"Gulv/Kælder%20start.jpg", cat:"kaelder", type:"img", title:"Start på klikgulv i kælder"},
+  {src:"Gulv/Kælder%20½.jpg", cat:"kaelder", type:"img", title:"Halvvejs i kælder"},
+  {src:"Gulv/Kælder%20mangler%20lister.jpg", cat:"kaelder", type:"img", title:"Kælder næsten færdig"},
+  {src:"Gulv/Kælder.mp4", cat:"kaelder", type:"video", title:"Video – Kælder gulvlægning"},
+
+  // 🔹 Stue
+  {src:"Gulv/Stue.jpg", cat:"stue", type:"img", title:"Klikgulv i stue"},
+  {src:"Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4", cat:"stue", type:"video", title:"Video – Stue færdigt"},
+  {src:"Gulv/Stuen%20efter%201.jpeg", cat:"stue", type:"img", title:"Stuen efter 1"},
+  {src:"Gulv/Stuen%20efter%202.jpeg", cat:"stue", type:"img", title:"Stuen efter 2"},
+  {src:"Gulv/Stuen%20før.jpeg", cat:"stue", type:"img", title:"Stuen før"},
+  {src:"Gulv/Stuetræ%20efter.jpeg", cat:"stue", type:"img", title:"Stue træ efter"},
+  {src:"Gulv/Stuentræ%20før.jpeg", cat:"stue", type:"img", title:"Stue træ før"},
+
+  // 🔹 Gang
+  {src:"Gulv/langegang%20træ.jpeg", cat:"gang", type:"img", title:"Klikgulv i lang gang"},
+  {src:"Gulv/lille%20gang%20træ.jpeg", cat:"gang", type:"img", title:"Klikgulv i lille gang"},
+
+  // 🔹 Andre
+  {src:"Gulv/Forberedelse.jpg", cat:"andre", type:"img", title:"Forberedelse før klikgulv"},
+  {src:"Gulv/Snart%20mad%20pause.jpg", cat:"andre", type:"img", title:"Pause under gulvlægning"},
+  {src:"Gulv/Underlag%20og%20isolering.jpg", cat:"andre", type:"img", title:"Underlag og isolering"},
+  {src:"Gulv/gulv1%20(1).jpeg", cat:"andre", type:"img", title:"Eksempel på klikgulv 1"},
+  {src:"Gulv/gulv1%20(2).jpeg", cat:"andre", type:"img", title:"Eksempel på klikgulv 2"},
+  {src:"Gulv/gulv1%20(3).jpeg", cat:"andre", type:"img", title:"Eksempel på klikgulv 3"},
+  {src:"Gulv/gulv1%20(4).jpeg", cat:"andre", type:"img", title:"Eksempel på klikgulv 4"},
+  {src:"Gulv/Lille%20værelse%20grå%20(efter).jpeg", cat:"andre", type:"img", title:"Lille værelse gråt efter"}
+];
+
+let currentIndex = 0;
+let currentCategory = "all";
+let currentLightboxIndex = 0;
+
+function renderGallery() {
+  const track = document.getElementById("carouselTrack");
+  const thumbs = document.getElementById("thumbnailTrack");
+  track.innerHTML = "";
+  thumbs.innerHTML = "";
+
+  const visibleItems = galleryItems.filter(
+    item => currentCategory === "all" || item.cat === currentCategory
+  );
+
+  visibleItems.forEach((item, i) => {
+    let main, thumb;
+    if(item.type === "img") {
+      main = `<div class="carousel-item" onclick="openLightbox(${i})"><img src="${item.src}" alt="${item.title}"></div>`;
+      thumb = `<img class="thumbnail ${i===0?'active':''}" src="${item.src}" onclick="jumpTo(${i})">`;
     } else {
-      item.style.display = 'none';
+      main = `<div class="carousel-item" onclick="openLightbox(${i})"><video muted autoplay loop playsinline><source src="${item.src}" type="video/mp4"></video></div>`;
+      thumb = `<video class="thumbnail ${i===0?'active':''}" onclick="jumpTo(${i})" muted><source src="${item.src}" type="video/mp4"></video>`;
     }
+    track.innerHTML += main;
+    thumbs.innerHTML += thumb;
   });
+
+  currentIndex = 0;
 }
+
+function filterGallery(cat) {
+  currentCategory = cat;
+  document.querySelectorAll(".gallery-filters button").forEach(btn=>btn.classList.remove("active"));
+  document.querySelector(`.gallery-filters button[onclick="filterGallery('${cat}')"]`).classList.add("active");
+  renderGallery();
+}
+
+function moveCarousel(dir) {
+  const visibleItems = document.querySelectorAll("#carouselTrack .carousel-item");
+  currentIndex += dir;
+  if (currentIndex < 0) currentIndex = visibleItems.length - 1;
+  if (currentIndex >= visibleItems.length) currentIndex = 0;
+  updateCarousel();
+}
+
+function jumpTo(index) {
+  currentIndex = index;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const track = document.getElementById("carouselTrack");
+  const thumbs = document.querySelectorAll(".thumbnail");
+  const visibleItems = document.querySelectorAll("#carouselTrack .carousel-item");
+
+  track.scrollTo({left: visibleItems[currentIndex].offsetLeft, behavior:"smooth"});
+  thumbs.forEach(t=>t.classList.remove("active"));
+  if (thumbs[currentIndex]) thumbs[currentIndex].classList.add("active");
+}
+
+// Lightbox-funktioner
+function openLightbox(index) {
+  currentLightboxIndex = index;
+  showLightboxItem();
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+function changeLightbox(dir) {
+  const visibleItems = galleryItems.filter(
+    item => currentCategory === "all" || item.cat === currentCategory
+  );
+  currentLightboxIndex += dir;
+  if(currentLightboxIndex < 0) currentLightboxIndex = visibleItems.length-1;
+  if(currentLightboxIndex >= visibleItems.length) currentLightboxIndex = 0;
+  showLightboxItem();
+}
+function showLightboxItem() {
+  const visibleItems = galleryItems.filter(
+    item => currentCategory === "all" || item.cat === currentCategory
+  );
+  const item = visibleItems[currentLightboxIndex];
+  const content = document.getElementById("lightboxContent");
+  if(item.type==="img") {
+    content.innerHTML = `<img src="${item.src}" style="max-width:90%; max-height:90%;">`;
+  } else {
+    content.innerHTML = `<video controls autoplay style="max-width:90%; max-height:90%;"><source src="${item.src}" type="video/mp4"></video>`;
+  }
+}
+
+renderGallery(); // initial
 </script>
 
 <style>
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+}
+.carousel-item img, .carousel-item video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+.carousel-buttons button {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.thumbnail-track {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin-top: 10px;
+  padding: 5px;
+  justify-content: center;
+}
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.thumbnail.active, .thumbnail:hover {
+  opacity: 1;
+  border: 2px solid #333;
+}
 .gallery-filters {
   text-align: center;
   margin-bottom: 15px;
@@ -648,12 +754,38 @@ function filterGallery(category) {
   border-radius: 6px;
   transition: 0.3s;
 }
-.gallery-filters button.active, 
-.gallery-filters button:hover {
+.gallery-filters button.active, .gallery-filters button:hover {
   background: #333;
   color: #fff;
 }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox-content {
+  text-align: center;
+}
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+.lightbox-close { top: 20px; right: 30px; }
+.lightbox-prev { top: 50%; left: 30px; transform: translateY(-50%); }
+.lightbox-next { top: 50%; right: 30px; transform: translateY(-50%); }
 </style>
+
 
 
   <section id="prices">
