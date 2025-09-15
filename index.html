@@ -518,98 +518,160 @@ header h1 {
     <button onclick="filterGallery('andre')">Andre</button>
   </div>
 
-  <div class="carousel-container">
+  <div class="carousel-container" id="carouselContainer">
     <div class="carousel-track" id="carouselTrack">
 
       <!-- Soveværelse -->
       <div class="carousel-item sovevaerelse">
-        <a href="Gulv/Underlag%20lagt%20soveværelse.jpeg" data-lightbox="gallery" data-title="Underlag lagt i soveværelse">
-          <img src="Gulv/Underlag%20lagt%20soveværelse.jpeg" alt="Underlag lagt i soveværelse" loading="lazy">
+        <a href="Gulv/Underlag lagt soveværelse.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Underlag lagt soveværelse.jpeg" alt="Underlag lagt i soveværelse" class="lazy">
         </a>
       </div>
       <div class="carousel-item sovevaerelse">
-        <a href="Gulv/Soveværelse%202%20rækker.jpeg" data-lightbox="gallery" data-title="Klikgulv med to rækker i soveværelse">
-          <img src="Gulv/Soveværelse%202%20rækker.jpeg" alt="Klikgulv med to rækker i soveværelse" loading="lazy">
+        <a href="Gulv/Soveværelse 2 rækker.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Soveværelse 2 rækker.jpeg" alt="Klikgulv med to rækker i soveværelse" class="lazy">
         </a>
       </div>
       <div class="carousel-item sovevaerelse">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Soveværelse%20ny.mp4" type="video/mp4">
-        </video>
+        <video class="lazy" data-src="Gulv/Soveværelse ny.mp4" muted playsinline></video>
       </div>
 
       <!-- Køkken -->
       <div class="carousel-item koekken">
-        <a href="Gulv/Køkken%20før.jpeg" data-lightbox="gallery" data-title="Køkken før klikgulv">
-          <img src="Gulv/Køkken%20før.jpeg" alt="Køkken før klikgulv" loading="lazy">
+        <a href="Gulv/Køkken før.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Køkken før.jpeg" alt="Køkken før klikgulv" class="lazy">
         </a>
       </div>
       <div class="carousel-item koekken">
-        <a href="Gulv/Køkken%20efter%201.jpeg" data-lightbox="gallery" data-title="Køkken efter klikgulv">
-          <img src="Gulv/Køkken%20efter%201.jpeg" alt="Køkken efter klikgulv" loading="lazy">
+        <a href="Gulv/Køkken efter 1.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Køkken efter 1.jpeg" alt="Køkken efter klikgulv" class="lazy">
         </a>
       </div>
       <div class="carousel-item koekken">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Køkken%20rettet.mp4" type="video/mp4">
-        </video>
+        <video class="lazy" data-src="Gulv/Køkken rettet.mp4" muted playsinline></video>
+      </div>
+      <div class="carousel-item koekken">
+        <a href="Gulv/Køkken træ før.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Køkken træ før.jpeg" alt="Køkken træ før" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item koekken">
+        <a href="Gulv/Køkkentræ efter.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Køkkentræ efter.jpeg" alt="Køkken træ efter" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item koekken">
+        <a href="Gulv/Køkkentræ før.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Køkkentræ før.jpeg" alt="Køkken træ før" class="lazy">
+        </a>
       </div>
 
       <!-- Kælder -->
       <div class="carousel-item kaelder">
-        <a href="Gulv/Kælder%20start.jpg" data-lightbox="gallery" data-title="Start på klikgulv i kælder">
-          <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy">
+        <a href="Gulv/Kælder start.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Kælder start.jpg" alt="Start på klikgulv i kælder" class="lazy">
         </a>
       </div>
       <div class="carousel-item kaelder">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Kælder.mp4" type="video/mp4">
-        </video>
+        <a href="Gulv/Kælder ½.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Kælder ½.jpg" alt="Halvvejs færdig klikgulv i kælder" class="lazy">
+        </a>
       </div>
       <div class="carousel-item kaelder">
-        <a href="Gulv/Kælder%20½.jpg" data-lightbox="gallery" data-title="Halvvejs færdig klikgulv i kælder">
-          <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs færdig klikgulv i kælder" loading="lazy">
+        <a href="Gulv/Kælder mangler lister.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Kælder mangler lister.jpg" alt="Kælder mangler lister" class="lazy">
         </a>
+      </div>
+      <div class="carousel-item kaelder">
+        <video class="lazy" data-src="Gulv/Kælder.mp4" muted playsinline></video>
       </div>
 
       <!-- Stue -->
       <div class="carousel-item stue">
-        <a href="Gulv/Stue.jpg" data-lightbox="gallery" data-title="Klikgulv i stue – flot finish">
-          <img src="Gulv/Stue.jpg" alt="Klikgulv i stue – flot finish" loading="lazy">
+        <a href="Gulv/Stue.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Stue.jpg" alt="Klikgulv i stue" class="lazy">
         </a>
       </div>
       <div class="carousel-item stue">
-        <video muted autoplay loop playsinline loading="lazy">
-          <source src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" type="video/mp4">
-        </video>
+        <video class="lazy" data-src="Gulv/Stue færdigt, nu lille værelse.mp4" muted playsinline></video>
       </div>
       <div class="carousel-item stue">
-        <a href="Gulv/Stuen%20efter%201.jpeg" data-lightbox="gallery" data-title="Stuen efter klikgulv – billede 1">
-          <img src="Gulv/Stuen%20efter%201.jpeg" alt="Stuen efter klikgulv – billede 1" loading="lazy">
+        <a href="Gulv/Stuen efter 1.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Stuen efter 1.jpeg" alt="Stuen efter klikgulv 1" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item stue">
+        <a href="Gulv/Stuen efter 2.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Stuen efter 2.jpeg" alt="Stuen efter klikgulv 2" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item stue">
+        <a href="Gulv/Stuen før.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Stuen før.jpeg" alt="Stuen før klikgulv" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item stue">
+        <a href="Gulv/Stuentræ før.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Stuentræ før.jpeg" alt="Stue træ før" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item stue">
+        <a href="Gulv/stuetræ efter.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/stuetræ efter.jpeg" alt="Stue træ efter" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item stue">
+        <a href="Gulv/Lille værelse grå (efter).jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Lille værelse grå (efter).jpeg" alt="Lille værelse grå efter" class="lazy">
         </a>
       </div>
 
       <!-- Gange -->
       <div class="carousel-item gang">
-        <a href="Gulv/langegang%20træ.jpeg" data-lightbox="gallery" data-title="Klikgulv i lang gang">
-          <img src="Gulv/langegang%20træ.jpeg" alt="Klikgulv i lang gang" loading="lazy">
+        <a href="Gulv/langegang træ.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/langegang træ.jpeg" alt="Klikgulv i lang gang" class="lazy">
         </a>
       </div>
       <div class="carousel-item gang">
-        <a href="Gulv/lille%20gang%20træ.jpeg" data-lightbox="gallery" data-title="Klikgulv i lille gang">
-          <img src="Gulv/lille%20gang%20træ.jpeg" alt="Klikgulv i lille gang" loading="lazy">
+        <a href="Gulv/lille gang træ.jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/lille gang træ.jpeg" alt="Klikgulv i lille gang" class="lazy">
         </a>
       </div>
 
       <!-- Andre -->
       <div class="carousel-item andre">
-        <a href="Gulv/Underlag%20og%20isolering.jpg" data-lightbox="gallery" data-title="Underlag og isolering før klikgulv">
-          <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering før klikgulv" loading="lazy">
+        <a href="Gulv/Forberedelse.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Forberedelse.jpg" alt="Forberedelse" class="lazy">
         </a>
       </div>
       <div class="carousel-item andre">
-        <a href="Gulv/Snart%20mad%20pause.jpg" data-lightbox="gallery" data-title="Pause under klikgulvlægning">
-          <img src="Gulv/Snart%20mad%20pause.jpg" alt="Pause under klikgulvlægning" loading="lazy">
+        <a href="Gulv/Snart mad pause.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Snart mad pause.jpg" alt="Pause under klikgulvlægning" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item andre">
+        <a href="Gulv/Underlag og isolering.jpg" class="lightbox" data-type="img">
+          <img data-src="Gulv/Underlag og isolering.jpg" alt="Underlag og isolering" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item andre">
+        <a href="Gulv/gulv1 (1).jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/gulv1 (1).jpeg" alt="Eksempel klikgulv 1" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item andre">
+        <a href="Gulv/gulv1 (2).jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/gulv1 (2).jpeg" alt="Eksempel klikgulv 2" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item andre">
+        <a href="Gulv/gulv1 (3).jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/gulv1 (3).jpeg" alt="Eksempel klikgulv 3" class="lazy">
+        </a>
+      </div>
+      <div class="carousel-item andre">
+        <a href="Gulv/gulv1 (4).jpeg" class="lightbox" data-type="img">
+          <img data-src="Gulv/gulv1 (4).jpeg" alt="Eksempel klikgulv 4" class="lazy">
         </a>
       </div>
 
@@ -617,10 +679,34 @@ header h1 {
   </div>
 </section>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
 <script>
+// Lazy loading
+const lazyElements = document.querySelectorAll('.lazy');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      if (el.tagName === "IMG") el.src = el.dataset.src;
+      if (el.tagName === "VIDEO") {
+        el.src = el.dataset.src;
+        el.load();
+      }
+      observer.unobserve(el);
+    }
+  });
+});
+lazyElements.forEach(el => observer.observe(el));
+
+// Filtrering
 function filterGallery(category) {
-  let items = document.querySelectorAll('.carousel-item');
-  let buttons = document.querySelectorAll('.gallery-filters button');
+  const items = document.querySelectorAll('.carousel-item');
+  const buttons = document.querySelectorAll('.gallery-filters button');
 
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector(`.gallery-filters button[onclick="filterGallery('${category}')"]`).classList.add('active');
@@ -633,28 +719,79 @@ function filterGallery(category) {
     }
   });
 }
+
+// Lightbox funktion
+const lightboxLinks = document.querySelectorAll('.lightbox');
+lightboxLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const type = link.dataset.type;
+    const src = link.querySelector('img')?.src || link.querySelector('video')?.src;
+    const content = document.getElementById('lightboxContent');
+    if(type === 'img') {
+      content.innerHTML = `<img src="${src}" style="max-width:90%; max-height:90%;">`;
+    } else if(type === 'video') {
+      content.innerHTML = `<video controls autoplay style="max-width:90%; max-height:90%;"><source src="${src}" type="video/mp4"></video>`;
+    }
+    document.getElementById('lightbox').style.display = 'flex';
+  });
+});
+
+function closeLightbox() {
+  const content = document.getElementById('lightboxContent');
+  content.innerHTML = '';
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+// Swipe funktion for mobil
+let startX = 0;
+let isDragging = false;
+const carousel = document.getElementById("carouselContainer");
+
+carousel.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+carousel.addEventListener("touchend", e => {
+  if(!isDragging) return;
+  let dx = e.changedTouches[0].clientX - startX;
+  if(dx > 50) scrollCarousel(-1);
+  if(dx < -50) scrollCarousel(1);
+  isDragging = false;
+});
+
+function scrollCarousel(dir) {
+  const visibleItems = Array.from(document.querySelectorAll("#carouselTrack .carousel-item"))
+    .filter(item => item.style.display !== 'none');
+  if(visibleItems.length === 0) return;
+  
+  let container = document.getElementById("carouselTrack");
+  let scrollLeft = container.scrollLeft;
+  let width = visibleItems[0].offsetWidth + 10; 
+  container.scrollTo({ left: scrollLeft + dir*width, behavior: "smooth" });
+}
 </script>
 
 <style>
-.gallery-filters {
-  text-align: center;
-  margin-bottom: 15px;
-}
-.gallery-filters button {
-  background: #eee;
-  border: none;
-  padding: 8px 14px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-.gallery-filters button.active, 
-.gallery-filters button:hover {
-  background: #333;
-  color: #fff;
+.gallery-filters { text-align:center; margin-bottom:15px; }
+.gallery-filters button { background:#eee; border:none; padding:8px 14px; margin:5px; cursor:pointer; border-radius:6px; transition:.3s; }
+.gallery-filters button.active, .gallery-filters button:hover { background:#333; color:#fff; }
+
+.carousel-container { overflow-x:auto; display:flex; flex-wrap:nowrap; gap:10px; }
+.carousel-track { display:flex; gap:10px; }
+.carousel-item { flex:0 0 auto; width:200px; cursor:pointer; }
+.carousel-item img, .carousel-item video { width:100%; border-radius:8px; }
+
+.lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999; }
+.lightbox-content { text-align:center; }
+.lightbox .close { position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer; user-select:none; }
+
+@media(max-width:768px){
+  .carousel-item { width:150px; }
 }
 </style>
+
 
 
   <section id="prices">
