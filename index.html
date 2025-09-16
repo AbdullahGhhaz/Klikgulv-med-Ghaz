@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -510,106 +511,154 @@ header h1 {
 
   <!-- Filter knapper -->
   <div class="gallery-filters">
+    <button onclick="filterGallery('all')" class="active">Alle</button>
     <button onclick="filterGallery('sovevaerelse')">Soveværelse</button>
     <button onclick="filterGallery('koekken')">Køkken</button>
     <button onclick="filterGallery('kaelder')">Kælder</button>
     <button onclick="filterGallery('stue')">Stue</button>
     <button onclick="filterGallery('gang')">Gange</button>
     <button onclick="filterGallery('andre')">Andre</button>
-    <button onclick="filterGallery('all')" class="active">Alle</button>
   </div>
 
   <div class="gallery-grid">
 
-    <!-- Soveværelse -->
+    <!-- 🔹 Soveværelse -->
     <div class="gallery-pair sovevaerelse">
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
+        <video muted autoplay loop playsinline data-src="Gulv/Soveværelse ny.mp4" class="clickable-video"></video>
+      </div>
       <div class="gallery-item before">
         <span class="label">Før</span>
         <img src="Gulv/Underlag lagt soveværelse.jpeg" alt="Underlag soveværelse" class="clickable-image">
       </div>
-      <div class="gallery-item during">
-        <span class="label">Under arbejde</span>
-        <video muted loop playsinline data-src="Gulv/Soveværelse ny.mp4" class="hover-video"></video>
-      </div>
     </div>
 
-    <!-- Køkken -->
+    <!-- 🔹 Køkken -->
     <div class="gallery-pair koekken">
       <div class="gallery-item before">
         <span class="label">Før</span>
-        <img src="Gulv/Køkken grå før.jpeg" alt="Køkken før" class="clickable-image">
+        <img src="Gulv/Køkken grå før.jpeg" alt="Køkken grå før" class="clickable-image">
       </div>
       <div class="gallery-item after">
         <span class="label">Efter</span>
-        <img src="Gulv/Køkken grå efter.jpeg" alt="Køkken efter" class="clickable-image">
+        <img src="Gulv/Køkken grå efter.jpeg" alt="Køkken grå efter" class="clickable-image">
       </div>
       <div class="gallery-item during">
         <span class="label">Under arbejde</span>
-        <video muted loop playsinline data-src="Gulv/Køkken rettet.mp4" class="hover-video"></video>
+        <video muted autoplay loop playsinline data-src="Gulv/Køkken rettet.mp4" class="clickable-video"></video>
+      </div>
+      <div class="gallery-item before">
+        <span class="label">Før</span>
+        <img src="Gulv/Køkkentræ før.jpeg" alt="Køkkentræ før" class="clickable-image">
+      </div>
+      <div class="gallery-item before">
+        <span class="label">Før</span>
+        <img src="Gulv/Køkkentræ før1.jpeg" alt="Køkkentræ før1" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/Køkkentræ efter.jpeg" alt="Køkkentræ efter" class="clickable-image">
       </div>
     </div>
 
-    <!-- Kælder -->
+    <!-- 🔹 Kælder -->
     <div class="gallery-pair kaelder">
       <div class="gallery-item before">
         <span class="label">Før</span>
         <img src="Gulv/Kælder start.jpg" alt="Kælder start" class="clickable-image">
       </div>
-      <div class="gallery-item during">
-        <span class="label">Under arbejde</span>
-        <video muted loop playsinline data-src="Gulv/Kælder.mp4" class="hover-video"></video>
-      </div>
       <div class="gallery-item after">
         <span class="label">Efter</span>
+        <img src="Gulv/kælder færdig (1).jpeg" alt="Kælder færdig" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
         <img src="Gulv/Kælder ½.jpg" alt="Kælder halvvejs" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
+        <img src="Gulv/Kælder mangler lister.jpg" alt="Kælder mangler lister" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
+        <video muted autoplay loop playsinline data-src="Gulv/Kælder.mp4" class="clickable-video"></video>
       </div>
     </div>
 
-    <!-- Stue -->
+    <!-- 🔹 Stue -->
     <div class="gallery-pair stue">
       <div class="gallery-item before">
         <span class="label">Før</span>
-        <img src="Gulv/Stuen før.jpeg" alt="Stue før" class="clickable-image">
+        <img src="Gulv/Stuen før.jpeg" alt="Stuen før" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/Stue grå efter 1.jpeg" alt="Stue grå efter 1" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/Stue grå efter 2.jpeg" alt="Stue grå efter 2" class="clickable-image">
       </div>
       <div class="gallery-item during">
         <span class="label">Under arbejde</span>
-        <video muted loop playsinline data-src="Gulv/Stue færdigt, nu lille værelse.mp4" class="hover-video"></video>
+        <img src="Gulv/Stue under arbejde.jpg" alt="Stue under arbejde" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
+        <img src="Gulv/stuen grå under arbejde.jpeg" alt="Stue grå under arbejde" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
+        <video muted autoplay loop playsinline data-src="Gulv/Stue færdigt, nu lille værelse.mp4" class="clickable-video"></video>
+      </div>
+      <div class="gallery-item before">
+        <span class="label">Før</span>
+        <img src="Gulv/Stuentræ før.jpeg" alt="Stuentræ før" class="clickable-image">
       </div>
       <div class="gallery-item after">
         <span class="label">Efter</span>
-        <img src="Gulv/Stue grå efter 1.jpeg" alt="Stue efter 1" class="clickable-image">
-        <img src="Gulv/Stue grå efter 2.jpeg" alt="Stue efter 2" class="clickable-image">
+        <img src="Gulv/stuetræ efter.jpeg" alt="Stuetræ efter" class="clickable-image">
       </div>
     </div>
 
-    <!-- Gange -->
+    <!-- 🔹 Gang -->
     <div class="gallery-pair gang">
-      <div class="gallery-item before">
-        <span class="label">Før</span>
-        <img src="Gulv/lille gang træ.jpeg" alt="Lille gang før" class="clickable-image">
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/langegang træ.jpeg" alt="Lang gang træ" class="clickable-image">
       </div>
       <div class="gallery-item after">
         <span class="label">Efter</span>
-        <img src="Gulv/langegang træ.jpeg" alt="Lang gang efter" class="clickable-image">
+        <img src="Gulv/lille gang træ.jpeg" alt="Lille gang træ" class="clickable-image">
       </div>
     </div>
 
-    <!-- Andre -->
+    <!-- 🔹 Andre -->
     <div class="gallery-pair andre">
-      <div class="gallery-item before">
-        <span class="label">Før</span>
+      <div class="gallery-item during">
+        <span class="label">Under arbejde</span>
         <img src="Gulv/Forberedelse.jpg" alt="Forberedelse" class="clickable-image">
       </div>
-      <div class="gallery-item after">
-        <span class="label">Efter</span>
-        <img src="Gulv/Underlag og isolering.jpg" alt="Underlag og isolering" class="clickable-image">
-        <img src="Gulv/fliselook færdig.jpeg" alt="Fliselook færdig" class="clickable-image">
-        <img src="Gulv/kælder færdig (1).jpeg" alt="Kælder færdig" class="clickable-image">
-        <img src="Gulv/overgang fliselook efter.jpeg" alt="Overgang fliselook efter" class="clickable-image">
-      </div>
       <div class="gallery-item during">
         <span class="label">Under arbejde</span>
-        <img src="Gulv/stuen grå under arbejde.jpeg" alt="Stue under arbejde" class="clickable-image">
+        <img src="Gulv/Underlag og isolering.jpg" alt="Underlag og isolering" class="clickable-image">
+      </div>
+      <div class="gallery-item during">
+        <span class="label">Pause</span>
+        <img src="Gulv/Snart mad pause.jpg" alt="Pause" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/fliselook færdig.jpeg" alt="Fliselook færdig" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/overgang fliselook efter.jpeg" alt="Overgang fliselook efter" class="clickable-image">
+      </div>
+      <div class="gallery-item after">
+        <span class="label">Efter</span>
+        <img src="Gulv/Lille værelse grå (efter).jpeg" alt="Lille værelse grå efter" class="clickable-image">
       </div>
     </div>
 
@@ -619,18 +668,12 @@ header h1 {
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
-  <span class="lightbox-prev">&#10094;</span>
-  <span class="lightbox-next">&#10095;</span>
   <div class="lightbox-content"></div>
 </div>
 
 <script>
-let currentCategory = 'all';
-let lightboxIndex = 0;
-let currentItems = [];
-
+/* Filter */
 function filterGallery(category) {
-  currentCategory = category;
   document.querySelectorAll('.gallery-pair').forEach(pair => {
     pair.style.display = (category === 'all' || pair.classList.contains(category)) ? 'grid' : 'none';
   });
@@ -642,97 +685,70 @@ function filterGallery(category) {
 const lightbox = document.getElementById('lightbox');
 const lightboxContent = lightbox.querySelector('.lightbox-content');
 const closeBtn = lightbox.querySelector('.lightbox-close');
-const prevBtn = lightbox.querySelector('.lightbox-prev');
-const nextBtn = lightbox.querySelector('.lightbox-next');
 
-function openLightbox(index, category) {
-  const visibleItems = [];
-  document.querySelectorAll('.clickable-image, .hover-video').forEach(item => {
-    if(category === 'all' || item.closest('.gallery-pair').classList.contains(category)) visibleItems.push(item);
-  });
-  currentItems = visibleItems;
-  lightboxIndex = index;
-  showLightbox();
-  lightbox.style.display = 'flex';
-}
-
-function showLightbox() {
-  const item = currentItems[lightboxIndex];
+function openLightbox(content) {
   lightboxContent.innerHTML = '';
-  if(item.tagName === 'IMG') {
+  if(content.tagName === 'IMG') {
     const img = document.createElement('img');
-    img.src = item.src;
+    img.src = content.src;
     lightboxContent.appendChild(img);
-  } else if(item.tagName === 'VIDEO') {
+  } else if(content.tagName === 'VIDEO') {
     const vid = document.createElement('video');
-    vid.src = item.dataset.src || item.src;
+    vid.src = content.dataset.src;
+    vid.controls = true;
     vid.autoplay = true;
     vid.loop = true;
-    vid.controls = true;
     vid.muted = true;
     lightboxContent.appendChild(vid);
   }
+  lightbox.style.display = 'flex';
 }
 
-function changeLightbox(dir) {
-  lightboxIndex += dir;
-  if(lightboxIndex < 0) lightboxIndex = currentItems.length -1;
-  if(lightboxIndex >= currentItems.length) lightboxIndex = 0;
-  showLightbox();
-}
+document.querySelectorAll('.clickable-image').forEach(img => img.addEventListener('click', () => openLightbox(img)));
+document.querySelectorAll('.clickable-video').forEach(vid => vid.addEventListener('click', () => openLightbox(vid)));
 
 closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-prevBtn.addEventListener('click', () => changeLightbox(-1));
-nextBtn.addEventListener('click', () => changeLightbox(1));
 lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.style.display = 'none'; });
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') lightbox.style.display = 'none';
-  if(e.key === 'ArrowLeft') changeLightbox(-1);
-  if(e.key === 'ArrowRight') changeLightbox(1);
-});
-
-/* Klik på billeder/videoer */
-document.querySelectorAll('.clickable-image, .hover-video').forEach((el, idx) => {
-  el.addEventListener('click', e => {
-    const category = currentCategory;
-    const allItems = [];
-    document.querySelectorAll('.clickable-image, .hover-video').forEach(item => {
-      if(category === 'all' || item.closest('.gallery-pair').classList.contains(category)) allItems.push(item);
-    });
-    const index = allItems.indexOf(el);
-    openLightbox(index, category);
-  });
-});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') lightbox.style.display = 'none'; });
 
 /* Lazy load videoer */
-document.querySelectorAll('.hover-video').forEach(v => { v.src = v.dataset.src; });
-
-/* Hover play videoer */
-document.querySelectorAll('.hover-video').forEach(v => {
-  v.addEventListener('mouseenter', () => { v.play(); });
-  v.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
-});
+document.querySelectorAll('.clickable-video').forEach(v => v.src = v.dataset.src);
 </script>
 
 <style>
-.gallery-filters { text-align:center; margin-bottom:15px; }
-.gallery-filters button { background:#eee; border:none; padding:8px 14px; margin:5px; cursor:pointer; border-radius:6px; transition:0.3s; }
-.gallery-filters button.active, .gallery-filters button:hover { background:#333; color:#fff; }
+.gallery-filters {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.gallery-filters button {
+  background: #eee;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.gallery-filters button.active, .gallery-filters button:hover {
+  background: #333;
+  color: #fff;
+}
 
 .gallery-grid { display:flex; flex-direction:column; gap:20px; }
 .gallery-pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
 .gallery-item { position:relative; }
 .gallery-item img, .gallery-item video { width:100%; height:250px; object-fit:cover; border-radius:6px; cursor:pointer; }
 .gallery-item .label { position:absolute; top:5px; left:5px; background:rgba(0,0,0,0.6); color:#fff; padding:3px 6px; font-size:13px; border-radius:3px; }
+.gallery-item.during { grid-column:auto; }
 
 .lightbox { display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
 .lightbox-content img, .lightbox-content video { max-width:90%; max-height:90%; }
-.lightbox-close, .lightbox-prev, .lightbox-next { position:absolute; color:white; font-size:40px; font-weight:bold; cursor:pointer; user-select:none; }
-.lightbox-close { top:20px; right:30px; }
-.lightbox-prev { top:50%; left:30px; transform:translateY(-50%); }
-.lightbox-next { top:50%; right:30px; transform:translateY(-50%); }
+.lightbox-close { position:absolute; top:20px; right:30px; color:white; font-size:40px; font-weight:bold; cursor:pointer; user-select:none; }
 
-@media(max-width:768px){ .gallery-item img, .gallery-item video { height:200px; } }
+/* Responsive højde til mobil */
+@media(max-width:768px){
+  .gallery-item img, .gallery-item video { height:200px; }
+}
 </style>
 
 
