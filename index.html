@@ -738,7 +738,7 @@ document.querySelectorAll('.clickable-video').forEach(v => v.src = v.dataset.src
 .gallery-item { position:relative; }
 .gallery-item img, .gallery-item video { width:100%; height:250px; object-fit:cover; border-radius:6px; cursor:pointer; }
 .gallery-item .label { position:absolute; top:5px; left:5px; background:rgba(0,0,0,0.6); color:#fff; padding:3px 6px; font-size:13px; border-radius:3px; }
-.gallery-item.during { grid-column:1/-1; }
+.gallery-item.during { grid-column:auto; }
 
 .lightbox { display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
 .lightbox-content img, .lightbox-content video { max-width:90%; max-height:90%; }
@@ -749,6 +749,7 @@ document.querySelectorAll('.clickable-video').forEach(v => v.src = v.dataset.src
   .gallery-item img, .gallery-item video { height:200px; }
 }
 </style>
+
 
 
   <section id="prices">
