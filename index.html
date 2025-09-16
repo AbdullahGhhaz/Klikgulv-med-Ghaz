@@ -531,64 +531,81 @@ header h1 {
       <video src="Gulv/Soveværelse%20ny.mp4" muted autoplay loop playsinline loading="lazy"></video>
     </div>
 
-    <!-- 🔹 Køkken -->
-    <div class="gallery-item koekken">
-      <img src="Gulv/Køkken%20før.jpeg" alt="Køkken før klikgulv" loading="lazy">
-    </div>
-    <div class="gallery-item koekken">
-      <img src="Gulv/Køkken%20efter%201.jpeg" alt="Køkken efter klikgulv" loading="lazy">
+    <!-- 🔹 Køkken (før/efter) -->
+    <div class="gallery-pair koekken">
+      <div class="gallery-item">
+        <img src="Gulv/Køkken%20før.jpeg" alt="Køkken før klikgulv" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/Køkken%20efter%201.jpeg" alt="Køkken efter klikgulv" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
     <div class="gallery-item koekken">
       <video src="Gulv/Køkken%20rettet.mp4" muted autoplay loop playsinline loading="lazy"></video>
     </div>
-    <div class="gallery-item koekken">
-      <img src="Gulv/Køkken%20træ%20før.jpeg" alt="Køkken træ før" loading="lazy">
-    </div>
-    <div class="gallery-item koekken">
-      <img src="Gulv/Køkkentræ%20efter.jpeg" alt="Køkken træ efter" loading="lazy">
-    </div>
-    <div class="gallery-item koekken">
-      <img src="Gulv/Køkkentræ%20før.jpeg" alt="Køkken træ før" loading="lazy">
+    <div class="gallery-pair koekken">
+      <div class="gallery-item">
+        <img src="Gulv/Køkken%20træ%20før.jpeg" alt="Køkken træ før" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/Køkkentræ%20efter.jpeg" alt="Køkken træ efter" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
 
-    <!-- 🔹 Kælder -->
-    <div class="gallery-item kaelder">
-      <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy">
+    <!-- 🔹 Kælder (før/efter + proces) -->
+    <div class="gallery-pair kaelder">
+      <div class="gallery-item">
+        <img src="Gulv/Kælder%20start.jpg" alt="Start på klikgulv i kælder" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
     <div class="gallery-item kaelder">
       <img src="Gulv/Kælder%20½.jpg" alt="Halvvejs i kælder" loading="lazy">
     </div>
     <div class="gallery-item kaelder">
-      <img src="Gulv/Kælder%20mangler%20lister.jpg" alt="Kælder næsten færdig" loading="lazy">
-    </div>
-    <div class="gallery-item kaelder">
       <video src="Gulv/Kælder.mp4" muted autoplay loop playsinline loading="lazy"></video>
     </div>
 
-    <!-- 🔹 Stue -->
+    <!-- 🔹 Stue (før/efter) -->
+    <div class="gallery-pair stue">
+      <div class="gallery-item">
+        <img src="Gulv/Stuen%20før.jpeg" alt="Stue før" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/Stuen%20efter%201.jpeg" alt="Stuen efter 1" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
+    </div>
+    <div class="gallery-item stue">
+      <img src="Gulv/Stuen%20efter%202.jpeg" alt="Stuen efter 2" loading="lazy">
+    </div>
     <div class="gallery-item stue">
       <img src="Gulv/Stue.jpg" alt="Klikgulv i stue" loading="lazy">
     </div>
     <div class="gallery-item stue">
       <video src="Gulv/Stue%20færdigt,%20nu%20lille%20værelse.mp4" muted autoplay loop playsinline loading="lazy"></video>
     </div>
-    <div class="gallery-item stue">
-      <img src="Gulv/Stuen%20efter%201.jpeg" alt="Stuen efter 1" loading="lazy">
-    </div>
-    <div class="gallery-item stue">
-      <img src="Gulv/Stuen%20efter%202.jpeg" alt="Stuen efter 2" loading="lazy">
-    </div>
-    <div class="gallery-item stue">
-      <img src="Gulv/Stuen%20før.jpeg" alt="Stuen før" loading="lazy">
-    </div>
-    <div class="gallery-item stue">
-      <img src="Gulv/Stuetræ%20efter.jpeg" alt="Stue træ efter" loading="lazy">
-    </div>
-    <div class="gallery-item stue">
-      <img src="Gulv/Stuentræ%20før.jpeg" alt="Stue træ før" loading="lazy">
+    <div class="gallery-pair stue">
+      <div class="gallery-item">
+        <img src="Gulv/Stuentræ%20før.jpeg" alt="Stue træ før" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/Stuetræ%20efter.jpeg" alt="Stue træ efter" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
 
-    <!-- 🔹 Gang -->
+    <!-- 🔹 Gange -->
     <div class="gallery-item gang">
       <img src="Gulv/langegang%20træ.jpeg" alt="Klikgulv i lang gang" loading="lazy">
     </div>
@@ -606,17 +623,25 @@ header h1 {
     <div class="gallery-item andre">
       <img src="Gulv/Underlag%20og%20isolering.jpg" alt="Underlag og isolering" loading="lazy">
     </div>
-    <div class="gallery-item andre">
-      <img src="Gulv/gulv1%20(1).jpeg" alt="Eksempel på klikgulv 1" loading="lazy">
+    <div class="gallery-pair andre">
+      <div class="gallery-item">
+        <img src="Gulv/gulv1%20(1).jpeg" alt="Eksempel på klikgulv 1" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/gulv1%20(2).jpeg" alt="Eksempel på klikgulv 2" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
-    <div class="gallery-item andre">
-      <img src="Gulv/gulv1%20(2).jpeg" alt="Eksempel på klikgulv 2" loading="lazy">
-    </div>
-    <div class="gallery-item andre">
-      <img src="Gulv/gulv1%20(3).jpeg" alt="Eksempel på klikgulv 3" loading="lazy">
-    </div>
-    <div class="gallery-item andre">
-      <img src="Gulv/gulv1%20(4).jpeg" alt="Eksempel på klikgulv 4" loading="lazy">
+    <div class="gallery-pair andre">
+      <div class="gallery-item">
+        <img src="Gulv/gulv1%20(3).jpeg" alt="Eksempel på klikgulv 3" loading="lazy">
+        <p class="label">Før</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Gulv/gulv1%20(4).jpeg" alt="Eksempel på klikgulv 4" loading="lazy">
+        <p class="label">Efter</p>
+      </div>
     </div>
     <div class="gallery-item andre">
       <img src="Gulv/Lille%20værelse%20grå%20(efter).jpeg" alt="Lille værelse grå efter" loading="lazy">
@@ -627,17 +652,18 @@ header h1 {
 
 <script>
 function filterGallery(category) {
-  let items = document.querySelectorAll('.gallery-item');
+  let pairs = document.querySelectorAll('.gallery-pair');
+  let items = document.querySelectorAll('.gallery-item:not(.gallery-pair .gallery-item)');
   let buttons = document.querySelectorAll('.gallery-filters button');
 
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector(`.gallery-filters button[onclick="filterGallery('${category}')"]`).classList.add('active');
 
-  items.forEach(item => {
-    if (category === 'all' || item.classList.contains(category)) {
-      item.style.display = 'block';
+  [...pairs, ...items].forEach(el => {
+    if (category === 'all' || el.classList.contains(category)) {
+      el.style.display = 'block';
     } else {
-      item.style.display = 'none';
+      el.style.display = 'none';
     }
   });
 }
@@ -665,18 +691,36 @@ function filterGallery(category) {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
 }
 
 .gallery-item img,
 .gallery-item video {
   width: 100%;
-  height: auto;
+  height: 220px; /* Ens højde */
+  object-fit: cover;
   border-radius: 8px;
   display: block;
 }
+
+.gallery-pair {
+  display: flex;
+  gap: 8px;
+}
+.gallery-pair .gallery-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.gallery-pair .label {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
 </style>
+
 
 
 
