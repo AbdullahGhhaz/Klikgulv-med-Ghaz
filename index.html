@@ -458,17 +458,12 @@
     e.preventDefault();
     sendKnap.textContent = 'Sender…';
     sendKnap.disabled = true;
-    fetch('https://script.google.com/macros/s/AKfycbzU-2vm2sykjHs56b0HnO9HirDXm_z_LfjSbiEoM2F-WKVVP1xu-spbjiIIwJzHBHRA/exec', {
+   fetch('https://script.google.com/macros/s/AKfycbzU-2vm2sykjHs56b0HnO9HirDXm_z_LfjSbiEoM2F-WKVVP1xu-spbjiIIwJzHBHRA/exec', {
       method: 'POST',
+      mode: 'no-cors',
       body: new FormData(formular)
-    })
-    .then(() => { window.location.href = 'tak.html'; })
-    .catch(() => {
-      svarBesked.textContent = 'Noget gik galt – prøv igen eller ring direkte.';
-      svarBesked.style.color = '#a32d2d';
-      svarBesked.classList.add('vis');
-      sendKnap.textContent = 'Send besked';
-      sendKnap.disabled = false;
+    }).finally(() => {
+      window.location.href = 'tak.html';
     });
   });
 </script>
