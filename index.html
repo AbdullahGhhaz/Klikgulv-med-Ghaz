@@ -460,9 +460,10 @@
     sendKnap.disabled = true;
    fetch('https://script.google.com/macros/s/AKfycbzU-2vm2sykjHs56b0HnO9HirDXm_z_LfjSbiEoM2F-WKVVP1xu-spbjiIIwJzHBHRA/exec', {
       method: 'POST',
-      mode: 'no-cors',
       body: new FormData(formular)
-    }).finally(() => {
+    }).then(() => {
+      window.location.href = 'tak.html';
+    }).catch(() => {
       window.location.href = 'tak.html';
     });
   });
