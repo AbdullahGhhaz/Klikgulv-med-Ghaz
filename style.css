@@ -524,3 +524,156 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 
   footer { flex-direction: column; gap: .75rem; text-align: center; padding: 1.75rem 1.5rem; }
 }
+
+
+/* ══════════════════════════════════════════
+   ANMELDELSER — tilføj dette til bunden af style.css
+   ══════════════════════════════════════════ */
+
+/* Sektion wrapper */
+.anmeldelser {
+  background: #faf9f7;
+}
+
+/* Grid med 3 kort */
+.anmeldelse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .anmeldelse-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Enkelt anmeldelseskort */
+.anmeldelse-kort {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.anmeldelse-kort:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* Stjerner */
+.stjerner {
+  color: #f4b400;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+}
+
+/* Citat-tekst */
+.anmeldelse-tekst {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: #444;
+  flex: 1;
+  font-style: italic;
+}
+
+/* Forfatter */
+.anmeldelse-forfatter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.anmeldelse-initialer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.anmeldelse-navn {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+}
+
+.anmeldelse-sted {
+  font-size: 0.82rem;
+  color: #999;
+  margin-top: 1px;
+}
+
+/* Google anmeldelse CTA boks */
+.google-anmeldelse-boks {
+  background: #fff;
+  border: 1.5px solid #e0dbd0;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .google-anmeldelse-boks {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+.google-anmeldelse-indhold {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .google-anmeldelse-indhold {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.google-ikon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.google-anmeldelse-titel {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+}
+
+.google-anmeldelse-undertekst {
+  font-size: 0.88rem;
+  color: #777;
+  line-height: 1.6;
+}
+
+.google-knap {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
