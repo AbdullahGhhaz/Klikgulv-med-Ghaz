@@ -881,32 +881,28 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 }
 
 /* ══════════════════════════════════════════
-   GALLERI GRID + LIGHTBOX
+   GALLERI — GRID DESKTOP / CAROUSEL MOBIL
    ══════════════════════════════════════════ */
 
-/* Fjern gammel carousel stil fra galleri-sektionen */
 .galleri .carousel-wrapper,
 .galleri .carousel-prikker { display: none; }
 
-/* ── Grid (desktop) ── */
+/* ── DESKTOP GRID (≥ 700px) ── */
 .galleri-grid {
-  columns: 3;
-  column-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  gap: 10px;
   margin-top: 2.5rem;
 }
 
-@media (max-width: 900px) {
-  .galleri-grid { columns: 2; }
+/* Første item (video) fylder 2 kolonner og 2 rækker */
+.galleri-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
-@media (max-width: 560px) {
-  .galleri-grid { columns: 1; }
-}
-
-/* Enkelt galleri-element */
 .galleri-item {
-  break-inside: avoid;
-  margin-bottom: 12px;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -917,78 +913,132 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 .galleri-item img,
 .galleri-item video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
 }
 
 .galleri-item:hover img,
 .galleri-item:hover video {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 /* Label overlay */
 .galleri-label {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
   color: #fff;
   font-size: 0.82rem;
-  padding: 1.5rem 0.75rem 0.6rem;
+  padding: 2rem 0.75rem 0.65rem;
   opacity: 0;
   transition: opacity 0.2s;
   border-radius: 0 0 10px 10px;
   pointer-events: none;
 }
-
 .galleri-item:hover .galleri-label { opacity: 1; }
 
-/* Mobil: label altid synlig */
-@media (max-width: 560px) {
+/* Video badge */
+.galleri-item:first-child::after {
+  content: "▶ Video";
+  position: absolute;
+  top: 0.65rem;
+  left: 0.75rem;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* ── MOBIL CAROUSEL (< 700px) ── */
+@media (max-width: 699px) {
+  .galleri-grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    grid-template-columns: unset;
+    grid-auto-rows: unset;
+    margin-top: 1.5rem;
+  }
+  .galleri-grid::-webkit-scrollbar { display: none; }
+
+  .galleri-item {
+    flex: 0 0 88vw;
+    height: 62vw;
+    scroll-snap-align: center;
+    border-radius: 12px;
+  }
+
+  .galleri-item:first-child {
+    grid-column: unset;
+    grid-row: unset;
+    flex: 0 0 88vw;
+    height: 62vw;
+  }
+
   .galleri-label {
     opacity: 1;
-    font-size: 0.78rem;
-    padding: 1.2rem 0.6rem 0.5rem;
+    font-size: 0.8rem;
+    padding: 1.5rem 0.65rem 0.55rem;
+  }
+
+  .galleri-item:first-child::after {
+    top: 0.5rem;
+    left: 0.6rem;
   }
 }
 
-/* ── Lightbox ── */
+/* ── LIGHTBOX ── */
 .lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0,0,0,0.94);
   z-index: 9999;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
 }
-
 .lightbox.aktiv { display: flex; }
 
 .lightbox-indhold {
-  max-width: min(92vw, 1100px);
+  max-width: min(94vw, 1200px);
   max-height: 82vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.lightbox-indhold img,
+.lightbox-indhold video {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+
 .lightbox-luk {
   position: absolute;
-  top: 1rem;
-  right: 1.25rem;
+  top: 0.75rem;
+  right: 1rem;
   background: none;
   border: none;
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   cursor: pointer;
   line-height: 1;
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  opacity: 0.75;
+  transition: opacity 0.15s;
   padding: 0;
 }
 .lightbox-luk:hover { opacity: 1; }
@@ -998,35 +1048,34 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.1);
   border: none;
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 6px;
-  transition: background 0.2s;
+  transition: background 0.15s;
   line-height: 1;
 }
-.lightbox-forrige { left: 0.75rem; }
-.lightbox-næste  { right: 0.75rem; }
+.lightbox-forrige { left: 0.5rem; }
+.lightbox-næste  { right: 0.5rem; }
 .lightbox-forrige:hover,
-.lightbox-næste:hover { background: rgba(255,255,255,0.25); }
+.lightbox-næste:hover { background: rgba(255,255,255,0.22); }
 
 .lightbox-label {
-  color: rgba(255,255,255,0.75);
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.88rem;
   margin-top: 0.75rem;
   text-align: center;
 }
-
 .lightbox-tæller {
-  color: rgba(255,255,255,0.45);
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.78rem;
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 560px) {
-  .lightbox-forrige { left: 0.25rem; font-size: 2rem; }
-  .lightbox-næste  { right: 0.25rem; font-size: 2rem; }
+  .lightbox-forrige { left: 0.2rem; font-size: 2.2rem; padding: 0.3rem 0.6rem; }
+  .lightbox-næste  { right: 0.2rem; font-size: 2.2rem; padding: 0.3rem 0.6rem; }
 }
