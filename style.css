@@ -881,122 +881,130 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 }
 
 /* ══════════════════════════════════════════
-   GALLERI — GRID DESKTOP / CAROUSEL MOBIL
+   GALLERI CAROUSEL + LIGHTBOX
    ══════════════════════════════════════════ */
 
 .galleri .carousel-wrapper,
-.galleri .carousel-prikker { display: none; }
+.galleri .carousel-prikker,
+.galleri-grid { display: none; }
 
-/* ── DESKTOP GRID (≥ 700px) ── */
-.galleri-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 240px;
-  gap: 10px;
-  margin-top: 2.5rem;
-}
-
-/* Første item (video) fylder 2 kolonner og 2 rækker */
-.galleri-item:first-child {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.galleri-item {
+/* ── Carousel wrapper ── */
+.g-carousel {
   position: relative;
-  border-radius: 10px;
+  margin-top: 2.5rem;
   overflow: hidden;
-  background: #e8e4dc;
+  border-radius: 14px;
+  background: #111;
+  max-height: 520px;
+}
+
+/* ── Track ── */
+.g-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  height: 480px;
+}
+
+@media (max-width: 700px) {
+  .g-track { height: 68vw; }
+  .g-carousel { max-height: none; border-radius: 10px; }
+}
+
+/* ── Enkelt slide ── */
+.g-slide {
+  flex: 0 0 100%;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
 }
 
-.galleri-item img,
-.galleri-item video {
+.g-slide img,
+.g-slide video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s ease;
 }
 
-.galleri-item:hover img,
-.galleri-item:hover video {
-  transform: scale(1.05);
-}
+.g-slide:hover img,
+.g-slide:hover video { transform: scale(1.03); }
 
-/* Label overlay */
-.galleri-label {
+/* Label */
+.g-label {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
   color: #fff;
-  font-size: 0.82rem;
-  padding: 2rem 0.75rem 0.65rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-  border-radius: 0 0 10px 10px;
+  font-size: 0.88rem;
+  padding: 2.5rem 1rem 0.85rem;
   pointer-events: none;
+  border-radius: 0 0 14px 14px;
 }
-.galleri-item:hover .galleri-label { opacity: 1; }
 
 /* Video badge */
-.galleri-item:first-child::after {
-  content: "▶ Video";
+.g-badge {
   position: absolute;
-  top: 0.65rem;
-  left: 0.75rem;
-  background: rgba(0,0,0,0.55);
+  top: 0.75rem; left: 0.9rem;
+  background: rgba(0,0,0,0.5);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 500;
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 20px;
   pointer-events: none;
 }
 
-/* ── MOBIL CAROUSEL (< 700px) ── */
-@media (max-width: 699px) {
-  .galleri-grid {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 10px;
-    padding-bottom: 0.75rem;
-    scrollbar-width: none;
-    grid-template-columns: unset;
-    grid-auto-rows: unset;
-    margin-top: 1.5rem;
-  }
-  .galleri-grid::-webkit-scrollbar { display: none; }
+/* ── Pile ── */
+.g-forrige, .g-næste {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.g-forrige { left: 0.75rem; }
+.g-næste   { right: 0.75rem; }
+.g-forrige:hover, .g-næste:hover { background: rgba(255,255,255,0.3); }
 
-  .galleri-item {
-    flex: 0 0 88vw;
-    height: 62vw;
-    scroll-snap-align: center;
-    border-radius: 12px;
-  }
-
-  .galleri-item:first-child {
-    grid-column: unset;
-    grid-row: unset;
-    flex: 0 0 88vw;
-    height: 62vw;
-  }
-
-  .galleri-label {
-    opacity: 1;
-    font-size: 0.8rem;
-    padding: 1.5rem 0.65rem 0.55rem;
-  }
-
-  .galleri-item:first-child::after {
-    top: 0.5rem;
-    left: 0.6rem;
-  }
+@media (max-width: 500px) {
+  .g-forrige { left: 0.4rem; font-size: 1.8rem; padding: 0.4rem 0.7rem; }
+  .g-næste   { right: 0.4rem; font-size: 1.8rem; padding: 0.4rem 0.7rem; }
 }
 
-/* ── LIGHTBOX ── */
+/* ── Prikker ── */
+.g-prikker {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.75rem 0 0.25rem;
+}
+
+.g-prik {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.g-prik.aktiv {
+  background: #1a1a1a;
+  transform: scale(1.3);
+}
+
+/* ── Lightbox ── */
 .lightbox {
   display: none;
   position: fixed;
@@ -1017,7 +1025,6 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   align-items: center;
   justify-content: center;
 }
-
 .lightbox-indhold img,
 .lightbox-indhold video {
   max-width: 100%;
@@ -1029,37 +1036,28 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 
 .lightbox-luk {
   position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2.8rem;
-  cursor: pointer;
-  line-height: 1;
-  opacity: 0.75;
+  top: 0.75rem; right: 1rem;
+  background: none; border: none;
+  color: #fff; font-size: 2.8rem;
+  cursor: pointer; line-height: 1;
+  opacity: 0.75; padding: 0;
   transition: opacity 0.15s;
-  padding: 0;
 }
 .lightbox-luk:hover { opacity: 1; }
 
-.lightbox-forrige,
-.lightbox-næste {
+.lightbox-forrige, .lightbox-næste {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50%; transform: translateY(-50%);
   background: rgba(255,255,255,0.1);
-  border: none;
-  color: #fff;
-  font-size: 2.8rem;
-  cursor: pointer;
+  border: none; color: #fff;
+  font-size: 2.8rem; cursor: pointer;
   padding: 0.4rem 0.9rem;
   border-radius: 6px;
-  transition: background 0.15s;
   line-height: 1;
+  transition: background 0.15s;
 }
 .lightbox-forrige { left: 0.5rem; }
-.lightbox-næste  { right: 0.5rem; }
+.lightbox-næste   { right: 0.5rem; }
 .lightbox-forrige:hover,
 .lightbox-næste:hover { background: rgba(255,255,255,0.22); }
 
@@ -1077,5 +1075,5 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 
 @media (max-width: 560px) {
   .lightbox-forrige { left: 0.2rem; font-size: 2.2rem; padding: 0.3rem 0.6rem; }
-  .lightbox-næste  { right: 0.2rem; font-size: 2.2rem; padding: 0.3rem 0.6rem; }
+  .lightbox-næste   { right: 0.2rem; font-size: 2.2rem; padding: 0.3rem 0.6rem; }
 }
