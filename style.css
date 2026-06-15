@@ -677,3 +677,205 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+/* ══════════════════════════════════════════
+   TELEFON I NAV
+   ══════════════════════════════════════════ */
+.nav-telefon {
+  font-weight: 500;
+  color: inherit !important;
+  border: 1px solid currentColor;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 6px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  font-size: 0.88rem !important;
+}
+.nav-telefon:hover { opacity: 1; }
+
+.mobil-telefon {
+  background: #1a1a1a;
+  color: #fff !important;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0.25rem 0;
+}
+
+/* ══════════════════════════════════════════
+   ANMELDELSER
+   ══════════════════════════════════════════ */
+.anmeldelser { background: #faf9f7; }
+
+.anmeldelse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 900px) {
+  .anmeldelse-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.anmeldelse-kort {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.anmeldelse-kort:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.stjerner { color: #f4b400; font-size: 1.15rem; letter-spacing: 2px; }
+
+.anmeldelse-tekst {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: #444;
+  flex: 1;
+  font-style: italic;
+}
+
+.anmeldelse-forfatter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.anmeldelse-initialer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.anmeldelse-navn { font-weight: 500; font-size: 0.9rem; color: #1a1a1a; }
+.anmeldelse-sted { font-size: 0.82rem; color: #999; margin-top: 1px; }
+
+.google-anmeldelse-boks {
+  background: #fff;
+  border: 1.5px solid #e0dbd0;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .google-anmeldelse-boks {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+.google-anmeldelse-indhold { display: flex; align-items: flex-start; gap: 1rem; }
+@media (max-width: 700px) {
+  .google-anmeldelse-indhold { flex-direction: column; align-items: center; }
+}
+.google-ikon { flex-shrink: 0; margin-top: 2px; }
+.google-anmeldelse-titel { font-weight: 500; font-size: 1rem; color: #1a1a1a; margin-bottom: 0.3rem; }
+.google-anmeldelse-undertekst { font-size: 0.88rem; color: #777; line-height: 1.6; }
+.google-knap { white-space: nowrap; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════ */
+.faq-sektion { background: #fff; }
+
+.faq-liste {
+  max-width: 720px;
+  margin: 3rem auto 0;
+}
+
+.faq-punkt {
+  border-bottom: 1px solid #e8e4dc;
+}
+.faq-punkt:first-child { border-top: 1px solid #e8e4dc; }
+
+.faq-spørgsmål {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: left;
+  gap: 1rem;
+}
+.faq-spørgsmål:hover { color: #555; }
+
+.faq-pil {
+  font-size: 1.4rem;
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  color: #999;
+  line-height: 1;
+}
+.faq-punkt.åben .faq-pil { transform: rotate(90deg); color: #1a1a1a; }
+
+.faq-svar {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: #555;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+.faq-punkt.åben .faq-svar {
+  max-height: 300px;
+  padding-bottom: 1.25rem;
+}
+
+/* ══════════════════════════════════════════
+   WHATSAPP FLYDENDE KNAP
+   ══════════════════════════════════════════ */
+.whatsapp-knap {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+  z-index: 999;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+.whatsapp-knap:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+}
+@media (max-width: 600px) {
+  .whatsapp-knap { bottom: 4.5rem; right: 1rem; width: 50px; height: 50px; }
+}
