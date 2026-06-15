@@ -250,115 +250,114 @@
 <section class="sektion galleri" id="galleri">
   <div class="sektion-øjenbryn">Galleri</div>
   <h2 class="sektion-titel">Fra mine projekter</h2>
-  <p class="sektion-undertekst">Swipe eller brug pilene — klik for fuld størrelse.</p>
+  <p class="sektion-undertekst">Swipe eller brug pilene &mdash; klik for fuld størrelse.</p>
 
-  <div class="g-carousel">
-    <button class="g-forrige" aria-label="Forrige">&#8249;</button>
-    <button class="g-næste" aria-label="Næste">&#8250;</button>
+  <div class="g-wrap">
+    <button class="g-btn g-prev" id="g-prev" aria-label="Forrige">&#8249;</button>
+    <button class="g-btn g-next" id="g-next" aria-label="Næste">&#8250;</button>
+    <div class="g-viewport">
+      <div class="g-track" id="g-track">
 
-    <div class="g-track" id="g-track">
+        <div class="g-slide" data-label="Soveværelse — video">
+          <video autoplay muted loop playsinline>
+            <source src="Gulv/sovevarelse-video.mp4" type="video/mp4">
+          </video>
+          <div class="g-label">Soveværelse — video</div>
+        </div>
 
-      <div class="g-slide" data-label="Soveværelse — video">
-        <video autoplay muted loop playsinline poster="Gulv/pause.jpg">
-          <source src="Gulv/sovevarelse-video.mp4" type="video/mp4">
-        </video>
-        <span class="g-badge">▶ Video</span>
-        <span class="g-label">Soveværelse — video</span>
+        <div class="g-slide" data-label="Stue — egetræ finish">
+          <img src="Gulv/stue-trae-efter.jpeg" alt="Stue egetræ finish" loading="lazy">
+          <div class="g-label">Stue — egetræ finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Stue — før lægning">
+          <img src="Gulv/stue-trae-foer.jpeg" alt="Stue før" loading="lazy">
+          <div class="g-label">Stue — før lægning</div>
+        </div>
+
+        <div class="g-slide" data-label="Stue — grå finish">
+          <img src="Gulv/stue-graa-efter-1.jpeg" alt="Stue grå" loading="lazy">
+          <div class="g-label">Stue — grå finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Stue — grå finish 2">
+          <img src="Gulv/stue-graa-efter-2.jpeg" alt="Stue grå 2" loading="lazy">
+          <div class="g-label">Stue — grå finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Stue — under arbejde">
+          <img src="Gulv/stue-graa-under-arbejde.jpeg" alt="Stue under arbejde" loading="lazy">
+          <div class="g-label">Stue — under arbejde</div>
+        </div>
+
+        <div class="g-slide" data-label="Køkken — grå finish">
+          <img src="Gulv/koekken-graa-efter.jpeg" alt="Køkken grå" loading="lazy">
+          <div class="g-label">Køkken — grå finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Køkken — grå, før">
+          <img src="Gulv/koekken-graa-foer.jpeg" alt="Køkken grå før" loading="lazy">
+          <div class="g-label">Køkken — før lægning</div>
+        </div>
+
+        <div class="g-slide" data-label="Køkken — egetræ finish">
+          <img src="Gulv/koekken-trae-efter.jpeg" alt="Køkken egetræ" loading="lazy">
+          <div class="g-label">Køkken — egetræ finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Køkken — egetræ, før">
+          <img src="Gulv/koekken-trae-foer.jpeg" alt="Køkken egetræ før" loading="lazy">
+          <div class="g-label">Køkken — før lægning</div>
+        </div>
+
+        <div class="g-slide" data-label="Kælder — færdig">
+          <img src="Gulv/kaelder-efter.jpeg" alt="Kælder færdig" loading="lazy">
+          <div class="g-label">Kælder — færdig</div>
+        </div>
+
+        <div class="g-slide" data-label="Gang — lang">
+          <img src="Gulv/gang-lang-efter.jpeg" alt="Lang gang" loading="lazy">
+          <div class="g-label">Gang — træ finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Gang — lille entré">
+          <img src="Gulv/gang-lille-efter.jpeg" alt="Lille gang" loading="lazy">
+          <div class="g-label">Gang — lille entré</div>
+        </div>
+
+        <div class="g-slide" data-label="Fliselook — finish">
+          <img src="Gulv/fliselook-efter.jpeg" alt="Fliselook" loading="lazy">
+          <div class="g-label">Fliselook — finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Fliselook — overgang">
+          <img src="Gulv/fliselook-overgang.jpeg" alt="Fliselook overgang" loading="lazy">
+          <div class="g-label">Fliselook — overgang</div>
+        </div>
+
+        <div class="g-slide" data-label="Værelse — grå finish">
+          <img src="Gulv/lille-vaerelse-graa-efter.jpeg" alt="Lille værelse" loading="lazy">
+          <div class="g-label">Værelse — grå finish</div>
+        </div>
+
+        <div class="g-slide" data-label="Underlag — isolering">
+          <img src="Gulv/underlag-isolering.jpg" alt="Underlag" loading="lazy">
+          <div class="g-label">Underlag — isolering</div>
+        </div>
+
       </div>
-
-      <div class="g-slide" data-label="Stue — egetræ finish">
-        <img src="Gulv/stue-trae-efter.jpeg" alt="Stue egetræ finish" loading="lazy">
-        <span class="g-label">Stue — egetræ finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Stue — før lægning">
-        <img src="Gulv/stue-trae-foer.jpeg" alt="Stue egetræ før" loading="lazy">
-        <span class="g-label">Stue — før lægning</span>
-      </div>
-
-      <div class="g-slide" data-label="Stue — grå finish">
-        <img src="Gulv/stue-graa-efter-1.jpeg" alt="Stue grå finish" loading="lazy">
-        <span class="g-label">Stue — grå finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Stue — grå finish 2">
-        <img src="Gulv/stue-graa-efter-2.jpeg" alt="Stue grå finish 2" loading="lazy">
-        <span class="g-label">Stue — grå finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Stue — under arbejde">
-        <img src="Gulv/stue-graa-under-arbejde.jpeg" alt="Stue under arbejde" loading="lazy">
-        <span class="g-label">Stue — under arbejde</span>
-      </div>
-
-      <div class="g-slide" data-label="Køkken — grå finish">
-        <img src="Gulv/koekken-graa-efter.jpeg" alt="Køkken grå finish" loading="lazy">
-        <span class="g-label">Køkken — grå finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Køkken — grå, før">
-        <img src="Gulv/koekken-graa-foer.jpeg" alt="Køkken grå før" loading="lazy">
-        <span class="g-label">Køkken — før lægning</span>
-      </div>
-
-      <div class="g-slide" data-label="Køkken — egetræ finish">
-        <img src="Gulv/koekken-trae-efter.jpeg" alt="Køkken egetræ" loading="lazy">
-        <span class="g-label">Køkken — egetræ finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Køkken — egetræ, før">
-        <img src="Gulv/koekken-trae-foer.jpeg" alt="Køkken egetræ før" loading="lazy">
-        <span class="g-label">Køkken — før lægning</span>
-      </div>
-
-      <div class="g-slide" data-label="Kælder — færdig">
-        <img src="Gulv/kaelder-efter.jpeg" alt="Kælder færdig" loading="lazy">
-        <span class="g-label">Kælder — færdig</span>
-      </div>
-
-      <div class="g-slide" data-label="Gang — lang">
-        <img src="Gulv/gang-lang-efter.jpeg" alt="Lang gang" loading="lazy">
-        <span class="g-label">Gang — træ finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Gang — lille entré">
-        <img src="Gulv/gang-lille-efter.jpeg" alt="Lille gang" loading="lazy">
-        <span class="g-label">Gang — lille entré</span>
-      </div>
-
-      <div class="g-slide" data-label="Fliselook — finish">
-        <img src="Gulv/fliselook-efter.jpeg" alt="Fliselook finish" loading="lazy">
-        <span class="g-label">Fliselook — finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Fliselook — overgang">
-        <img src="Gulv/fliselook-overgang.jpeg" alt="Fliselook overgang" loading="lazy">
-        <span class="g-label">Fliselook — overgang</span>
-      </div>
-
-      <div class="g-slide" data-label="Værelse — grå finish">
-        <img src="Gulv/lille-vaerelse-graa-efter.jpeg" alt="Lille værelse grå" loading="lazy">
-        <span class="g-label">Værelse — grå finish</span>
-      </div>
-
-      <div class="g-slide" data-label="Underlag — isolering">
-        <img src="Gulv/underlag-isolering.jpg" alt="Underlag og isolering" loading="lazy">
-        <span class="g-label">Underlag — isolering</span>
-      </div>
-
     </div>
-
-    <div class="g-prikker" id="g-prikker"></div>
+    <div class="g-dots" id="g-dots"></div>
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Billedvisning">
-    <button class="lightbox-luk" id="lightbox-luk" aria-label="Luk">&times;</button>
-    <button class="lightbox-forrige" id="lightbox-forrige" aria-label="Forrige">&#8249;</button>
-    <button class="lightbox-næste" id="lightbox-næste" aria-label="Næste">&#8250;</button>
-    <div class="lightbox-indhold" id="lightbox-indhold"></div>
-    <div class="lightbox-label" id="lightbox-label"></div>
-    <div class="lightbox-tæller" id="lightbox-tæller"></div>
+  <div class="g-lightbox" id="g-lightbox">
+    <button class="g-lb-luk" id="g-lb-luk">&times;</button>
+    <button class="g-lb-nav g-lb-prev" id="g-lb-prev">&#8249;</button>
+    <button class="g-lb-nav g-lb-next" id="g-lb-next">&#8250;</button>
+    <div class="g-lb-indhold" id="g-lb-indhold"></div>
+    <div class="g-lb-label" id="g-lb-label"></div>
+    <div class="g-lb-tæller" id="g-lb-tæller"></div>
   </div>
 
 </section>
@@ -721,104 +720,81 @@ formular.addEventListener('submit', e => {
   });
 });
 
-/* ══ GALLERI CAROUSEL + LIGHTBOX ══ */
-(function() {
-  const track = document.getElementById('g-track');
-  const prikBoks = document.getElementById('g-prikker');
-  const slides = Array.from(track.querySelectorAll('.g-slide'));
-  const n = slides.length;
-  let idx = 0, autoTimer;
+/* Galleri */
+(function(){
+  var slides = [].slice.call(document.querySelectorAll('.g-slide'));
+  var track  = document.getElementById('g-track');
+  var dots   = document.getElementById('g-dots');
+  var n = slides.length, cur = 0, timer;
 
-  // Prikker
-  slides.forEach((_, i) => {
-    const p = document.createElement('button');
-    p.className = 'g-prik' + (i === 0 ? ' aktiv' : '');
-    p.setAttribute('aria-label', 'Slide ' + (i + 1));
-    p.addEventListener('click', () => { stopAuto(); gåTil(i); startAuto(); });
-    prikBoks.appendChild(p);
+  slides.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'g-dot' + (i===0?' on':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = function(){ go(i); reset(); };
+    dots.appendChild(d);
   });
 
-  function gåTil(n_) {
-    idx = (n_ + n) % n;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    document.querySelectorAll('.g-prik').forEach((p, i) => p.classList.toggle('aktiv', i === idx));
+  function go(i){
+    cur = (i+n)%n;
+    track.style.transform = 'translateX(-'+(cur*100)+'%)';
+    [].forEach.call(document.querySelectorAll('.g-dot'), function(d,j){ d.className='g-dot'+(j===cur?' on':''); });
   }
 
-  document.querySelector('.g-forrige').addEventListener('click', () => { stopAuto(); gåTil(idx - 1); startAuto(); });
-  document.querySelector('.g-næste').addEventListener('click',  () => { stopAuto(); gåTil(idx + 1); startAuto(); });
+  function reset(){ clearInterval(timer); timer=setInterval(function(){ go(cur+1); },4500); }
 
-  function startAuto() { autoTimer = setInterval(() => gåTil(idx + 1), 4000); }
-  function stopAuto()  { clearInterval(autoTimer); }
-  startAuto();
+  document.getElementById('g-prev').onclick = function(){ go(cur-1); reset(); };
+  document.getElementById('g-next').onclick = function(){ go(cur+1); reset(); };
+  reset();
 
-  // Touch swipe
-  let tx = 0;
-  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; stopAuto(); }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 40) gåTil(idx + (d > 0 ? 1 : -1));
-    startAuto();
-  });
+  var tx=0;
+  track.addEventListener('touchstart',function(e){ tx=e.touches[0].clientX; clearInterval(timer); },{passive:true});
+  track.addEventListener('touchend',function(e){ var d=tx-e.changedTouches[0].clientX; if(Math.abs(d)>40) go(cur+(d>0?1:-1)); reset(); });
 
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const indhold  = document.getElementById('lightbox-indhold');
-  const labelEl  = document.getElementById('lightbox-label');
-  const tællerEl = document.getElementById('lightbox-tæller');
+  /* Lightbox */
+  var lb     = document.getElementById('g-lightbox');
+  var lbIn   = document.getElementById('g-lb-indhold');
+  var lbLbl  = document.getElementById('g-lb-label');
+  var lbTæl  = document.getElementById('g-lb-tæller');
 
-  function visLightbox(i) {
-    idx = (i + n) % n;
-    const slide = slides[idx];
-    const video = slide.querySelector('video');
-    const img   = slide.querySelector('img');
-    const label = slide.getAttribute('data-label') || '';
-    indhold.innerHTML = '';
-    if (video) {
-      const v = document.createElement('video');
-      v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
-      const s = video.querySelector('source');
-      if (s) { const ns = document.createElement('source'); ns.src = s.src; ns.type = s.type; v.appendChild(ns); }
-      indhold.appendChild(v);
-    } else if (img) {
-      const im = new Image(); im.src = img.src; im.alt = img.alt;
-      indhold.appendChild(im);
+  function openLb(i){
+    cur=((i%n)+n)%n;
+    var s=slides[cur], v=s.querySelector('video'), img=s.querySelector('img');
+    lbIn.innerHTML='';
+    if(v){
+      var nv=document.createElement('video');
+      nv.autoplay=true; nv.muted=true; nv.loop=true; nv.playsInline=true;
+      var src=v.querySelector('source');
+      if(src){ var ns=document.createElement('source'); ns.src=src.src; ns.type=src.type; nv.appendChild(ns); }
+      lbIn.appendChild(nv);
+    } else if(img){
+      var ni=new Image(); ni.src=img.src; ni.alt=img.alt||'';
+      lbIn.appendChild(ni);
     }
-    labelEl.textContent = label;
-    tællerEl.textContent = (idx + 1) + ' / ' + n;
-    lightbox.classList.add('aktiv');
-    document.body.style.overflow = 'hidden';
-    gåTil(idx);
+    lbLbl.textContent = s.getAttribute('data-label')||'';
+    lbTæl.textContent = (cur+1)+' / '+n;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
   }
 
-  function lukLightbox() {
-    lightbox.classList.remove('aktiv');
-    document.body.style.overflow = '';
-    indhold.innerHTML = '';
-  }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; lbIn.innerHTML=''; }
 
-  slides.forEach((slide, i) => {
-    slide.addEventListener('click', () => { stopAuto(); visLightbox(i); });
+  slides.forEach(function(s,i){ s.style.cursor='pointer'; s.onclick=function(){ openLb(i); }; });
+  document.getElementById('g-lb-luk').onclick  = closeLb;
+  document.getElementById('g-lb-prev').onclick = function(e){ e.stopPropagation(); openLb(cur-1); };
+  document.getElementById('g-lb-next').onclick = function(e){ e.stopPropagation(); openLb(cur+1); };
+  lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLb();
+    if(e.key==='ArrowLeft')  openLb(cur-1);
+    if(e.key==='ArrowRight') openLb(cur+1);
   });
-
-  document.getElementById('lightbox-luk').addEventListener('click', lukLightbox);
-  document.getElementById('lightbox-forrige').addEventListener('click', e => { e.stopPropagation(); visLightbox(idx - 1); });
-  document.getElementById('lightbox-næste').addEventListener('click',  e => { e.stopPropagation(); visLightbox(idx + 1); });
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) lukLightbox(); });
-
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('aktiv')) return;
-    if (e.key === 'Escape') lukLightbox();
-    if (e.key === 'ArrowLeft')  visLightbox(idx - 1);
-    if (e.key === 'ArrowRight') visLightbox(idx + 1);
-  });
-
-  let lbTx = 0;
-  lightbox.addEventListener('touchstart', e => { lbTx = e.touches[0].clientX; }, { passive: true });
-  lightbox.addEventListener('touchend', e => {
-    const d = lbTx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 50) visLightbox(idx + (d > 0 ? 1 : -1));
-  });
+  var ltx=0;
+  lb.addEventListener('touchstart',function(e){ ltx=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',function(e){ var d=ltx-e.changedTouches[0].clientX; if(Math.abs(d)>50) openLb(cur+(d>0?1:-1)); });
 })();
+
 </script>
 </body>
 </html>
