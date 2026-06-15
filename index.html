@@ -250,22 +250,110 @@
 <section class="sektion galleri" id="galleri">
   <div class="sektion-øjenbryn">Galleri</div>
   <h2 class="sektion-titel">Fra mine projekter</h2>
-  <p class="sektion-undertekst">Et udsnit af afsluttede projekter &mdash; brug pilene eller swipe for at se mere.</p>
-  <div class="carousel-wrapper">
-    <button class="carousel-knap venstre" id="c-forrige" aria-label="Forrige">&#8249;</button>
-    <button class="carousel-knap højre" id="c-næste" aria-label="Næste">&#8250;</button>
-    <div class="carousel-track" id="carousel-track">
-      <div class="carousel-slide"><img src="Gulv/stue-trae-efter.jpeg" alt="Stue egetræ" loading="lazy"><span class="slide-label">Stue &mdash; egetræ</span></div>
-      <div class="carousel-slide"><img src="Gulv/kaelder-efter.jpeg" alt="Kælder færdig" loading="lazy"><span class="slide-label">Kælder &mdash; færdig</span></div>
-      <div class="carousel-slide"><img src="Gulv/koekken-graa-efter.jpeg" alt="Køkken grå" loading="lazy"><span class="slide-label">Køkken &mdash; grå finish</span></div>
-      <div class="carousel-slide"><img src="Gulv/stue-graa-efter-1.jpeg" alt="Stue grå" loading="lazy"><span class="slide-label">Stue &mdash; grå finish</span></div>
-      <div class="carousel-slide"><img src="Gulv/koekken-trae-efter.jpeg" alt="Køkken egetræ" loading="lazy"><span class="slide-label">Køkken &mdash; egetræ</span></div>
-      <div class="carousel-slide"><img src="Gulv/gang-lang-efter.jpeg" alt="Lang gang" loading="lazy"><span class="slide-label">Gang &mdash; træ</span></div>
-      <div class="carousel-slide"><img src="Gulv/fliselook-efter.jpeg" alt="Fliselook" loading="lazy"><span class="slide-label">Fliselook &mdash; finish</span></div>
-      <div class="carousel-slide"><img src="Gulv/stue-graa-efter-2.jpeg" alt="Stue grå 2" loading="lazy"><span class="slide-label">Stue &mdash; grå finish</span></div>
+  <p class="sektion-undertekst">Klik på et billede for at se det i fuld størrelse.</p>
+
+  <!-- Desktop: masonry grid -->
+  <div class="galleri-grid">
+
+    <div class="galleri-item" data-label="Soveværelse — video">
+      <video autoplay muted loop playsinline poster="Gulv/pause.jpg">
+        <source src="Gulv/sovevarelse-video.mp4" type="video/mp4">
+      </video>
+      <span class="galleri-label">Soveværelse — video</span>
     </div>
+
+    <div class="galleri-item" data-label="Stue — egetræ, efter">
+      <img src="Gulv/stue-trae-efter.jpeg" alt="Stue egetræ efter" loading="lazy">
+      <span class="galleri-label">Stue — egetræ finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Stue — før">
+      <img src="Gulv/stue-trae-foer.jpeg" alt="Stue egetræ før" loading="lazy">
+      <span class="galleri-label">Stue — før lægning</span>
+    </div>
+
+    <div class="galleri-item" data-label="Stue — grå finish">
+      <img src="Gulv/stue-graa-efter-1.jpeg" alt="Stue grå finish" loading="lazy">
+      <span class="galleri-label">Stue — grå finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Stue — grå finish 2">
+      <img src="Gulv/stue-graa-efter-2.jpeg" alt="Stue grå finish 2" loading="lazy">
+      <span class="galleri-label">Stue — grå finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Stue — under arbejde">
+      <img src="Gulv/stue-graa-under-arbejde.jpeg" alt="Stue under arbejde" loading="lazy">
+      <span class="galleri-label">Stue — under arbejde</span>
+    </div>
+
+    <div class="galleri-item" data-label="Køkken — grå finish">
+      <img src="Gulv/koekken-graa-efter.jpeg" alt="Køkken grå finish" loading="lazy">
+      <span class="galleri-label">Køkken — grå finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Køkken — grå, før">
+      <img src="Gulv/koekken-graa-foer.jpeg" alt="Køkken grå før" loading="lazy">
+      <span class="galleri-label">Køkken — før lægning</span>
+    </div>
+
+    <div class="galleri-item" data-label="Køkken — egetræ finish">
+      <img src="Gulv/koekken-trae-efter.jpeg" alt="Køkken egetræ" loading="lazy">
+      <span class="galleri-label">Køkken — egetræ finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Køkken — egetræ, før">
+      <img src="Gulv/koekken-trae-foer.jpeg" alt="Køkken egetræ før" loading="lazy">
+      <span class="galleri-label">Køkken — før lægning</span>
+    </div>
+
+    <div class="galleri-item" data-label="Kælder — færdig">
+      <img src="Gulv/kaelder-efter.jpeg" alt="Kælder færdig" loading="lazy">
+      <span class="galleri-label">Kælder — færdig</span>
+    </div>
+
+    <div class="galleri-item" data-label="Gang — lang">
+      <img src="Gulv/gang-lang-efter.jpeg" alt="Lang gang" loading="lazy">
+      <span class="galleri-label">Gang — træ finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Gang — lille">
+      <img src="Gulv/gang-lille-efter.jpeg" alt="Lille gang" loading="lazy">
+      <span class="galleri-label">Gang — lille entré</span>
+    </div>
+
+    <div class="galleri-item" data-label="Fliselook — finish">
+      <img src="Gulv/fliselook-efter.jpeg" alt="Fliselook finish" loading="lazy">
+      <span class="galleri-label">Fliselook — finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Fliselook — overgang">
+      <img src="Gulv/fliselook-overgang.jpeg" alt="Fliselook overgang" loading="lazy">
+      <span class="galleri-label">Fliselook — overgang</span>
+    </div>
+
+    <div class="galleri-item" data-label="Lille værelse — grå">
+      <img src="Gulv/lille-vaerelse-graa-efter.jpeg" alt="Lille værelse grå" loading="lazy">
+      <span class="galleri-label">Værelse — grå finish</span>
+    </div>
+
+    <div class="galleri-item" data-label="Underlag og isolering">
+      <img src="Gulv/underlag-isolering.jpg" alt="Underlag og isolering" loading="lazy">
+      <span class="galleri-label">Underlag — isolering</span>
+    </div>
+
   </div>
-  <div class="carousel-prikker" id="carousel-prikker"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Billedvisning">
+    <button class="lightbox-luk" id="lightbox-luk" aria-label="Luk">&times;</button>
+    <button class="lightbox-forrige" id="lightbox-forrige" aria-label="Forrige">&#8249;</button>
+    <button class="lightbox-næste" id="lightbox-næste" aria-label="Næste">&#8250;</button>
+    <div class="lightbox-indhold" id="lightbox-indhold"></div>
+    <div class="lightbox-label" id="lightbox-label"></div>
+    <div class="lightbox-tæller" id="lightbox-tæller"></div>
+  </div>
+
 </section>
 
 <!-- ══ ANMELDELSER ══ -->
@@ -625,6 +713,72 @@ formular.addEventListener('submit', e => {
     window.location.href = 'tak.html';
   });
 });
+
+/* ══ GALLERI LIGHTBOX ══ */
+(function() {
+  const items = Array.from(document.querySelectorAll('.galleri-item'));
+  const lightbox = document.getElementById('lightbox');
+  const indhold = document.getElementById('lightbox-indhold');
+  const labelEl = document.getElementById('lightbox-label');
+  const tællerEl = document.getElementById('lightbox-tæller');
+  let current = 0;
+
+  function vis(idx) {
+    current = (idx + items.length) % items.length;
+    const item = items[current];
+    const video = item.querySelector('video');
+    const img = item.querySelector('img');
+    const label = item.getAttribute('data-label') || '';
+    indhold.innerHTML = '';
+    if (video) {
+      const v = document.createElement('video');
+      v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+      v.style.cssText = 'max-width:100%;max-height:80vh;border-radius:8px;display:block;margin:auto;';
+      const src = video.querySelector('source');
+      if (src) { const s = document.createElement('source'); s.src = src.src; s.type = src.type; v.appendChild(s); }
+      indhold.appendChild(v);
+    } else if (img) {
+      const i = document.createElement('img');
+      i.src = img.src; i.alt = img.alt;
+      i.style.cssText = 'max-width:100%;max-height:80vh;border-radius:8px;display:block;margin:auto;object-fit:contain;';
+      indhold.appendChild(i);
+    }
+    labelEl.textContent = label;
+    tællerEl.textContent = (current + 1) + ' / ' + items.length;
+    lightbox.classList.add('aktiv');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function luk() {
+    lightbox.classList.remove('aktiv');
+    document.body.style.overflow = '';
+    indhold.innerHTML = '';
+  }
+
+  items.forEach((item, i) => {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => vis(i));
+  });
+
+  document.getElementById('lightbox-luk').addEventListener('click', luk);
+  document.getElementById('lightbox-forrige').addEventListener('click', () => vis(current - 1));
+  document.getElementById('lightbox-næste').addEventListener('click', () => vis(current + 1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) luk(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('aktiv')) return;
+    if (e.key === 'Escape') luk();
+    if (e.key === 'ArrowLeft') vis(current - 1);
+    if (e.key === 'ArrowRight') vis(current + 1);
+  });
+
+  let tsX = 0;
+  lightbox.addEventListener('touchstart', e => { tsX = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const diff = tsX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) vis(current + (diff > 0 ? 1 : -1));
+  });
+})();
+
 </script>
 </body>
 </html>
