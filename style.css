@@ -879,3 +879,154 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 @media (max-width: 600px) {
   .whatsapp-knap { bottom: 4.5rem; right: 1rem; width: 50px; height: 50px; }
 }
+
+/* ══════════════════════════════════════════
+   GALLERI GRID + LIGHTBOX
+   ══════════════════════════════════════════ */
+
+/* Fjern gammel carousel stil fra galleri-sektionen */
+.galleri .carousel-wrapper,
+.galleri .carousel-prikker { display: none; }
+
+/* ── Grid (desktop) ── */
+.galleri-grid {
+  columns: 3;
+  column-gap: 12px;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .galleri-grid { columns: 2; }
+}
+
+@media (max-width: 560px) {
+  .galleri-grid { columns: 1; }
+}
+
+/* Enkelt galleri-element */
+.galleri-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e8e4dc;
+  cursor: pointer;
+}
+
+.galleri-item img,
+.galleri-item video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.galleri-item:hover img,
+.galleri-item:hover video {
+  transform: scale(1.03);
+}
+
+/* Label overlay */
+.galleri-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 1.5rem 0.75rem 0.6rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+}
+
+.galleri-item:hover .galleri-label { opacity: 1; }
+
+/* Mobil: label altid synlig */
+@media (max-width: 560px) {
+  .galleri-label {
+    opacity: 1;
+    font-size: 0.78rem;
+    padding: 1.2rem 0.6rem 0.5rem;
+  }
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.lightbox.aktiv { display: flex; }
+
+.lightbox-indhold {
+  max-width: min(92vw, 1100px);
+  max-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-luk {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+.lightbox-luk:hover { opacity: 1; }
+
+.lightbox-forrige,
+.lightbox-næste {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  line-height: 1;
+}
+.lightbox-forrige { left: 0.75rem; }
+.lightbox-næste  { right: 0.75rem; }
+.lightbox-forrige:hover,
+.lightbox-næste:hover { background: rgba(255,255,255,0.25); }
+
+.lightbox-label {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.lightbox-tæller {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 560px) {
+  .lightbox-forrige { left: 0.25rem; font-size: 2rem; }
+  .lightbox-næste  { right: 0.25rem; font-size: 2rem; }
+}
