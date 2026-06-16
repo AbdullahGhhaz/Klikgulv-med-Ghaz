@@ -302,19 +302,20 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.07); }
   height: 420px;
   position: relative;
   flex-shrink: 0;
-  max-width: 680px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  .carousel-slide {
-    height: 72vw;
-    max-width: 100%;
-  }
+  .carousel-slide { height: 72vw; }
 }
 
-.carousel-slide img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+.carousel-slide img,
+.carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .slide-label {
