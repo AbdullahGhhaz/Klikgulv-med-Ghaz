@@ -11,6 +11,12 @@
 
 html { scroll-behavior: smooth; }
 
+/* Nav er 66px høj og fixed — alle ankre skal have luft */
+section[id], .sektion[id], #ydelser, #om-mig, #galleri,
+#anmeldelser, #priser, #faq, #kontakt {
+  scroll-margin-top: 80px;
+}
+
 :root {
   --oak:        #C8A96E;
   --oak-lys:    #F5EDD8;
@@ -886,4 +892,37 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 }
 @media (max-width: 600px) {
   .whatsapp-knap { bottom: 4.5rem; right: 1rem; width: 50px; height: 50px; }
+}
+
+
+/* ══ RESPONSIVE OPRYDNING ══ */
+
+/* Mellemstor desktop (900–1024px) */
+@media (max-width: 1024px) {
+  .sektion { padding: 5rem 3rem; }
+  .om-mig  { padding: 5rem 3rem; gap: 3rem; }
+  .kontakt { padding: 5rem 3rem; gap: 3rem; }
+  .hero-venstre { padding: 4rem 3rem; }
+}
+
+/* Tablet (600–768px) */
+@media (max-width: 768px) {
+  .sektion { padding: 4rem 1.5rem; }
+  section[id], .sektion[id], #ydelser, #om-mig, #galleri,
+  #anmeldelser, #priser, #faq, #kontakt {
+    scroll-margin-top: 74px;
+  }
+}
+
+/* Mobil (under 480px) */
+@media (max-width: 480px) {
+  .sektion { padding: 3rem 1.25rem; }
+  .om-mig  { padding: 3rem 1.25rem; }
+  .kontakt { padding: 3rem 1.25rem; }
+  .sektion-titel { font-size: 1.6rem; }
+  .hero-stats { flex-direction: column; gap: 1rem; }
+  section[id], .sektion[id], #ydelser, #om-mig, #galleri,
+  #anmeldelser, #priser, #faq, #kontakt {
+    scroll-margin-top: 70px;
+  }
 }
