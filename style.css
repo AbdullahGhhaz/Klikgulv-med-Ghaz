@@ -75,7 +75,7 @@ img { display: block; max-width: 100%; }
 /* ════════════════════════════════
    NAVIGATION
 ════════════════════════════════ */
-#hoved-nav {
+nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 200;
   height: 66px;
@@ -508,7 +508,7 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 }
 
 @media (max-width: 768px) {
-  #hoved-nav { padding: 0 1.25rem; }
+  nav { padding: 0 1.25rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
@@ -929,42 +929,5 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   section[id], .sektion[id], #ydelser, #om-mig, #galleri,
   #anmeldelser, #priser, #faq, #kontakt {
     scroll-margin-top: 66px;
-  }
-}
-
-/* ══ ANMELDELSE CAROUSEL ══ */
-.anmeldelse-carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius);
-  margin-top: 3rem;
-  margin-bottom: 2.5rem;
-}
-.anmeldelse-carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-.anmeldelse-carousel-slide {
-  flex-shrink: 0;
-  width: 100%;
-  padding: 0 3rem;
-  box-sizing: border-box;
-}
-.anmeldelse-carousel-wrapper .carousel-knap.venstre {
-  left: 0;
-}
-.anmeldelse-carousel-wrapper .carousel-knap.højre {
-  right: 0;
-}
-.anmeldelse-carousel-wrapper .carousel-knap {
-  background: rgba(0,0,0,0.08);
-  color: var(--kul1);
-}
-.anmeldelse-carousel-wrapper .carousel-knap:hover {
-  background: rgba(0,0,0,0.18);
-}
-@media (max-width: 600px) {
-  .anmeldelse-carousel-slide {
-    padding: 0 2.5rem;
   }
 }
