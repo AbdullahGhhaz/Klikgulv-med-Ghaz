@@ -1,933 +1,638 @@
-/* ================================================
-   KLIKGULV MED GHAZ — style.css
-   ================================================ */
-
-/* ── RESET & VARIABLER ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html { scroll-behavior: smooth; }
-
-/* Nav er 66px høj og fixed — alle ankre skal have luft */
-section[id], .sektion[id], #ydelser, #om-mig, #galleri,
-#anmeldelser, #priser, #faq, #kontakt {
-  scroll-margin-top: 66px;
-}
-
-:root {
-  --oak:        #C8A96E;
-  --oak-lys:    #F5EDD8;
-  --oak-mid:    #B8924F;
-  --oak-mørk:   #7A5C2E;
-  --kul:        #1A1A1A;
-  --kul2:       #2C2C2A;
-  --grå:        #5A5A58;
-  --blød:       #F8F5F0;
-  --kant:       rgba(0, 0, 0, 0.09);
-  --serif:      'Playfair Display', Georgia, serif;
-  --sans:       'DM Sans', system-ui, sans-serif;
-  --radius:     2px;
-}
-
-body {
-  font-family: var(--sans);
-  color: var(--kul);
-  background: #fff;
-  line-height: 1.65;
-  font-weight: 400;
-  overflow-x: hidden;
-}
-
-img { display: block; max-width: 100%; }
-
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--blød); }
-::-webkit-scrollbar-thumb { background: var(--oak); border-radius: 3px; }
-
-
-/* ════════════════════════════════
-   PRELOADER
-════════════════════════════════ */
-#loader {
-  position: fixed; inset: 0;
-  background: var(--kul);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 3000;
-  transition: opacity .5s;
-}
-#loader-inner {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 1rem;
-}
-#loader-inner img { height: 52px; opacity: .85; }
-#loader-inner span {
-  font-family: var(--serif);
-  font-size: .85rem;
-  color: rgba(255,255,255,.4);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-
-/* ════════════════════════════════
-   NAVIGATION
-════════════════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 200;
-  height: 66px;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--kant);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 3rem;
-  transition: box-shadow .3s;
-}
-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.07); }
-
-.nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-.nav-logo img { height: 34px; width: auto; }
-.nav-logo-tekst { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--kul); }
-.nav-logo-tekst span { color: var(--oak-mid); }
-
-.nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
-.nav-links a {
-  text-decoration: none;
-  font-size: .78rem; font-weight: 500;
-  color: var(--grå); letter-spacing: .07em; text-transform: uppercase;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--kul); }
-
-.nav-cta {
-  background: var(--kul) !important;
-  color: #fff !important;
-  padding: .55rem 1.35rem !important;
-  border-radius: var(--radius);
-  transition: background .2s !important;
-}
-.nav-cta:hover { background: var(--oak-mørk) !important; }
-
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 4px; background: none; border: none;
-}
-.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--kul); transition: all .3s; }
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-
-.mobil-menu {
-  display: none; flex-direction: column;
-  position: fixed; top: 66px; left: 0; right: 0;
-  background: #fff; border-bottom: 1px solid var(--kant);
-  z-index: 199; padding: 1.5rem 2rem;
-}
-.mobil-menu.open { display: flex; }
-.mobil-menu a {
-  text-decoration: none; font-size: .9rem; font-weight: 500;
-  color: var(--kul); padding: .8rem 0;
-  border-bottom: 1px solid var(--kant); letter-spacing: .04em;
-}
-.mobil-menu a:last-child { border-bottom: none; }
-.mobil-menu a:hover { color: var(--oak-mørk); }
-
-
-/* ════════════════════════════════
-   HERO
-════════════════════════════════ */
-.hero {
-  margin-top: 66px;
-  min-height: calc(100vh - 66px);
-  display: grid; grid-template-columns: 1fr 1fr;
-}
-
-.hero-venstre {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 4.5rem 5rem 5rem;
-  background: var(--blød);
-}
-
-.øjenbryn {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .72rem; font-weight: 500;
-  letter-spacing: .15em; text-transform: uppercase;
-  color: var(--oak-mørk); margin-bottom: 1.5rem;
-}
-.øjenbryn::before {
-  content: ''; width: 2rem; height: 1px;
-  background: var(--oak); display: block; flex-shrink: 0;
-}
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(2.4rem, 3.8vw, 3.8rem);
-  font-weight: 600; line-height: 1.12;
-  color: var(--kul); margin-bottom: 1.5rem;
-}
-.hero h1 em { font-style: italic; color: var(--oak-mørk); font-weight: 400; }
-
-.hero-tekst {
-  font-size: 1.05rem; color: var(--grå);
-  max-width: 420px; margin-bottom: 2.5rem;
-  font-weight: 300; line-height: 1.75;
-}
-
-.hero-knapper { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-
-.knap {
-  display: inline-block; text-decoration: none;
-  font-family: var(--sans); font-size: .8rem; font-weight: 500;
-  letter-spacing: .07em; text-transform: uppercase;
-  border-radius: var(--radius); transition: all .2s; cursor: pointer;
-}
-.knap-mørk {
-  background: var(--kul); color: #fff;
-  padding: .9rem 2rem; border: 1px solid var(--kul);
-}
-.knap-mørk:hover { background: var(--oak-mørk); border-color: var(--oak-mørk); }
-.knap-spøgelse {
-  background: transparent; color: var(--grå);
-  padding: .9rem 0; border: none; border-radius: 0;
-  display: flex; align-items: center; gap: .4rem;
-  border-bottom: 1px solid transparent;
-}
-.knap-spøgelse:hover { color: var(--kul); border-color: var(--kul); }
-
-.hero-stats {
-  display: flex; gap: 2.5rem;
-  margin-top: 3rem; padding-top: 2rem;
-  border-top: 1px solid var(--kant);
-}
-.stat-tal { font-family: var(--serif); font-size: 1.55rem; font-weight: 600; color: var(--kul); line-height: 1; margin-bottom: .3rem; }
-.stat-label { font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--grå); }
-
-.hero-højre { position: relative; overflow: hidden; background: var(--kul2); }
-.hero-højre img { width: 100%; height: 100%; object-fit: cover; opacity: .72; }
-.hero-caption { position: absolute; bottom: 2rem; left: 2rem; right: 2rem; }
-.hero-caption-tag { font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .25rem; }
-.hero-caption-titel { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: #fff; font-weight: 400; }
-
-
-/* ════════════════════════════════
-   TILLIDS-BJÆLKE
-════════════════════════════════ */
-.tillids-bjælke {
-  background: var(--kul);
-  padding: 1.2rem 3rem;
-  display: flex; align-items: center; justify-content: center;
-  gap: 2.5rem; flex-wrap: wrap;
-}
-.tillids-punkt { display: flex; align-items: center; gap: .55rem; font-size: .78rem; color: rgba(255,255,255,.6); letter-spacing: .04em; }
-.tillids-prik { width: 5px; height: 5px; background: var(--oak); border-radius: 50%; flex-shrink: 0; }
-
-
-/* ════════════════════════════════
-   FÆLLES SEKTION
-════════════════════════════════ */
-.sektion { padding: 6rem 5rem; }
-
-.sektion-øjenbryn {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .7rem; font-weight: 500;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--oak-mørk); margin-bottom: .75rem;
-}
-.sektion-øjenbryn::before { content: ''; width: 1.5rem; height: 1px; background: var(--oak); display: block; }
-
-.sektion-titel { font-family: var(--serif); font-size: clamp(1.7rem, 2.8vw, 2.4rem); font-weight: 600; color: var(--kul); line-height: 1.2; margin-bottom: .9rem; }
-.sektion-undertekst { font-size: 1rem; color: var(--grå); font-weight: 300; line-height: 1.75; margin-bottom: 3rem; }
-
-
-/* ════════════════════════════════
-   YDELSER
-════════════════════════════════ */
-.ydelser { background: #fff; }
-.ydelse-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--kant); }
-.ydelse-kort {
-  padding: 2.5rem;
-  border-right: 1px solid var(--kant);
-  border-bottom: 1px solid var(--kant);
-  transition: background .25s;
-}
-.ydelse-kort:nth-child(3n) { border-right: none; }
-.ydelse-kort:nth-child(n+4) { border-bottom: none; }
-.ydelse-kort:hover { background: var(--blød); }
-.ydelse-ikon { width: 42px; height: 42px; background: var(--oak-lys); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1.4rem; }
-.ydelse-kort h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--kul); margin-bottom: .65rem; }
-.ydelse-kort p { font-size: .88rem; color: var(--grå); line-height: 1.7; font-weight: 300; }
-
-
-/* ════════════════════════════════
-   OM MIG
-════════════════════════════════ */
-.om-mig {
-  background: var(--kul);
-  display: grid; grid-template-columns: 5fr 6fr;
-  gap: 5rem; align-items: center; padding: 6rem 5rem;
-}
-.om-billede { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; }
-.om-billede img { width: 100%; height: 100%; object-fit: cover; opacity: .82; }
-.om-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: var(--oak); color: #fff; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: .6rem 1.1rem; border-radius: var(--radius); }
-
-.om-mig .sektion-øjenbryn { color: var(--oak); }
-.om-mig .sektion-øjenbryn::before { background: var(--oak); }
-.om-mig .sektion-titel { color: #fff; }
-.om-mig .sektion-undertekst { color: rgba(255,255,255,.55); max-width: 100%; margin-bottom: 1.5rem; }
-.om-brødtekst { font-size: .95rem; color: rgba(255,255,255,.52); font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
-.om-citat { border-left: 2px solid var(--oak); padding-left: 1.25rem; margin-bottom: 2.5rem; font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: rgba(255,255,255,.7); line-height: 1.65; }
-
-
-/* ════════════════════════════════
-   GALLERI — Carousel
-════════════════════════════════ */
-.galleri { background: var(--blød); }
-
-.carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--kul2);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-  height: 420px;
-  position: relative;
-  flex-shrink: 0;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .carousel-slide { height: 72vw; }
-}
-
-.carousel-slide img,
-.carousel-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.slide-label {
-  position: absolute;
-  bottom: 0.75rem; left: 0.75rem;
-  background: rgba(26,26,26,0.6);
-  color: #fff;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.85rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius);
-}
-
-.carousel-knap {
-  position: absolute;
-  top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.12);
-  border: none; color: #fff;
-  font-size: 1.2rem;
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-  z-index: 10;
-}
-.carousel-knap:hover { background: rgba(255,255,255,0.28); }
-.carousel-knap.venstre { left: 0.6rem; }
-.carousel-knap.højre  { right: 0.6rem; }
-
-.carousel-prikker {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 0.75rem;
-}
-.prik {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px solid var(--grå);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-.prik.aktiv {
-  background: var(--oak);
-  border-color: var(--oak);
-  transform: scale(1.3);
-}
-
-@media (max-width: 768px) {
-  .carousel-slide { height: 220px; }
-  .carousel-knap { width: 32px; height: 32px; font-size: 1rem; }
-  .slide-label { font-size: 0.78rem; }
-}
-
-@media (max-width: 480px) {
-  .carousel-slide { height: 180px; }
-}
-
-
-/* ════════════════════════════════
-   PRISER
-════════════════════════════════ */
-.priser { background: #fff; }
-.pris-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--kant); }
-.pris-kort { padding: 2.25rem 2.5rem; border-right: 1px solid var(--kant); border-bottom: 1px solid var(--kant); transition: background .2s; }
-.pris-kort:nth-child(2n) { border-right: none; }
-.pris-kort:nth-last-child(-n+2) { border-bottom: none; }
-.pris-kort:hover { background: var(--blød); }
-.pris-kort.fremhævet { background: var(--kul); color: #fff; }
-.pris-kort.fremhævet:hover { background: var(--kul2); }
-
-.pris-række { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
-.pris-tag { font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--oak-mørk); margin-bottom: .3rem; }
-.pris-kort.fremhævet .pris-tag { color: var(--oak); }
-.pris-rum { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--kul); }
-.pris-kort.fremhævet .pris-rum { color: #fff; }
-.pris-beløb { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--kul); line-height: 1; text-align: right; }
-.pris-kort.fremhævet .pris-beløb { color: var(--oak); }
-.pris-note { font-size: .72rem; color: var(--grå); margin-top: .2rem; text-align: right; }
-.pris-kort.fremhævet .pris-note { color: rgba(255,255,255,.4); }
-.pris-linje { border: none; border-top: 1px solid var(--kant); margin-bottom: 1.1rem; }
-.pris-kort.fremhævet .pris-linje { border-color: rgba(255,255,255,.1); }
-.pris-inkluderet { display: flex; flex-direction: column; gap: .4rem; }
-.pris-punkt { display: flex; align-items: center; gap: .55rem; font-size: .85rem; color: var(--grå); font-weight: 300; }
-.pris-kort.fremhævet .pris-punkt { color: rgba(255,255,255,.62); }
-.pris-hak { width: 16px; height: 16px; border-radius: 50%; background: var(--oak-lys); display: inline-flex; align-items: center; justify-content: center; font-size: 9px; color: var(--oak-mørk); flex-shrink: 0; }
-.pris-kort.fremhævet .pris-hak { background: rgba(200,169,110,.18); color: var(--oak); }
-.pris-note-bund { border: 1px solid var(--kant); border-top: none; padding: 1.1rem 2.5rem; font-size: .82rem; color: var(--grå); font-weight: 300; background: var(--blød); }
-
-
-/* ════════════════════════════════
-   KONTAKT
-════════════════════════════════ */
-.kontakt { background: var(--blød); display: grid; grid-template-columns: 5fr 6fr; gap: 5rem; align-items: start; padding: 6rem 5rem; }
-
-.kontakt-detaljer { display: flex; flex-direction: column; }
-.kontakt-punkt { display: flex; align-items: flex-start; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid var(--kant); }
-.kontakt-punkt:first-child { border-top: 1px solid var(--kant); }
-.kontakt-ikon { width: 38px; height: 38px; background: var(--oak-lys); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-.kontakt-label { font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--grå); margin-bottom: .2rem; }
-.kontakt-værdi { font-size: .97rem; color: var(--kul); }
-.kontakt-værdi a { color: var(--kul); text-decoration: none; border-bottom: 1px solid var(--kant); transition: border-color .2s; }
-.kontakt-værdi a:hover { border-color: var(--oak); }
-
-.kontakt-løfte { margin-top: 2rem; background: var(--kul); padding: 1.75rem; border-radius: var(--radius); }
-.kontakt-løfte strong { font-family: var(--serif); font-size: 1.05rem; color: #fff; display: block; margin-bottom: .5rem; font-weight: 600; }
-.kontakt-løfte p { font-size: .88rem; color: rgba(255,255,255,.52); font-weight: 300; line-height: 1.65; }
-
-.kontakt-formular { display: flex; flex-direction: column; gap: 1rem; }
-.form-række { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.felt { display: flex; flex-direction: column; gap: .35rem; }
-.felt label { font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--grå); }
-.felt input, .felt textarea, .felt select {
-  font-family: var(--sans); font-size: .92rem; font-weight: 300;
-  color: var(--kul); background: #fff;
-  border: 1px solid var(--kant); border-radius: var(--radius);
-  padding: .8rem 1rem; outline: none;
-  transition: border-color .2s; width: 100%;
-}
-.felt input:focus, .felt textarea:focus, .felt select:focus { border-color: var(--oak); }
-.felt textarea { min-height: 130px; resize: vertical; }
-.felt select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A58' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 1rem center;
-}
-.send-knap {
-  font-family: var(--sans); font-size: .82rem; font-weight: 500;
-  letter-spacing: .08em; text-transform: uppercase;
-  background: var(--kul); color: #fff; border: none;
-  padding: 1rem 2rem; border-radius: var(--radius);
-  cursor: pointer; transition: background .2s; width: 100%;
-}
-.send-knap:hover { background: var(--oak-mørk); }
-.send-knap:disabled { opacity: .6; cursor: not-allowed; }
-.form-note { font-size: .75rem; color: var(--grå); font-weight: 300; }
-#svar-besked { font-size: .85rem; text-align: center; opacity: 0; transition: opacity .4s; }
-#svar-besked.vis { opacity: 1; }
-
-
-/* ════════════════════════════════
-   FOOTER
-════════════════════════════════ */
-footer {
-  background: var(--kul); padding: 2rem 5rem;
-  display: flex; justify-content: space-between; align-items: center;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-.footer-logo { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
-.footer-logo span { color: var(--oak); }
-footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
-
-
-/* ════════════════════════════════
-   SCROLL-TIL-TOP
-════════════════════════════════ */
-.til-toppen {
-  position: fixed; bottom: 2rem; right: 2rem;
-  width: 42px; height: 42px;
-  background: var(--kul); color: #fff;
-  border: none; border-radius: 50%;
-  font-size: 1.1rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: translateY(10px);
-  transition: opacity .3s, transform .3s, background .2s;
-  z-index: 100;
-}
-.til-toppen.synlig { opacity: 1; transform: translateY(0); }
-.til-toppen:hover { background: var(--oak-mørk); }
-
-
-/* ════════════════════════════════
-   FADE-IN ANIMATION
-════════════════════════════════ */
-.fade-ind { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.fade-ind.synlig { opacity: 1; transform: translateY(0); }
-
-
-/* ════════════════════════════════
-   RESPONSIVE
-════════════════════════════════ */
-@media (max-width: 1024px) {
-  .ydelse-grid { grid-template-columns: repeat(2, 1fr); }
-  .ydelse-kort:nth-child(3n) { border-right: 1px solid var(--kant); }
-  .ydelse-kort:nth-child(2n) { border-right: none; }
-
-}
-
-@media (max-width: 768px) {
-  nav { padding: 0 1.25rem; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-
-  .hero { grid-template-columns: 1fr; }
-  .hero-venstre { padding: 3.5rem 1.75rem; }
-  .hero-højre { height: 300px; }
-  .hero-stats { gap: 1.5rem; }
-
-  .tillids-bjælke { gap: 1.25rem; padding: 1rem 1.5rem; }
-
-  .sektion { padding: 4rem 1.75rem; }
-
-  .ydelse-grid { grid-template-columns: 1fr; }
-  .ydelse-kort { border-right: none !important; }
-  .ydelse-kort:nth-child(n+4) { border-bottom: 1px solid var(--kant); }
-  .ydelse-kort:last-child { border-bottom: none; }
-
-  .om-mig { grid-template-columns: 1fr; padding: 4rem 1.75rem; gap: 2.5rem; }
-  .om-billede { aspect-ratio: 3/2; }
-
-  .pris-grid { grid-template-columns: 1fr; }
-  .pris-kort { border-right: none !important; }
-  .pris-kort:nth-last-child(-n+2) { border-bottom: 1px solid var(--kant); }
-  .pris-kort:last-child { border-bottom: none; }
-
-  .kontakt { grid-template-columns: 1fr; padding: 4rem 1.75rem; gap: 3rem; }
-  .form-række { grid-template-columns: 1fr; }
-
-  footer { flex-direction: column; gap: .75rem; text-align: center; padding: 1.75rem 1.5rem; }
-}
-
-
-/* ══════════════════════════════════════════
-   ANMELDELSER — tilføj dette til bunden af style.css
-   ══════════════════════════════════════════ */
-
-/* Sektion wrapper */
-.anmeldelser {
-  background: #faf9f7;
-}
-
-/* Grid med 3 kort */
-.anmeldelse-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-  margin-bottom: 2.5rem;
-}
-
-@media (max-width: 900px) {
-  .anmeldelse-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Klikgulvlægger København &amp; Vestegnen | Klikgulv med Ghaz</title>
+<meta name="description" content="Søger du en erfaren klikgulvlægger i København eller på Vestegnen? Få et uforpligtende tilbud og få lagt dit klikgulv hurtigt og professionelt med Ghaz."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://klikgulvghaz.dk/"/>
+<meta property="og:title" content="Klikgulv med Ghaz – Klikgulvlægger i København &amp; Vestegnen"/>
+<meta property="og:description" content="Professionel klikgulvlægger i København og på Vestegnen. Få et hurtigt og flot resultat – uden overraskelser."/>
+<meta property="og:image" content="https://klikgulvghaz.dk/Gulv/arbejde-forberedelse.jpg"/>
+<meta property="og:url" content="https://klikgulvghaz.dk/"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" href="Gulv/logo-ikon.png"/>
+<link rel="apple-touch-icon" href="Gulv/logo-ikon.png"/>
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Klikgulv med Ghaz",
+  "image": "https://klikgulvghaz.dk/Gulv/arbejde-forberedelse.jpg",
+  "logo": "https://klikgulvghaz.dk/Gulv/logo-ikon.png",
+  "url": "https://klikgulvghaz.dk/",
+  "telephone": "+4528522892",
+  "email": "klikgulv.med.ghaz@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "København",
+    "addressRegion": "Hovedstaden",
+    "postalCode": "2660",
+    "addressCountry": "DK"
+  },
+  "priceRange": "$$",
+  "areaServed": ["København","Vestegnen","Storkøbenhavn"],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00", "closes": "17:00"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "12",
+    "bestRating": "5"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Rim G."},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Jeg kan kun give mine varmeste anbefalinger til Ghaz. Han har lagt klikgulv i hele mit hjem, og resultatet er simpelthen over al forventning. Arbejdet er udført utrolig professionelt, præcist og med stor sans for detaljerne."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Adel Hafidh"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Yderst professionel og serviceminded."
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Klikgulv ydelser",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lægning af klikgulv"}, "priceSpecification": {"@type": "UnitPriceSpecification", "price": "200", "priceCurrency": "DKK", "unitText": "m²"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Materialeafhentning"}}
+    ]
   }
 }
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hvad koster det at få lagt klikgulv?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Prisen starter fra 200 kr. pr. m² for lægning. For et typisk 16 m² værelse koster lægning inkl. materialeafhentning ca. 4.200 kr. Kontakt mig for et præcist tilbud."}
+    },
+    {
+      "@type": "Question",
+      "name": "Hvor lang tid tager det at lægge klikgulv?",
+      "acceptedAnswer": {"@type": "Answer", "text": "De fleste projekter er færdige på 1–5 dage. Et enkelt værelse kan typisk klares på én dag, mens større projekter med flere rum tager op til 5 dage."}
+    },
+    {
+      "@type": "Question",
+      "name": "Hvilke områder dækker Klikgulv med Ghaz?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Jeg dækker København og hele Vestegnen, herunder Glostrup, Valby, Hvidovre, Rødovre, Albertslund og omegn."}
+    },
+    {
+      "@type": "Question",
+      "name": "Kan du hente materialerne for mig?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja — jeg kan hente gulv og underlag fra butikken mod et tillæg. Det er inkluderet i eksempel 2 og 4 i mine priser."}
+    },
+    {
+      "@type": "Question",
+      "name": "Lægger du klikgulv i kældre?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Ja, jeg lægger klikgulv i kældre, stuer, værelser, entréer, gange og køkkener. Jeg vurderer altid underlaget og rådgiver om det rette produkt inden vi starter."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
 
-/* Enkelt anmeldelseskort */
-.anmeldelse-kort {
-  background: #fff;
-  border: 1px solid #e8e4dc;
-  border-radius: 16px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: box-shadow 0.2s, transform 0.2s;
+<!-- ══ NAVIGATION ══ -->
+<nav id="hoved-nav">
+  <a href="#" class="nav-logo">
+    <img src="Gulv/logo.png" alt="Klikgulv med Ghaz logo" onerror="this.style.display='none'">
+    <span class="nav-logo-tekst">Klikgulv <span>med Ghaz</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ydelser">Ydelser</a></li>
+    <li><a href="#om-mig">Om mig</a></li>
+    <li><a href="#galleri">Galleri</a></li>
+    <li><a href="#anmeldelser">Anmeldelser</a></li>
+    <li><a href="#priser">Priser</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:+4528522892" class="nav-telefon">&#128222; 28 52 28 92</a></li>
+    <li><a href="#kontakt" class="nav-cta">Få tilbud</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Åbn menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobil-menu" id="mobil-menu">
+  <a href="#ydelser" onclick="lukMobil()">Ydelser</a>
+  <a href="#om-mig" onclick="lukMobil()">Om mig</a>
+  <a href="#galleri" onclick="lukMobil()">Galleri</a>
+  <a href="#anmeldelser" onclick="lukMobil()">Anmeldelser</a>
+  <a href="#priser" onclick="lukMobil()">Priser</a>
+  <a href="#faq" onclick="lukMobil()">FAQ</a>
+  <a href="tel:+4528522892" onclick="lukMobil()" class="mobil-telefon">&#128222; Ring: 28 52 28 92</a>
+  <a href="#kontakt" onclick="lukMobil()">Få tilbud &rarr;</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-venstre">
+    <div class="øjenbryn">Klikgulvlægger &middot; København &amp; Vestegnen</div>
+    <h1>Flot gulv.<br><em>Ingen<br>overraskelser.</em></h1>
+    <p class="hero-tekst">
+      Professionel lægning af klikgulv til private &mdash; med præcist arbejde,
+      ærlig kommunikation og pæn finish fra start til slut.
+    </p>
+    <div class="hero-knapper">
+      <a href="#kontakt" class="knap knap-mørk">Få et uforpligtende tilbud</a>
+      <a href="#galleri" class="knap knap-spøgelse">Se arbejdet &rarr;</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-tal">200 kr</div><div class="stat-label">Fra pr. m&sup2;</div></div>
+      <div><div class="stat-tal">20+</div><div class="stat-label">Projekter afsluttet</div></div>
+      <div><div class="stat-tal">1&ndash;5 dage</div><div class="stat-label">Typisk levering</div></div>
+    </div>
+  </div>
+  <div class="hero-højre">
+    <img src="Gulv/stue-trae-efter.jpeg" alt="Færdigt klikgulv i stue med egetræ finish" loading="eager" width="600" height="450">
+    <div class="hero-caption">
+      <div class="hero-caption-tag">Seneste projekt</div>
+      <div class="hero-caption-titel">Stue &mdash; egetræ finish</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TILLIDS-BJÆLKE ══ -->
+<div class="tillids-bjælke">
+  <div class="tillids-punkt"><span class="tillids-prik"></span>Ærlig prissætning &mdash; ingen skjulte gebyrer</div>
+  <div class="tillids-punkt"><span class="tillids-prik"></span>Svar inden for 24 timer</div>
+  <div class="tillids-punkt"><span class="tillids-prik"></span>Materialeafhentning tilbydes</div>
+  <div class="tillids-punkt"><span class="tillids-prik"></span>Lokal håndværker på Vestegnen</div>
+</div>
+
+<!-- ══ YDELSER ══ -->
+<section class="sektion ydelser" id="ydelser">
+  <div class="sektion-øjenbryn">Ydelser</div>
+  <h2 class="sektion-titel">Hvad jeg tilbyder</h2>
+  <p class="sektion-undertekst">Alt hvad du har brug for til dit gulvprojekt &mdash; fra første måling til den færdige liste langs væggen.</p>
+  <div class="ydelse-grid">
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">📐</div>
+      <h3>Måling &amp; rådgivning</h3>
+      <p>Jeg måler rummet op, vurderer underlaget og rådgiver om det rette gulv og underlag til dit projekt &mdash; inden vi starter.</p>
+    </div>
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">🔨</div>
+      <h3>Klargøring &amp; lægning</h3>
+      <p>Professionel klargøring af underlag og præcis lægning af klikgulv i stue, værelse, entré, kælder og gang.</p>
+    </div>
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">🚗</div>
+      <h3>Materialeafhentning</h3>
+      <p>Ingen bil? Ingen tid? Jeg kan hente gulv og underlag fra butikken og have det klar til lægning &mdash; alt samlet i én pris.</p>
+    </div>
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">✅</div>
+      <h3>Flot finish</h3>
+      <p>Lister langs vægge, overgange og detaljer &mdash; jeg sørger for at det ser pænt ud, ikke bare teknisk korrekt.</p>
+    </div>
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">🔧</div>
+      <h3>Småopgaver</h3>
+      <p>Har du småting der skal fikses i forbindelse med gulvprojektet? Vi kigger på det sammen og finder en løsning.</p>
+    </div>
+    <div class="ydelse-kort fade-ind">
+      <div class="ydelse-ikon">💬</div>
+      <h3>Ærlig kommunikation</h3>
+      <p>Ingen skjulte gebyrer. Ingen snak udenom. Du ved hvad det koster og hvornår det sker &mdash; fra dag ét.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OM MIG ══ -->
+<section class="om-mig" id="om-mig">
+  <div class="om-billede fade-ind">
+    <img src="Gulv/arbejde-forberedelse.jpg" alt="Ghaz klargør gulv" loading="lazy">
+    <div class="om-badge">København &amp; Vestegnen</div>
+  </div>
+  <div class="fade-ind">
+    <div class="sektion-øjenbryn">Om mig</div>
+    <h2 class="sektion-titel">Håndværk med<br>hjerte i det</h2>
+    <p class="sektion-undertekst">
+      Jeg hedder Abdullah Ghazal &mdash; alle kalder mig Ghaz.
+      Gør-det-selv-mand med mange klikgulvprojekter bag mig, både hjemme og for andre.
+    </p>
+    <p class="om-brødtekst">
+      Jeg går op i at gøre det rigtigt &mdash; ikke bare hurtigt. Godt underlag,
+      præcis lægning og pæne lister gør forskellen. Er der noget der ikke passer,
+      siger jeg det ærligt frem for at gemme det under et gulv.
+    </p>
+    <div class="om-citat">"Ingen overraskelser på regningen. Ingen genveje på kvaliteten."</div>
+    <a href="#kontakt" class="knap knap-mørk">Kontakt Ghaz direkte</a>
+  </div>
+</section>
+
+<!-- ══ GALLERI ══ -->
+<section class="sektion galleri" id="galleri">
+  <div class="sektion-øjenbryn">Galleri</div>
+  <h2 class="sektion-titel">Fra mine projekter</h2>
+  <p class="sektion-undertekst">Et udsnit af afsluttede projekter &mdash; brug pilene eller swipe for at se mere.</p>
+  <div class="carousel-wrapper">
+    <button class="carousel-knap venstre" id="c-forrige" aria-label="Forrige">&#8249;</button>
+    <button class="carousel-knap højre" id="c-næste" aria-label="Næste">&#8250;</button>
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-slide"><img src="Gulv/stue-trae-efter.jpeg" alt="Stue egetræ" loading="lazy"><span class="slide-label">Stue &mdash; egetræ</span></div>
+      <div class="carousel-slide"><img src="Gulv/kaelder-efter.jpeg" alt="Kælder færdig" loading="lazy"><span class="slide-label">Kælder &mdash; færdig</span></div>
+      <div class="carousel-slide"><img src="Gulv/koekken-graa-efter.jpeg" alt="Køkken grå" loading="lazy"><span class="slide-label">Køkken &mdash; grå finish</span></div>
+      <div class="carousel-slide"><img src="Gulv/stue-graa-efter-1.jpeg" alt="Stue grå" loading="lazy"><span class="slide-label">Stue &mdash; grå finish</span></div>
+      <div class="carousel-slide"><img src="Gulv/koekken-trae-efter.jpeg" alt="Køkken egetræ" loading="lazy"><span class="slide-label">Køkken &mdash; egetræ</span></div>
+      <div class="carousel-slide"><img src="Gulv/gang-lang-efter.jpeg" alt="Lang gang" loading="lazy"><span class="slide-label">Gang &mdash; træ</span></div>
+      <div class="carousel-slide"><img src="Gulv/fliselook-efter.jpeg" alt="Fliselook" loading="lazy"><span class="slide-label">Fliselook &mdash; finish</span></div>
+      <div class="carousel-slide"><img src="Gulv/stue-graa-efter-2.jpeg" alt="Stue grå 2" loading="lazy"><span class="slide-label">Stue &mdash; grå finish</span></div>
+      <div class="carousel-slide"><img src="Gulv/stue-trae-foer.jpeg" alt="Stue egetræ, før" loading="lazy"><span class="slide-label">Stue &mdash; før lægning</span></div>
+      <div class="carousel-slide"><img src="Gulv/stue-graa-under-arbejde.jpeg" alt="Stue under arbejde" loading="lazy"><span class="slide-label">Stue &mdash; under arbejde</span></div>
+      <div class="carousel-slide"><img src="Gulv/koekken-graa-foer.jpeg" alt="Køkken grå, før" loading="lazy"><span class="slide-label">Køkken &mdash; før lægning</span></div>
+      <div class="carousel-slide"><img src="Gulv/koekken-trae-foer.jpeg" alt="Køkken egetræ, før" loading="lazy"><span class="slide-label">Køkken &mdash; egetræ, før</span></div>
+      <div class="carousel-slide"><img src="Gulv/gang-lille-efter.jpeg" alt="Lille gang" loading="lazy"><span class="slide-label">Gang &mdash; lille entré</span></div>
+      <div class="carousel-slide"><img src="Gulv/fliselook-overgang.jpeg" alt="Fliselook overgang" loading="lazy"><span class="slide-label">Fliselook &mdash; overgang</span></div>
+      <div class="carousel-slide"><img src="Gulv/lille-vaerelse-graa-efter.jpeg" alt="Lille værelse grå" loading="lazy"><span class="slide-label">Værelse &mdash; grå finish</span></div>
+      <div class="carousel-slide"><img src="Gulv/underlag-isolering.jpg" alt="Underlag og isolering" loading="lazy"><span class="slide-label">Underlag &mdash; isolering</span></div>
+      <div class="carousel-slide"><video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="Gulv/sovevarelse-video.mp4" type="video/mp4"></video><span class="slide-label">Soveværelse &mdash; video</span></div>
+    </div>
+  </div>
+  <div class="carousel-prikker" id="carousel-prikker"></div>
+</section>
+
+<!-- ══ ANMELDELSER ══ -->
+<section class="sektion anmeldelser" id="anmeldelser">
+  <div class="sektion-øjenbryn">Anmeldelser</div>
+  <h2 class="sektion-titel">Hvad kunderne siger</h2>
+  <p class="sektion-undertekst">Rigtige kunder &mdash; rigtige resultater.</p>
+  <div class="anmeldelse-grid">
+
+    <div class="anmeldelse-kort fade-ind">
+      <div class="stjerner" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="anmeldelse-tekst">"Jeg kan kun give mine varmeste anbefalinger til Ghaz. Han har lagt klikgulv i hele mit hjem, og resultatet er simpelthen over al forventning. Arbejdet er udført utrolig professionelt, præcist og med stor sans for detaljerne. Fra start til slut har kommunikationen været nem og behagelig, og han har været både punktlig, ærlig og meget imødekommende. Gulvet er lagt perfekt, alle afslutninger er flotte, og hele hjemmet har fået et helt nyt og eksklusivt udtryk."</p>
+      <div class="anmeldelse-forfatter">
+        <div class="anmeldelse-initialer">RG</div>
+        <div>
+          <div class="anmeldelse-navn">Rim G.</div>
+          <div class="anmeldelse-sted">Google-anmeldelse &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="anmeldelse-kort fade-ind">
+      <div class="stjerner" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="anmeldelse-tekst">"Yderst professionel og serviceminded."</p>
+      <div class="anmeldelse-forfatter">
+        <div class="anmeldelse-initialer">AH</div>
+        <div>
+          <div class="anmeldelse-navn">Adel Hafidh</div>
+          <div class="anmeldelse-sted">Google-anmeldelse &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="anmeldelse-kort fade-ind">
+      <div class="stjerner" aria-label="5 ud af 5 stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="anmeldelse-tekst">"Det er sjældent man møder en håndværker, der går så meget op i kvalitet og kundetilfredshed. Jeg er mere end tilfreds med resultatet og vil uden tøven anbefale ham til familie, venner og alle andre, der ønsker et flot og professionelt lagt gulv. Tusind tak for det flotte arbejde!"</p>
+      <div class="anmeldelse-forfatter">
+        <div class="anmeldelse-initialer">RG</div>
+        <div>
+          <div class="anmeldelse-navn">Rim G.</div>
+          <div class="anmeldelse-sted">Google-anmeldelse &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="google-anmeldelse-boks fade-ind">
+    <div class="google-anmeldelse-indhold">
+      <div class="google-ikon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M47.5 24.6c0-1.6-.1-3.1-.4-4.6H24v8.7h13.2c-.6 3-2.3 5.5-4.9 7.2v6h7.9c4.6-4.3 7.3-10.6 7.3-17.3z"/>
+          <path fill="#34A853" d="M24 48c6.5 0 12-2.1 16-5.8l-7.9-6c-2.2 1.5-5 2.3-8.1 2.3-6.2 0-11.5-4.2-13.4-9.9H2.4v6.2C6.4 42.5 14.7 48 24 48z"/>
+          <path fill="#FBBC05" d="M10.6 28.6c-.5-1.5-.8-3-.8-4.6s.3-3.2.8-4.6v-6.2H2.4C.9 16.4 0 20.1 0 24s.9 7.6 2.4 10.8l8.2-6.2z"/>
+          <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.5l6.8-6.8C35.9 2.4 30.4 0 24 0 14.7 0 6.4 5.5 2.4 13.2l8.2 6.2C12.5 13.7 17.8 9.5 24 9.5z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="google-anmeldelse-titel">Tilfreds med dit nye gulv?</div>
+        <div class="google-anmeldelse-undertekst">Hjælp andre med at finde Ghaz ved at skrive en Google-anmeldelse &mdash; det tager kun 1 minut.</div>
+      </div>
+    </div>
+    <a href="https://g.page/r/Cdxy_fP_TWTOEBM/review" target="_blank" rel="noopener" class="knap knap-mørk google-knap">
+      Skriv en anmeldelse &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- ══ PRISER ══ -->
+<section class="sektion priser" id="priser">
+  <div class="sektion-øjenbryn">Priser</div>
+  <h2 class="sektion-titel">Hvad koster det?</h2>
+  <p class="sektion-undertekst">Prisen starter ved 200 kr/m&sup2; afhængigt af rumtype og kliksystem. Jeg lægger ikke materialer til &mdash; men kan hente dem for dig mod et tillæg.</p>
+  <div class="pris-grid">
+    <div class="pris-kort fade-ind">
+      <div class="pris-række">
+        <div><div class="pris-tag">Eksempel 1</div><div class="pris-rum">16 m&sup2; værelse</div></div>
+        <div><div class="pris-beløb">3.200</div><div class="pris-note">kr. &middot; du har materialer</div></div>
+      </div>
+      <hr class="pris-linje">
+      <div class="pris-inkluderet">
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Klargøring af underlag</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lægning af klikgulv</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lister og finish</div>
+      </div>
+    </div>
+    <div class="pris-kort fremhævet fade-ind">
+      <div class="pris-række">
+        <div><div class="pris-tag">Eksempel 2 &middot; Populær</div><div class="pris-rum">16 m&sup2; værelse</div></div>
+        <div><div class="pris-beløb">4.200</div><div class="pris-note">kr. &middot; inkl. materialer</div></div>
+      </div>
+      <hr class="pris-linje">
+      <div class="pris-inkluderet">
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Klargøring af underlag</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lægning af klikgulv</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Afhentning af gulv &amp; underlag</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lister og finish</div>
+      </div>
+    </div>
+    <div class="pris-kort fade-ind">
+      <div class="pris-række">
+        <div><div class="pris-tag">Eksempel 3</div><div class="pris-rum">6 m&sup2; entré</div></div>
+        <div><div class="pris-beløb">1.500</div><div class="pris-note">kr. &middot; du har materialer</div></div>
+      </div>
+      <hr class="pris-linje">
+      <div class="pris-inkluderet">
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Klargøring og lægning</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lister og finish</div>
+      </div>
+    </div>
+    <div class="pris-kort fade-ind">
+      <div class="pris-række">
+        <div><div class="pris-tag">Eksempel 4</div><div class="pris-rum">25 m&sup2; kælder</div></div>
+        <div><div class="pris-beløb">6.000</div><div class="pris-note">kr. &middot; inkl. materialer</div></div>
+      </div>
+      <hr class="pris-linje">
+      <div class="pris-inkluderet">
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Klargøring og lægning</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Afhentning af gulv &amp; underlag</div>
+        <div class="pris-punkt"><span class="pris-hak">&#10003;</span> Lister og finish</div>
+      </div>
+    </div>
+  </div>
+  <div class="pris-note-bund">Alle priser er vejledende. Kontakt mig for et præcist tilbud baseret på dit rum og kliksystem &mdash; gratis og uforpligtende.</div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="sektion faq-sektion" id="faq">
+  <div class="sektion-øjenbryn">FAQ</div>
+  <h2 class="sektion-titel">Ofte stillede spørgsmål</h2>
+  <p class="sektion-undertekst">Svar på det du måske sidder og tænker på.</p>
+  <div class="faq-liste">
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Hvad koster det at få lagt klikgulv?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        Prisen starter fra 200 kr. pr. m² for selve lægningen. For et typisk 16 m² værelse koster det ca. 3.200 kr. hvis du selv har materialerne, eller 4.200 kr. inkl. materialeafhentning. Kontakt mig for et gratis og præcist tilbud til dit specifikke projekt.
+      </div>
+    </div>
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Hvor lang tid tager det at lægge klikgulv?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        De fleste projekter er færdige på 1–5 dage. Et enkelt værelse eller entré klares typisk på én dag. Større projekter med flere rum tager op til 5 dage. Jeg giver dig altid en realistisk tidsplan inden vi starter.
+      </div>
+    </div>
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Hvilke områder dækker du?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        Jeg dækker København og hele Vestegnen — herunder Glostrup, Valby, Hvidovre, Rødovre, Albertslund, Taastrup og omegn. Er du i tvivl om dit område er dækket, er du velkommen til at ringe eller skrive.
+      </div>
+    </div>
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Kan du hente materialerne for mig?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        Ja — det er en populær tilvalg. Jeg kan hente gulv og underlag fra fx Bauhaus, Jem &amp; Fix eller Silvan og have det klar til lægning. Det er inkluderet i priseksempel 2 og 4 ovenfor.
+      </div>
+    </div>
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Lægger du klikgulv i kældre?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        Ja, kældre er et af mine mest populære projekter. Jeg vurderer fugtforhold og underlag og rådgiver om det rette gulvprodukt inden vi starter — det er vigtigt at gøre det rigtigt i en kælder.
+      </div>
+    </div>
+    <div class="faq-punkt fade-ind">
+      <button class="faq-spørgsmål" aria-expanded="false">
+        Er der skjulte omkostninger?
+        <span class="faq-pil" aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="faq-svar">
+        Nej. Jeg er kendt for ærlig prissætning. Det tilbud du får, er det du betaler — ingen overraskelser på regningen. Hvis der opstår uforudsete ting undervejs, siger jeg det til dig med det samme inden vi fortsætter.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KONTAKT ══ -->
+<section class="kontakt" id="kontakt">
+  <div>
+    <div class="sektion-øjenbryn">Kontakt</div>
+    <h2 class="sektion-titel">Lad os tale<br>om dit gulv</h2>
+    <div class="kontakt-detaljer">
+      <div class="kontakt-punkt">
+        <div class="kontakt-ikon">📧</div>
+        <div>
+          <div class="kontakt-label">E-mail</div>
+          <div class="kontakt-værdi"><a href="mailto:klikgulv.med.ghaz@gmail.com">klikgulv.med.ghaz@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="kontakt-punkt">
+        <div class="kontakt-ikon">📱</div>
+        <div>
+          <div class="kontakt-label">Telefon</div>
+          <div class="kontakt-værdi"><a href="tel:+4528522892">+45 28 52 28 92</a></div>
+        </div>
+      </div>
+      <div class="kontakt-punkt">
+        <div class="kontakt-ikon">💬</div>
+        <div>
+          <div class="kontakt-label">WhatsApp</div>
+          <div class="kontakt-værdi"><a href="https://wa.me/4528522892" target="_blank" rel="noopener">Skriv på WhatsApp</a></div>
+        </div>
+      </div>
+      <div class="kontakt-punkt">
+        <div class="kontakt-ikon">📍</div>
+        <div>
+          <div class="kontakt-label">Dækningsområde</div>
+          <div class="kontakt-værdi">København &amp; Vestegnen</div>
+        </div>
+      </div>
+    </div>
+    <div class="kontakt-løfte">
+      <strong>Svar inden for 24 timer</strong>
+      <p>Skriv en besked med dit rum og ca. m&sup2; &mdash; så vender jeg tilbage med et konkret tilbud. Ingen forpligtelser.</p>
+    </div>
+  </div>
+  <form class="kontakt-formular" id="kontakt-formular">
+    <div class="form-række">
+      <div class="felt"><label for="navn">Navn</label><input type="text" id="navn" name="name" placeholder="Dit fulde navn" required></div>
+      <div class="felt"><label for="telefon">Telefon</label><input type="tel" id="telefon" name="telefon" placeholder="+45 xx xx xx xx"></div>
+    </div>
+    <div class="felt"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="din@email.dk" required></div>
+    <div class="felt">
+      <label for="rumtype">Rumtype</label>
+      <select id="rumtype" name="rumtype">
+        <option value="">Vælg rumtype</option>
+        <option>Stue</option><option>Værelse</option><option>Entré</option>
+        <option>Kælder</option><option>Gang</option><option>Køkken</option>
+        <option>Flere rum</option><option>Andet</option>
+      </select>
+    </div>
+    <div class="felt">
+      <label for="besked">Besked</label>
+      <textarea id="besked" name="message" placeholder="Fortæl lidt om projektet — ca. m², om du har materialer, og hvornår du ønsker det udført..." required></textarea>
+    </div>
+    <button type="submit" class="send-knap" id="send-knap">Send besked</button>
+    <p class="form-note">Dine oplysninger bruges kun til at besvare din henvendelse og deles ikke med tredjepart.</p>
+    <p id="svar-besked"></p>
+  </form>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">Klikgulv <span>med Ghaz</span></div>
+  <p>&copy; <span id="aar"></span> &middot; Alle rettigheder forbeholdes</p>
+</footer>
+
+<!-- WhatsApp flydende knap -->
+<a href="https://wa.me/4528522892" class="whatsapp-knap" target="_blank" rel="noopener" aria-label="Kontakt på WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<button class="til-toppen" id="til-toppen" aria-label="Gå til toppen">&#8593;</button>
+
+<script>
+document.getElementById('aar').textContent = new Date().getFullYear();
+window.onbeforeunload = () => window.scrollTo(0, 0);
+
+const nav = document.getElementById('hoved-nav');
+const tilTop = document.getElementById('til-toppen');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+  tilTop.classList.toggle('synlig', window.scrollY > 400);
+});
+tilTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobil-menu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+function lukMobil() {
+  ham.classList.remove('open');
+  mob.classList.remove('open');
 }
 
-.anmeldelse-kort:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-}
-
-/* Stjerner */
-.stjerner {
-  color: #f4b400;
-  font-size: 1.15rem;
-  letter-spacing: 2px;
-}
-
-/* Citat-tekst */
-.anmeldelse-tekst {
-  font-size: 0.97rem;
-  line-height: 1.7;
-  color: #444;
-  flex: 1;
-  font-style: italic;
-}
-
-/* Forfatter */
-.anmeldelse-forfatter {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.anmeldelse-initialer {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 500;
-  flex-shrink: 0;
-}
-
-.anmeldelse-navn {
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #1a1a1a;
-}
-
-.anmeldelse-sted {
-  font-size: 0.82rem;
-  color: #999;
-  margin-top: 1px;
-}
-
-/* Google anmeldelse CTA boks */
-.google-anmeldelse-boks {
-  background: #fff;
-  border: 1.5px solid #e0dbd0;
-  border-radius: 16px;
-  padding: 1.75rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-@media (max-width: 700px) {
-  .google-anmeldelse-boks {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
+(function() {
+  const wrapper = document.querySelector('.carousel-wrapper');
+  const track = document.getElementById('carousel-track');
+  const prikBoks = document.getElementById('carousel-prikker');
+  const slides = track.querySelectorAll('.carousel-slide');
+  let idx = 0, timer;
+  function setSizes() {
+    const w = wrapper.offsetWidth;
+    track.style.width = (w * slides.length) + 'px';
+    slides.forEach(s => s.style.width = w + 'px');
   }
-}
-
-.google-anmeldelse-indhold {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-@media (max-width: 700px) {
-  .google-anmeldelse-indhold {
-    flex-direction: column;
-    align-items: center;
+  setSizes();
+  window.addEventListener('resize', setSizes);
+  slides.forEach((_, i) => {
+    const p = document.createElement('button');
+    p.className = 'prik' + (i === 0 ? ' aktiv' : '');
+    p.setAttribute('aria-label', 'Slide ' + (i+1));
+    p.addEventListener('click', () => { clearInterval(timer); gåTil(i); startTimer(); });
+    prikBoks.appendChild(p);
+  });
+  function gåTil(n) {
+    idx = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (idx * wrapper.offsetWidth) + 'px)';
+    document.querySelectorAll('.prik').forEach((p, i) => p.classList.toggle('aktiv', i === idx));
   }
-}
+  document.getElementById('c-næste').addEventListener('click', () => { clearInterval(timer); gåTil(idx + 1); startTimer(); });
+  document.getElementById('c-forrige').addEventListener('click', () => { clearInterval(timer); gåTil(idx - 1); startTimer(); });
+  function startTimer() { timer = setInterval(() => gåTil(idx + 1), 3500); }
+  startTimer();
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { clearInterval(timer); gåTil(idx + (diff > 0 ? 1 : -1)); startTimer(); }
+  });
+})();
 
-.google-ikon {
-  flex-shrink: 0;
-  margin-top: 2px;
-}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('synlig'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-ind').forEach(el => obs.observe(el));
 
-.google-anmeldelse-titel {
-  font-weight: 500;
-  font-size: 1rem;
-  color: #1a1a1a;
-  margin-bottom: 0.3rem;
-}
+document.querySelectorAll('.faq-spørgsmål').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-spørgsmål').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.closest('.faq-punkt').classList.remove('åben');
+    });
+    if (!expanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.closest('.faq-punkt').classList.add('åben');
+    }
+  });
+});
 
-.google-anmeldelse-undertekst {
-  font-size: 0.88rem;
-  color: #777;
-  line-height: 1.6;
-}
-
-.google-knap {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ══════════════════════════════════════════
-   TELEFON I NAV
-   ══════════════════════════════════════════ */
-.nav-telefon {
-  font-weight: 500;
-  color: inherit !important;
-  border: 1px solid currentColor;
-  padding: 0.3rem 0.8rem !important;
-  border-radius: 6px;
-  opacity: 0.75;
-  transition: opacity 0.2s;
-  font-size: 0.88rem !important;
-}
-.nav-telefon:hover { opacity: 1; }
-
-.mobil-telefon {
-  background: #1a1a1a;
-  color: #fff !important;
-  border-radius: 8px;
-  text-align: center;
-  margin: 0.25rem 0;
-}
-
-/* ══════════════════════════════════════════
-   ANMELDELSER
-   ══════════════════════════════════════════ */
-.anmeldelser { background: #faf9f7; }
-
-.anmeldelse-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-  margin-bottom: 2.5rem;
-}
-/* 5 kort: 3 øverst, 2 centreret nederst */
-.anmeldelse-kort:nth-child(4) { grid-column: 1 / 2; margin-left: calc(50% + 0.75rem); }
-.anmeldelse-kort:nth-child(5) { grid-column: 2 / 3; }
-
-@media (max-width: 900px) {
-  .anmeldelse-grid { grid-template-columns: repeat(2, 1fr); }
-  .anmeldelse-kort:nth-child(4),
-  .anmeldelse-kort:nth-child(5) { grid-column: auto; margin-left: 0; }
-}
-@media (max-width: 600px) {
-  .anmeldelse-grid { grid-template-columns: 1fr; }
-}
-
-.anmeldelse-kort {
-  background: #fff;
-  border: 1px solid #e8e4dc;
-  border-radius: 16px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.anmeldelse-kort:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-}
-
-.stjerner { color: #f4b400; font-size: 1.15rem; letter-spacing: 2px; }
-
-.anmeldelse-tekst {
-  font-size: 0.97rem;
-  line-height: 1.7;
-  color: #444;
-  flex: 1;
-  font-style: italic;
-}
-
-.anmeldelse-forfatter {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-.anmeldelse-initialer {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 500;
-  flex-shrink: 0;
-}
-.anmeldelse-navn { font-weight: 500; font-size: 0.9rem; color: #1a1a1a; }
-.anmeldelse-sted { font-size: 0.82rem; color: #999; margin-top: 1px; }
-
-.google-anmeldelse-boks {
-  background: #fff;
-  border: 1.5px solid #e0dbd0;
-  border-radius: 16px;
-  padding: 1.75rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  max-width: 780px;
-  margin: 0 auto;
-}
-@media (max-width: 700px) {
-  .google-anmeldelse-boks {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-  }
-}
-.google-anmeldelse-indhold { display: flex; align-items: flex-start; gap: 1rem; }
-@media (max-width: 700px) {
-  .google-anmeldelse-indhold { flex-direction: column; align-items: center; }
-}
-.google-ikon { flex-shrink: 0; margin-top: 2px; }
-.google-anmeldelse-titel { font-weight: 500; font-size: 1rem; color: #1a1a1a; margin-bottom: 0.3rem; }
-.google-anmeldelse-undertekst { font-size: 0.88rem; color: #777; line-height: 1.6; }
-.google-knap { white-space: nowrap; flex-shrink: 0; }
-
-/* ══════════════════════════════════════════
-   FAQ
-   ══════════════════════════════════════════ */
-.faq-sektion { background: #fff; }
-
-.faq-liste {
-  max-width: 720px;
-  margin: 3rem auto 0;
-}
-
-.faq-punkt {
-  border-bottom: 1px solid #e8e4dc;
-}
-.faq-punkt:first-child { border-top: 1px solid #e8e4dc; }
-
-.faq-spørgsmål {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 1.25rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1a1a1a;
-  text-align: left;
-  gap: 1rem;
-}
-.faq-spørgsmål:hover { color: #555; }
-
-.faq-pil {
-  font-size: 1.4rem;
-  transition: transform 0.25s;
-  flex-shrink: 0;
-  color: #999;
-  line-height: 1;
-}
-.faq-punkt.åben .faq-pil { transform: rotate(90deg); color: #1a1a1a; }
-
-.faq-svar {
-  max-height: 0;
-  overflow: hidden;
-  font-size: 0.97rem;
-  line-height: 1.75;
-  color: #555;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0;
-}
-.faq-punkt.åben .faq-svar {
-  max-height: 300px;
-  padding-bottom: 1.25rem;
-}
-
-/* ══════════════════════════════════════════
-   WHATSAPP FLYDENDE KNAP
-   ══════════════════════════════════════════ */
-.whatsapp-knap {
-  position: fixed;
-  bottom: 5rem;
-  right: 1.5rem;
-  width: 56px;
-  height: 56px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-  z-index: 999;
-  transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-}
-.whatsapp-knap:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
-}
-@media (max-width: 600px) {
-  .whatsapp-knap { bottom: 4.5rem; right: 1rem; width: 50px; height: 50px; }
-}
-
-
-/* ══ RESPONSIVE OPRYDNING ══ */
-
-/* Mellemstor desktop (900–1024px) */
-@media (max-width: 1024px) {
-  .sektion { padding: 5rem 3rem; }
-  .om-mig  { padding: 5rem 3rem; gap: 3rem; }
-  .kontakt { padding: 5rem 3rem; gap: 3rem; }
-  .hero-venstre { padding: 4rem 3rem; }
-}
-
-/* Tablet (600–768px) */
-@media (max-width: 768px) {
-  .sektion { padding: 4rem 1.5rem; }
-  section[id], .sektion[id], #ydelser, #om-mig, #galleri,
-  #anmeldelser, #priser, #faq, #kontakt {
-    scroll-margin-top: 66px;
-  }
-}
-
-/* Mobil (under 480px) */
-@media (max-width: 480px) {
-  .sektion { padding: 3rem 1.25rem; }
-  .om-mig  { padding: 3rem 1.25rem; }
-  .kontakt { padding: 3rem 1.25rem; }
-  .sektion-titel { font-size: 1.6rem; }
-  .hero-stats { flex-direction: column; gap: 1rem; }
-  section[id], .sektion[id], #ydelser, #om-mig, #galleri,
-  #anmeldelser, #priser, #faq, #kontakt {
-    scroll-margin-top: 66px;
-  }
-}
+const formular = document.getElementById('kontakt-formular');
+const sendKnap = document.getElementById('send-knap');
+formular.addEventListener('submit', e => {
+  e.preventDefault();
+  sendKnap.textContent = 'Sender…';
+  sendKnap.disabled = true;
+  fetch('https://script.google.com/macros/s/AKfycbxxhIQlzwE61r1fmfB6CwdefoqnwSc6wUp5XKM6XtzMT-0JtjTjIgWfibyMEoKJrb7g/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: new FormData(formular)
+  }).finally(() => {
+    window.location.href = 'tak.html';
+  });
+});
+</script>
+</body>
+</html>
