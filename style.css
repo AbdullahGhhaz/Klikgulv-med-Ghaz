@@ -75,7 +75,7 @@ img { display: block; max-width: 100%; }
 /* ════════════════════════════════
    NAVIGATION
 ════════════════════════════════ */
-nav {
+#hoved-nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 200;
   height: 66px;
@@ -508,7 +508,7 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 }
 
 @media (max-width: 768px) {
-  nav { padding: 0 1.25rem; }
+  #hoved-nav { padding: 0 1.25rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
