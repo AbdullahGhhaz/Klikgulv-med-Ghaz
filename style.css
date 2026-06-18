@@ -931,3 +931,40 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
     scroll-margin-top: 66px;
   }
 }
+
+/* ══ ANMELDELSE CAROUSEL ══ */
+.anmeldelse-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+.anmeldelse-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.anmeldelse-carousel-slide {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+.anmeldelse-carousel-wrapper .carousel-knap.venstre {
+  left: 0;
+}
+.anmeldelse-carousel-wrapper .carousel-knap.højre {
+  right: 0;
+}
+.anmeldelse-carousel-wrapper .carousel-knap {
+  background: rgba(0,0,0,0.08);
+  color: var(--kul1);
+}
+.anmeldelse-carousel-wrapper .carousel-knap:hover {
+  background: rgba(0,0,0,0.18);
+}
+@media (max-width: 600px) {
+  .anmeldelse-carousel-slide {
+    padding: 0 2.5rem;
+  }
+}
