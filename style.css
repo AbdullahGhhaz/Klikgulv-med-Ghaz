@@ -552,20 +552,17 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
 
 /* Grid med 3 kort */
 .anmeldelse-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 3rem;
   margin-bottom: 2.5rem;
+  justify-content: center;
 }
 
-@media (max-width: 900px) {
-  .anmeldelse-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.anmeldelse-kort {
+  flex: 1 1 280px;
+  max-width: 360px;
 }
 
 /* Enkelt anmeldelseskort */
