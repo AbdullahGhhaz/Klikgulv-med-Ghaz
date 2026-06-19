@@ -558,7 +558,7 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   margin-top: 3rem;
   margin-bottom: 2.5rem;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .anmeldelse-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -732,7 +732,7 @@ footer p { font-size: .75rem; color: rgba(255,255,255,.35); }
   margin-top: 3rem;
   margin-bottom: 2.5rem;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .anmeldelse-grid {
     grid-template-columns: repeat(2, 1fr);
   }
