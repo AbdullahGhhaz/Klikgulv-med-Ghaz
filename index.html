@@ -716,6 +716,10 @@ formular.addEventListener('submit', e => {
     window.location.href = 'tak.html';
   });
 });
+
+    window.addEventListener('load',function(){document.querySelectorAll('.carousel-video').forEach(function(v){if(v.tagName==='VIDEO'&&v.error){v.closest('.carousel-slide').remove();}});});
 </script>
 </body>
 </html>
+
+
