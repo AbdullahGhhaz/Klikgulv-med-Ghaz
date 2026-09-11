@@ -690,42 +690,7 @@ function lukMobil() {
   mob.classList.remove('open');
 }
 
-(function() {
-  const wrapper = document.querySelector('.carousel-wrapper');
-  const track = document.getElementById('carousel-track');
-  const prikBoks = document.getElementById('carousel-prikker');
-  const slides = track.querySelectorAll('.carousel-slide');
-  let idx = 0, timer;
-  function setSizes() {
-    const w = wrapper.offsetWidth;
-    track.style.width = (w * slides.length) + 'px';
-    slides.forEach(s => s.style.width = w + 'px');
-  }
-  setSizes();
-  window.addEventListener('resize', setSizes);
-  slides.forEach((_, i) => {
-    const p = document.createElement('button');
-    p.className = 'prik' + (i === 0 ? ' aktiv' : '');
-    p.setAttribute('aria-label', 'Slide ' + (i+1));
-    p.addEventListener('click', () => { clearInterval(timer); gåTil(i); startTimer(); });
-    prikBoks.appendChild(p);
-  });
-  function gåTil(n) {
-    idx = (n + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (idx * wrapper.offsetWidth) + 'px)';
-    document.querySelectorAll('.prik').forEach((p, i) => p.classList.toggle('aktiv', i === idx));
-  }
-  document.getElementById('c-næste').addEventListener('click', () => { clearInterval(timer); gåTil(idx + 1); startTimer(); });
-  document.getElementById('c-forrige').addEventListener('click', () => { clearInterval(timer); gåTil(idx - 1); startTimer(); });
-  function startTimer() { timer = setInterval(() => gåTil(idx + 1), 3500); }
-  startTimer();
-  let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) { clearInterval(timer); gåTil(idx + (diff > 0 ? 1 : -1)); startTimer(); }
-  });
-})();
+
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
