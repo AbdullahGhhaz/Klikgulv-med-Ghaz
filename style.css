@@ -346,8 +346,14 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.06); }
 .galleri .sektion-undertekst { color: rgba(255,255,255,.4); }
 
 .carousel-wrapper {
-  position: relative; overflow: hidden;
-  border-radius: 10px; background: #111;
+  position: relative;
+  border-radius: 10px;
+  /* Ingen overflow:hidden her — pilene skal ikke skjules */
+}
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #111;
 }
 .carousel-track {
   display: flex;
@@ -365,17 +371,29 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.06); }
 }
 
 .carousel-knap {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: var(--accent); border: none;
-  color: #fff; font-size: 1.8rem; line-height: 1;
-  cursor: pointer; width: 48px; height: 48px;
-  border-radius: 50%; display: flex;
-  align-items: center; justify-content: center;
-  z-index: 10; transition: background .2s, transform .2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: background .2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  /* Pilene er OVER carousel, ikke inden i overflow */
 }
-.carousel-knap:hover { background: #1d4ed8; transform: translateY(-50%) scale(1.08); }
-.carousel-knap.venstre { left: 1rem; }
-.carousel-knap.højre { right: 1rem; }
+.carousel-knap:hover { background: #1d4ed8; }
+.carousel-knap.venstre { left: -1.25rem; }
+.carousel-knap.højre { right: -1.25rem; }
 
 .carousel-prikker {
   display: flex; justify-content: center; gap: 6px;
@@ -667,9 +685,9 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .galleri { padding: 4rem 1.5rem; }
   .om-mig { padding: 4rem 1.5rem; }
   .carousel-track { height: 60vw; }
-  .carousel-knap { width: 40px; height: 40px; font-size: 1.4rem; }
-  .carousel-knap.venstre { left: .5rem; }
-  .carousel-knap.højre { right: .5rem; }
+  .carousel-knap { width: 38px; height: 38px; font-size: 1.3rem; }
+  .carousel-knap.venstre { left: .25rem; }
+  .carousel-knap.højre { right: .25rem; }
   .form-række { grid-template-columns: 1fr; }
   .kontakt-detaljer { gap: 1rem; }
   .kontakt-løfte { margin-top: .75rem; }
