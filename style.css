@@ -116,6 +116,13 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.06); }
   margin: .5rem 0; padding: .85rem !important;
   border-bottom: none !important; font-weight: 600 !important;
 }
+/* Tilbud-link i mobil menu */
+.mobil-menu a[href="#kontakt"]:last-child {
+  background: var(--sort); color: #fff !important;
+  border-radius: var(--radius); text-align: center;
+  padding: .85rem !important; border-bottom: none !important;
+  font-weight: 600 !important; margin-top: .25rem;
+}
 
 /* ── HERO ── */
 .hero {
@@ -285,15 +292,14 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.06); }
 /* ── YDELSER ── */
 .ydelse-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--kant);
-  border: 1px solid var(--kant); border-radius: 12px;
-  overflow: hidden;
+  gap: 1.5rem;
 }
 .ydelse-kort {
-  padding: 2rem; background: var(--hvid);
-  transition: background .2s;
+  padding: 2rem; background: var(--lysgrå);
+  border-radius: 10px;
+  transition: background .2s, transform .2s;
 }
-.ydelse-kort:hover { background: var(--lysgrå); }
+.ydelse-kort:hover { background: #e8e8e8; transform: translateY(-2px); }
 .ydelse-ikon { font-size: 1.5rem; margin-bottom: 1rem; }
 .ydelse-kort h3 {
   font-family: var(--serif); font-size: 1rem;
@@ -603,7 +609,7 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
 .fade-ind.synlig { opacity: 1; transform: none; }
 
 .til-toppen {
-  position: fixed; bottom: 6rem; right: 1.5rem;
+  position: fixed; bottom: 7rem; right: 1.5rem;
   width: 44px; height: 44px; border-radius: 50%;
   background: var(--sort); color: #fff; border: none;
   font-size: 1rem; cursor: pointer; opacity: 0;
@@ -614,7 +620,7 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
 .til-toppen.synlig { opacity: 1; }
 
 .whatsapp-knap {
-  position: fixed; bottom: 5rem; right: 1.5rem;
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
   width: 54px; height: 54px; background: #25D366;
   border-radius: 50%; display: flex;
   align-items: center; justify-content: center;
@@ -625,10 +631,18 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
 .whatsapp-knap:hover { transform: scale(1.08); }
 
 /* ══ RESPONSIVE ══ */
+@media (max-width: 1280px) {
+  .nav-links { gap: 1.25rem; }
+  .nav-links a { font-size: .75rem; }
+}
+
 @media (max-width: 1024px) {
   .pris-grid { grid-template-columns: repeat(2, 1fr); }
-  nav { padding: 0 2rem; }
+  nav { padding: 0 1.75rem; }
   .proces-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Skjul FAQ og Anmeldelser i nav på mellemstor skærm */
+  .nav-links li:nth-child(6),
+  .nav-links li:nth-child(4) { display: none; }
 }
 
 @media (max-width: 900px) {
@@ -637,10 +651,10 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .hero-højre { height: 55vw; }
   .om-mig { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; background: var(--sort); }
   .om-badge { right: 0; bottom: -.75rem; }
-  .kontakt { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+  .kontakt { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
   .ydelse-grid { grid-template-columns: repeat(2, 1fr); }
   .anmeldelse-grid { grid-template-columns: repeat(2, 1fr); }
-  .google-anmeldelse-boks { flex-direction: column; text-align: center; }
+  .google-anmeldelse-boks { flex-direction: column; text-align: center; padding: 1.5rem; }
   .google-anmeldelse-indhold { flex-direction: column; align-items: center; }
 }
 
@@ -652,15 +666,19 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .proces-sektion { padding: 4rem 1.5rem; }
   .galleri { padding: 4rem 1.5rem; }
   .om-mig { padding: 4rem 1.5rem; }
-  .carousel-track { height: 65vw; }
+  .carousel-track { height: 60vw; }
   .carousel-knap { width: 40px; height: 40px; font-size: 1.4rem; }
   .carousel-knap.venstre { left: .5rem; }
   .carousel-knap.højre { right: .5rem; }
   .form-række { grid-template-columns: 1fr; }
+  .kontakt-detaljer { gap: 1rem; }
+  .kontakt-løfte { margin-top: .75rem; }
   .footer-indhold { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
   .footer-kolonne:first-child { grid-column: 1 / -1; }
   .lightbox-forrige { left: .2rem; font-size: 2rem; }
   .lightbox-næste { right: .2rem; font-size: 2rem; }
+  .til-toppen { bottom: 5rem; right: 1rem; }
+  .whatsapp-knap { bottom: 1rem; right: 1rem; width: 50px; height: 50px; }
 }
 
 @media (max-width: 600px) {
@@ -677,4 +695,12 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .footer-indhold { grid-template-columns: 1fr; }
   .carousel-track { height: 72vw; }
   .hero-venstre h1 { font-size: 2.4rem; }
+}
+
+/* ── TOUCH TARGETS (tilgængelighed) ── */
+@media (max-width: 768px) {
+  .knap { min-height: 48px; padding: .875rem 1.75rem; }
+  .send-knap { min-height: 52px; font-size: 1rem; }
+  .faq-spørgsmål { min-height: 52px; font-size: 1rem; }
+  .felt input, .felt select, .felt textarea { font-size: 16px; /* Undgår zoom på iOS */ }
 }
