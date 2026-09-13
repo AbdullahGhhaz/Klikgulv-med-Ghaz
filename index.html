@@ -454,43 +454,36 @@
 <section class="sektion beregner-sektion" id="beregner">
   <div class="sektion-øjenbryn">Prisberegner</div>
   <h2 class="sektion-titel">Hvad vil det koste?</h2>
-  <p class="sektion-undertekst">Få et hurtigt estimat — juster tallene og se prisen opdatere sig med det samme.</p>
+  <p class="sektion-undertekst">Vælg én eller flere rumtyper og se prisen opdatere sig med det samme.</p>
 
   <div class="beregner-kort">
 
     <div class="beregner-venstre">
 
       <div class="beregner-felt">
-        <label>Rumtype</label>
+        <label>Vælg rum <span class="b-valgt-rum" id="b-valgt-rum"></span></label>
         <div class="beregner-valg-grid">
-          <button class="b-valg aktiv" data-type="stue">🛋️ Stue</button>
-          <button class="b-valg" data-type="vaerelse">🛏️ Værelse</button>
-          <button class="b-valg" data-type="entré">🚪 Entré</button>
-          <button class="b-valg" data-type="kaelder">🏚️ Kælder</button>
-          <button class="b-valg" data-type="gang">🚶 Gang</button>
-          <button class="b-valg" data-type="koekken">🍳 Køkken</button>
+          <button class="b-valg" data-rum="stue" data-ikon="🛋️">🛋️ Stue</button>
+          <button class="b-valg" data-rum="vaerelse" data-ikon="🛏️">🛏️ Værelse</button>
+          <button class="b-valg" data-rum="entré" data-ikon="🚪">🚪 Entré</button>
+          <button class="b-valg" data-rum="kaelder" data-ikon="🏚️">🏚️ Kælder</button>
+          <button class="b-valg" data-rum="gang" data-ikon="🚶">🚶 Gang</button>
+          <button class="b-valg" data-rum="koekken" data-ikon="🍳">🍳 Køkken</button>
+          <button class="b-valg b-valg-hel" data-rum="hel" data-ikon="🏠" style="grid-column:span 2">🏠 Hele lejligheden / huset</button>
         </div>
       </div>
 
       <div class="beregner-felt">
-        <label>Antal m² <span class="b-m2-tal" id="b-m2-tal">20 m²</span></label>
-        <input type="range" id="b-m2" min="4" max="80" value="20" step="1" class="b-slider">
-        <div class="b-slider-labels"><span>4 m²</span><span>80 m²</span></div>
+        <label>Samlet antal m² <span class="b-m2-tal" id="b-m2-tal">40 m²</span></label>
+        <input type="range" id="b-m2" min="4" max="350" value="40" step="2" class="b-slider">
+        <div class="b-slider-labels"><span>4 m²</span><span>350 m²</span></div>
       </div>
 
       <div class="beregner-felt">
         <label>Materialer</label>
         <div class="b-toggle-gruppe">
-          <button class="b-toggle aktiv" id="b-mat-selv">Jeg har materialer</button>
-          <button class="b-toggle" id="b-mat-vi">I henter materialer (+800 kr)</button>
-        </div>
-      </div>
-
-      <div class="beregner-felt">
-        <label>Antal rum</label>
-        <div class="b-toggle-gruppe">
-          <button class="b-toggle aktiv" id="b-rum-1">1 rum</button>
-          <button class="b-toggle" id="b-rum-flere">Flere rum (-10%)</button>
+          <button class="b-toggle aktiv" id="b-mat-selv">Vi har materialer selv</button>
+          <button class="b-toggle" id="b-mat-vi">I henter materialer (+800 kr.)</button>
         </div>
       </div>
 
@@ -499,9 +492,9 @@
     <div class="beregner-højre">
       <div class="b-resultat">
         <div class="b-label">Estimeret pris</div>
-        <div class="b-pris" id="b-pris">3.200 kr.</div>
+        <div class="b-pris" id="b-pris">—</div>
         <div class="b-detaljer" id="b-detaljer"></div>
-        <div class="b-note">Dette er et vejledende estimat. Kontakt os for et gratis og præcist tilbud.</div>
+        <div class="b-note">250 kr. pr. m² · Vejledende estimat. Kontakt os for et gratis og præcist tilbud.</div>
         <a href="#kontakt" class="knap knap-mørk" style="width:100%;text-align:center;margin-top:1.25rem;display:block;">Få et præcist tilbud</a>
       </div>
     </div>
@@ -924,57 +917,86 @@ formular.addEventListener('submit', e => {
 
 /* ══ PRISBEREGNER ══ */
 (function() {
-  var priser = {
-    stue:    { label: 'Stue',    pris: 220 },
-    vaerelse:{ label: 'Værelse', pris: 200 },
-    'entré': { label: 'Entré',   pris: 250 },
-    kaelder: { label: 'Kælder',  pris: 240 },
-    gang:    { label: 'Gang',    pris: 230 },
-    koekken: { label: 'Køkken',  pris: 230 },
+  var PRIS_PR_M2 = 250;
+  var valgte = new Set();
+  var m2 = 40;
+  var afhentning = false;
+
+  var rumNavne = {
+    stue: 'Stue', vaerelse: 'Værelse', 'entré': 'Entré',
+    kaelder: 'Kælder', gang: 'Gang', koekken: 'Køkken', hel: 'Hele lejligheden'
   };
 
-  var rumtype   = 'stue';
-  var m2        = 20;
-  var afhentning = false;
-  var flereRum  = false;
-
   function beregn() {
-    var prM2 = priser[rumtype].pris;
-    var total = m2 * prM2;
-    if (flereRum) total = Math.round(total * 0.9);
-    var afhentPris = afhentning ? 800 : 0;
-    total += afhentPris;
+    var prisEl    = document.getElementById('b-pris');
+    var detaljerEl = document.getElementById('b-detaljer');
+    var valgtEl   = document.getElementById('b-valgt-rum');
 
-    var linjer = [];
-    linjer.push(m2 + ' m² × ' + prM2 + ' kr. = ' + (m2 * priser[rumtype].pris).toLocaleString('da-DK') + ' kr.');
-    if (flereRum) linjer.push('Rabat flere rum: −10%');
+    if (valgte.size === 0) {
+      prisEl.textContent = '—';
+      detaljerEl.innerHTML = '';
+      valgtEl.textContent = '';
+      return;
+    }
+
+    var lægning = m2 * PRIS_PR_M2;
+    var afhentPris = afhentning ? 800 : 0;
+    var total = lægning + afhentPris;
+
+    var rumListe = Array.from(valgte).map(function(r) { return rumNavne[r]; }).join(', ');
+    valgtEl.textContent = '— ' + rumListe;
+
+    var linjer = [
+      m2 + ' m² × ' + PRIS_PR_M2 + ' kr. = ' + lægning.toLocaleString('da-DK') + ' kr.'
+    ];
     if (afhentning) linjer.push('Materialeafhentning: +800 kr.');
 
-    document.getElementById('b-pris').textContent = total.toLocaleString('da-DK') + ' kr.';
-    document.getElementById('b-detaljer').innerHTML = linjer.map(function(l) {
+    prisEl.textContent = total.toLocaleString('da-DK') + ' kr.';
+    detaljerEl.innerHTML = linjer.map(function(l) {
       return '<div class="b-detalje-linje">' + l + '</div>';
     }).join('');
   }
 
-  // Rumtype knapper
+  // Rumtyper — multi-select
   document.querySelectorAll('.b-valg').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      document.querySelectorAll('.b-valg').forEach(function(b) { b.classList.remove('aktiv'); });
-      btn.classList.add('aktiv');
-      rumtype = btn.getAttribute('data-type');
+      var rum = btn.getAttribute('data-rum');
+      if (rum === 'hel') {
+        // "Hele lejligheden" — fravælg alle andre
+        var varAktiv = btn.classList.contains('aktiv');
+        document.querySelectorAll('.b-valg').forEach(function(b) {
+          b.classList.remove('aktiv');
+          valgte.clear();
+        });
+        if (!varAktiv) {
+          btn.classList.add('aktiv');
+          valgte.add('hel');
+        }
+      } else {
+        // Fravælg "hele lejligheden" hvis den var valgt
+        document.querySelector('[data-rum="hel"]').classList.remove('aktiv');
+        valgte.delete('hel');
+        // Toggle dette rum
+        if (btn.classList.contains('aktiv')) {
+          btn.classList.remove('aktiv');
+          valgte.delete(rum);
+        } else {
+          btn.classList.add('aktiv');
+          valgte.add(rum);
+        }
+      }
       beregn();
     });
   });
 
   // Slider
-  var slider = document.getElementById('b-m2');
-  slider.addEventListener('input', function() {
-    m2 = parseInt(slider.value);
+  document.getElementById('b-m2').addEventListener('input', function() {
+    m2 = parseInt(this.value);
     document.getElementById('b-m2-tal').textContent = m2 + ' m²';
     beregn();
   });
 
-  // Materialer toggle
+  // Materialer
   document.getElementById('b-mat-selv').addEventListener('click', function() {
     afhentning = false;
     this.classList.add('aktiv');
@@ -987,22 +1009,6 @@ formular.addEventListener('submit', e => {
     document.getElementById('b-mat-selv').classList.remove('aktiv');
     beregn();
   });
-
-  // Antal rum toggle
-  document.getElementById('b-rum-1').addEventListener('click', function() {
-    flereRum = false;
-    this.classList.add('aktiv');
-    document.getElementById('b-rum-flere').classList.remove('aktiv');
-    beregn();
-  });
-  document.getElementById('b-rum-flere').addEventListener('click', function() {
-    flereRum = true;
-    this.classList.add('aktiv');
-    document.getElementById('b-rum-1').classList.remove('aktiv');
-    beregn();
-  });
-
-  beregn();
 })();
 
 </script>
