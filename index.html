@@ -363,6 +363,10 @@
     </div>
   </div>
 
+  <div class="g-vis-flere">
+    <button class="g-vis-flere-knap" id="g-vis-flere-knap">Se alle projekter →</button>
+  </div>
+
   <!-- Lightbox -->
   <div class="g-lightbox" id="g-lightbox">
     <button class="g-lb-luk" id="g-lb-luk">&times;</button>
@@ -832,6 +836,18 @@ formular.addEventListener('submit', e => {
   lb.addEventListener('touchend', function(e) {
     var d = tx - e.changedTouches[0].clientX;
     if (Math.abs(d) > 50) openLb(cur + (d > 0 ? 1 : -1));
+  });
+})();
+
+
+/* Vis flere galleri */
+(function() {
+  var knap = document.getElementById('g-vis-flere-knap');
+  var grid = document.querySelector('.g-grid');
+  if (!knap || !grid) return;
+  knap.addEventListener('click', function() {
+    grid.classList.add('vis-alle');
+    knap.classList.add('skjult');
   });
 })();
 
