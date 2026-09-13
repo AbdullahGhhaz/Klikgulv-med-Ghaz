@@ -365,6 +365,7 @@
 
   <div class="g-vis-flere">
     <button class="g-vis-flere-knap" id="g-vis-flere-knap">Se alle projekter →</button>
+    <button class="g-vis-flere-knap skjult" id="g-vis-færre-knap">Vis færre ↑</button>
   </div>
 
   <!-- Lightbox -->
@@ -843,12 +844,22 @@ formular.addEventListener('submit', e => {
 /* Vis flere galleri */
 (function() {
   var knap = document.getElementById('g-vis-flere-knap');
+  var faerreKnap = document.getElementById('g-vis-færre-knap');
   var grid = document.querySelector('.g-grid');
   if (!knap || !grid) return;
   knap.addEventListener('click', function() {
     grid.classList.add('vis-alle');
     knap.classList.add('skjult');
+    if (faerreKnap) faerreKnap.classList.remove('skjult');
   });
+  if (faerreKnap) {
+    faerreKnap.addEventListener('click', function() {
+      grid.classList.remove('vis-alle');
+      faerreKnap.classList.add('skjult');
+      knap.classList.remove('skjult');
+      document.getElementById('galleri').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 })();
 
 </script>
