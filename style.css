@@ -868,3 +868,133 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .g-lb-prev { left: .25rem; font-size: 2rem; }
   .g-lb-next { right: .25rem; font-size: 2rem; }
 }
+
+
+/* ══ PRISBEREGNER ══ */
+.beregner-sektion { background: var(--sort); }
+.beregner-sektion .sektion-øjenbryn { color: rgba(255,255,255,.4); }
+.beregner-sektion .sektion-titel { color: #fff; }
+.beregner-sektion .sektion-undertekst { color: rgba(255,255,255,.5); }
+
+.beregner-kort {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  background: #141414;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 2.5rem;
+  margin-top: 1rem;
+}
+
+.beregner-venstre { display: flex; flex-direction: column; gap: 2rem; }
+
+.beregner-felt label {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .78rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; color: rgba(255,255,255,.5);
+  margin-bottom: .75rem;
+}
+
+.b-m2-tal {
+  font-family: var(--serif); font-size: 1.1rem;
+  font-weight: 700; color: var(--accent);
+  text-transform: none; letter-spacing: 0;
+}
+
+/* Rumtype grid */
+.beregner-valg-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem;
+}
+.b-valg {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.55);
+  padding: .65rem .5rem; border-radius: 8px;
+  font-family: var(--sans); font-size: .82rem; font-weight: 500;
+  cursor: pointer; transition: all .2s; text-align: center;
+}
+.b-valg:hover { border-color: var(--accent); color: #fff; }
+.b-valg.aktiv {
+  background: var(--accent); border-color: var(--accent);
+  color: #fff;
+}
+
+/* Slider */
+.b-slider {
+  width: 100%; -webkit-appearance: none; appearance: none;
+  height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,.12);
+  outline: none; cursor: pointer;
+}
+.b-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.25);
+}
+.b-slider::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); cursor: pointer; border: none;
+}
+.b-slider-labels {
+  display: flex; justify-content: space-between;
+  font-size: .72rem; color: rgba(255,255,255,.3);
+  margin-top: .4rem;
+}
+
+/* Toggle gruppe */
+.b-toggle-gruppe { display: flex; gap: .5rem; }
+.b-toggle {
+  flex: 1; padding: .65rem .75rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.55);
+  border-radius: 8px; font-family: var(--sans);
+  font-size: .82rem; font-weight: 500;
+  cursor: pointer; transition: all .2s; text-align: center;
+}
+.b-toggle:hover { border-color: var(--accent); color: #fff; }
+.b-toggle.aktiv {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+
+/* Resultat boks */
+.b-resultat {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 2rem;
+  display: flex; flex-direction: column;
+  position: sticky; top: 80px;
+}
+.b-label {
+  font-size: .72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .1em; color: rgba(255,255,255,.4);
+  margin-bottom: .5rem;
+}
+.b-pris {
+  font-family: var(--serif); font-size: 2.8rem;
+  font-weight: 700; color: #fff; letter-spacing: -.03em;
+  margin-bottom: 1rem;
+}
+.b-detaljer { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+.b-detalje-linje {
+  font-size: .82rem; color: rgba(255,255,255,.45);
+  padding: .35rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.b-note {
+  font-size: .78rem; color: rgba(255,255,255,.3);
+  line-height: 1.6; margin-top: auto; padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+@media (max-width: 900px) {
+  .beregner-kort { grid-template-columns: 1fr; }
+  .b-resultat { position: static; }
+  .b-toggle-gruppe { flex-direction: column; }
+}
+@media (max-width: 500px) {
+  .beregner-valg-grid { grid-template-columns: repeat(2, 1fr); }
+  .beregner-kort { padding: 1.5rem; }
+}
