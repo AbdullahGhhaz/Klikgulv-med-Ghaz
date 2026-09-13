@@ -125,11 +125,9 @@
   </a>
   <ul class="nav-links">
     <li><a href="#ydelser">Ydelser</a></li>
-    <li><a href="#om-mig">Om os</a></li>
     <li><a href="#galleri">Galleri</a></li>
     <li><a href="#anmeldelser">Anmeldelser</a></li>
     <li><a href="#beregner">Beregner</a></li>
-    <li><a href="#priser">Priser</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="tel:+4528522892" class="nav-telefon">&#128222; 28 52 28 92</a></li>
     <li><a href="#kontakt" class="nav-cta">Få tilbud</a></li>
@@ -162,19 +160,21 @@
     </p>
     <div class="hero-knapper">
       <a href="#kontakt" class="knap knap-mørk">Få et uforpligtende tilbud</a>
-      <a href="#galleri" class="knap knap-spøgelse">Se arbejdet &rarr;</a>
+      <a href="tel:+4528522892" class="knap knap-spøgelse">&#128222; Ring nu</a>
     </div>
     <div class="hero-social-proof">
       <span class="hero-stjerner">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span>5 anmeldelser på Google</span>
+      <span class="hero-divider">·</span>
+      <span class="hero-respons">&#10003; Svar inden for 24 timer</span>
     </div>
     <div class="hero-stats">
       <div><div class="stat-tal" data-count="250" data-suffix=" kr">250 kr</div><div class="stat-label">Fra pr. m&sup2;</div></div>
+      <div><div class="stat-tal" data-count="50" data-suffix="+">50+</div><div class="stat-label">Tilfredse kunder</div></div>
       <div><div class="stat-tal" data-count="8" data-suffix="+">8+</div><div class="stat-label">Års erfaring</div></div>
-      <div><div class="stat-tal">1&ndash;5 dage</div><div class="stat-label">Typisk levering</div></div>
     </div>
   </div>
-  <div class="hero-højre">
+  <div class="hero-højre parallax-wrap">
     <img src="Gulv/stue-trae-efter.jpeg" alt="Færdigt klikgulv i stue med egetræ finish" loading="eager" width="600" height="450">
     <div class="hero-caption">
       <div class="hero-caption-tag">Seneste projekt</div>
@@ -661,6 +661,7 @@
     <div class="kontakt-løfte">
       <strong>Svar inden for 24 timer</strong>
       <p>Skriv en besked med dit rum og ca. m&sup2; &mdash; så vender vi tilbage med et konkret tilbud. Ingen forpligtelser.</p>
+      <div class="tilgængelighed-badge">&#128994; Ledig til nye projekter</div>
     </div>
   </div>
   <form class="kontakt-formular" id="kontakt-formular">
@@ -1009,6 +1010,15 @@ formular.addEventListener('submit', e => {
     document.getElementById('b-mat-selv').classList.remove('aktiv');
     beregn();
   });
+})();
+
+
+/* Parallax hero */
+(function() {
+  var wrap = document.querySelector('.parallax-wrap');
+  if (wrap) {
+    setTimeout(function() { wrap.classList.add('loaded'); }, 100);
+  }
 })();
 
 </script>
