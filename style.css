@@ -625,8 +625,8 @@ footer { background: var(--sort); color: rgba(255,255,255,.5); padding: 0; }
   .footer-kolonne:first-child { grid-column: 1 / -1; }
   
   
-  .til-toppen { bottom: 5rem; right: 1rem; }
   .whatsapp-knap { bottom: 1rem; right: 1rem; width: 50px; height: 50px; }
+  .til-toppen { bottom: 1rem; left: 1rem; right: auto; }
 }
 
 @media (max-width: 600px) {
